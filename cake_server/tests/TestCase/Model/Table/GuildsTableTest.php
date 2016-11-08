@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PlayersTable;
+use App\Model\Table\GuildsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PlayersTable Test Case
+ * App\Model\Table\GuildsTable Test Case
  */
-class PlayersTableTest extends TestCase
+class GuildsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PlayersTable
+     * @var \App\Model\Table\GuildsTable
      */
-    public $Players;
+    public $Guilds;
 
     /**
      * Fixtures
@@ -24,9 +24,9 @@ class PlayersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.players',
-        'app.fighters',
         'app.guilds',
+        'app.fighters',
+        'app.players',
         'app.messages',
         'app.tools'
     ];
@@ -39,8 +39,8 @@ class PlayersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Players') ? [] : ['className' => 'App\Model\Table\PlayersTable'];
-        $this->Players = TableRegistry::get('Players', $config);
+        $config = TableRegistry::exists('Guilds') ? [] : ['className' => 'App\Model\Table\GuildsTable'];
+        $this->Guilds = TableRegistry::get('Guilds', $config);
     }
 
     /**
@@ -50,7 +50,7 @@ class PlayersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Players);
+        unset($this->Guilds);
 
         parent::tearDown();
     }
@@ -71,16 +71,6 @@ class PlayersTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

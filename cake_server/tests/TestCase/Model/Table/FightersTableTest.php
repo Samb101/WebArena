@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PlayersTable;
+use App\Model\Table\FightersTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PlayersTable Test Case
+ * App\Model\Table\FightersTable Test Case
  */
-class PlayersTableTest extends TestCase
+class FightersTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PlayersTable
+     * @var \App\Model\Table\FightersTable
      */
-    public $Players;
+    public $Fighters;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class PlayersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.players',
         'app.fighters',
+        'app.players',
         'app.guilds',
         'app.messages',
         'app.tools'
@@ -39,8 +39,8 @@ class PlayersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Players') ? [] : ['className' => 'App\Model\Table\PlayersTable'];
-        $this->Players = TableRegistry::get('Players', $config);
+        $config = TableRegistry::exists('Fighters') ? [] : ['className' => 'App\Model\Table\FightersTable'];
+        $this->Fighters = TableRegistry::get('Fighters', $config);
     }
 
     /**
@@ -50,7 +50,7 @@ class PlayersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Players);
+        unset($this->Fighters);
 
         parent::tearDown();
     }

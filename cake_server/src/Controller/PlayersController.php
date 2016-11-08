@@ -7,8 +7,7 @@ namespace App\Controller;
 class PlayersController extends AppController
 {
   // Fonction d'initialisation du module
-  public function initialize()
-  {
+  public function initialize(){
     // On appelle le constructeur du parent AppController
     parent::initialize();
     // Puis on charge le composant Flash nous permettant l'affichage de messages à l'utilisateur
@@ -16,21 +15,18 @@ class PlayersController extends AppController
   }
 
   // On redirige vers la connection si l'utilisateur n'est pas connecté
-  public function index()
-  {
+  public function index(){
     return $this->redirect(['action' => 'login']);
   }
 
   // Fonction de visualisation des paramètres du compte identifié par son id
   // Entrées : $id | null par défaut
-  public function view($id = null)
-  {
+  public function view($id = null){
     $this->set('player',$this->Players->get($id));
   }
 
   // Fonction d'ajout d'un utilisateur
-  public function add()
-  {
+  public function add(){
     // On déclare une nouvelle entité player
     $player = $this->Players->newEntity();
     // On cherche dans la base de données s'il n'existe pas déjà un utilisateur avec cette adresse email
@@ -61,8 +57,7 @@ class PlayersController extends AppController
 
   // Fonction d'édition du profil identifié par id
   // Entrées : $id | null par défaut
-  public function edit($id = null)
-  {
+  public function edit($id = null){
     // On récupère les informations du joueur
     $player = $this->Players->get($id);
     // On vérifie que la requête est bien de type POST ou PUT
@@ -82,8 +77,7 @@ class PlayersController extends AppController
   }
 
   // Fonction de login
-  public function login()
-  {
+  public function login(){
     // On vérifie qu'il s'agit d'une requête POST
     if($this->request->is('post')){
       // On recherche l'utilisateur dans la base

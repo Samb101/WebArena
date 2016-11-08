@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\PlayersTable;
+use App\Model\Table\ToolsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\PlayersTable Test Case
+ * App\Model\Table\ToolsTable Test Case
  */
-class PlayersTableTest extends TestCase
+class ToolsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\PlayersTable
+     * @var \App\Model\Table\ToolsTable
      */
-    public $Players;
+    public $Tools;
 
     /**
      * Fixtures
@@ -24,11 +24,11 @@ class PlayersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.players',
+        'app.tools',
         'app.fighters',
+        'app.players',
         'app.guilds',
-        'app.messages',
-        'app.tools'
+        'app.messages'
     ];
 
     /**
@@ -39,8 +39,8 @@ class PlayersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Players') ? [] : ['className' => 'App\Model\Table\PlayersTable'];
-        $this->Players = TableRegistry::get('Players', $config);
+        $config = TableRegistry::exists('Tools') ? [] : ['className' => 'App\Model\Table\ToolsTable'];
+        $this->Tools = TableRegistry::get('Tools', $config);
     }
 
     /**
@@ -50,7 +50,7 @@ class PlayersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Players);
+        unset($this->Tools);
 
         parent::tearDown();
     }

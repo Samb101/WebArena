@@ -38,7 +38,7 @@ class PlayersFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '43c4602a-2495-41fc-8d66-ed29af9ca9f9',
+            'id' => 'f113c984-64d8-4bfe-a99d-6e481f26b6eb',
             'email' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet'
         ],
