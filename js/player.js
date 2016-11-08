@@ -25,15 +25,10 @@ Player.prototype = {
         this.camera.target = playR;
         this.camera.radius = 10; // how far from the object to follow
         this.camera.heightOffset = 2; // how high above the object to place the camera
-        this.camera.rotationOffset = 90; // the viewing angle
+        this.camera.rotationOffset = 90+180; // the viewing angle
         this.camera.cameraAcceleration = 0.3; // how fast to move
         this.camera.maxCameraSpeed = 20; // speed limit
         scene.activeCamera = this.camera;
-        // On demande à la caméra de regarder au point zéro de la scène
-        //this.camera.setTarget(BABYLON.Vector3.Zero());
-
-        // On affecte le mouvement de la caméra au canvas
-        //this.camera.attachControl(canvas, true);
     },
     _createPlayer : function(scene) {
       // Créons un joueur
@@ -52,18 +47,12 @@ Player.prototype = {
       document.addEventListener("keypress", function(e){
         var char = String.fromCharCode(e.keyCode).toLowerCase();
 
-        if(char == "d" && playR.position.x+2*playerH<zmax && !onMove)
-          moveTo(playR.position.x+2*playerH,"x",1);
-        else if (char == "z" && playR.position.z+2*playerH<xmax && !onMove)
-          moveTo(playR.position.z+2*playerH,"z",1);
-        else if (char == "s" && playR.position.z-2*playerH>xmin && !onMove)
-          moveTo(playR.position.z-2*playerH,"z",-1);
-        else if (char == "q" && playR.position.x-2*playerH>zmin && !onMove)
-          moveTo(playR.position.x-2*playerH,"x",-1);
+        if (char == "z")
+          smartMove();
         else if (char == "e")
-          playR.rotation.y -= (playR.rotation.y*180/Math.PI==-315)?playR.rotation.y:Math.PI/4;
+          playR.rotation.y += (playR.rotation.y*180/Math.PI==-315)?playR.rotation.y:Math.PI/4;
         else if (char=="a")
-          playR.rotation.y += (playR.rotation.y*180/Math.PI==315)?-1*playR.rotation.y:Math.PI/4;
+          playR.rotation.y -= (playR.rotation.y*180/Math.PI==315)?-1*playR.rotation.y:Math.PI/4;
         else if (char == " ")
           _this.shoot(scene);
         else if (char == "o")
@@ -79,14 +68,12 @@ Player.prototype = {
         else if (char == "m" && _this.camera.heightOffset>1)
           _this.camera.heightOffset--;
 
-        console.log(JSON.stringify(playR.rotation.y*180/Math.PI));
       });
     },
     shoot : function(scene) {
       var startx = playR.position.x;
       var startz = playR.position.z;
       var rotationY = playR.rotation.y;
-      console.log(playR.rotation.y*180/Math.PI);
       var shot = BABYLON.Mesh.CreateSphere("shot", 16, shotSize/2, scene);
       // On crée la texture du tir
       var fireMaterial = new BABYLON.StandardMaterial("shot", scene);
@@ -99,7 +86,7 @@ Player.prototype = {
       var myInterval = window.setInterval(function(){
         if(shot.position.x+shotSize<xmax && shot.position.z+shotSize<zmax && shot.position.x>xmin && shot.position.z>zmin)
         {
-          shot.position.z += 2*shotSize*Math.Sin(rotationY);
+          shot.position.z -= 2*shotSize*Math.Sin(rotationY);
           shot.position.x += 2*shotSize*Math.Cos(rotationY);
         }
         else {
@@ -110,21 +97,29 @@ Player.prototype = {
     }
 };
 
-function moveTo(target,axis,direction){
-  if(onMove)
-    return;
-  onMove = true;
-  var moveTimeOut = window.setInterval(function(){
-    if(playR.position[axis]!=target){
-      playR.position[axis] = ((playR.position[axis]*10)+direction*movingSpeed)/10;
-    }
-    else {
-      onMove = false;
-      clearInterval(moveTimeOut);
-    }
-  },movingDelay);
-}
+function smartMove(){
+  var rotationY = playR.rotation.y;
+  var cosR, sinR;
 
+  if(Math.Cos(rotationY)==0)
+    cosR = 0;
+  else if(Math.Cos(rotationY)<0)
+    cosR = -1;
+  else if(Math.Cos(rotationY)>0)
+    cosR = 1;
+
+  if(Math.Sin(rotationY)==0)
+    sinR = 0;
+  else if(Math.Sin(rotationY)<0)
+    sinR = -1;
+  else if(Math.Sin(rotationY)>0)
+    sinR = 1;
+
+  if(playR.position.x+cosR*2*playerH<=xmax && playR.position.x+cosR*2*playerH>=xmin)
+    playR.position.x += cosR*2*playerH;
+  if(playR.position.z-sinR*2*playerH<=zmax && playR.position.z-sinR*2*playerH>=zmin)
+    playR.position.z -= sinR*2*playerH;
+}
 // Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3
 // Définission de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
 // la valeur inexacte fournie par défaut
