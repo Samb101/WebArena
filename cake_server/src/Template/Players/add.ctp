@@ -2,9 +2,10 @@
 
 <h1>Créer un compte</h1>
 <?php
-    echo $this->Form->create($player);
-    echo $this->Form->input('email');
-    echo $this->Form->input('password');
-    echo $this->Form->button(__("Sauvegarder l'article"));
+    echo $this->Form->input('email',array('type' => 'email','label' => 'Adresse email :'));
+    echo $this->Form->input('password', array('type' => 'password', 'label' => 'Mot de passe :'));
+    echo $this->Form->input('password', array('type' => 'password', 'label' => 'Confirmez le mot de passe :'));
+    echo $this->Form->button(__("Créer le compte"));
     echo $this->Form->end();
+
 ?>
