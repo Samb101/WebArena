@@ -41,4 +41,8 @@ class Fighter extends Entity
         '*' => true,
         'id' => false
     ];
+
+    public function setName($name){
+      $this->__set('name',$name);
+    }
 }

@@ -22,7 +22,16 @@ class PlayersController extends AppController
   // Fonction de visualisation des paramètres du compte identifié par son id
   // Entrées : $id | null par défaut
   public function view($id = null){
-    $this->set('player',$this->Players->get($id));
+    if($id == null)
+      return $this->Flash->error(__('Aucun identifiant n\'a été fourni.'));
+
+    $fighters = $this->Players->Fighters->find("all",[
+      'conditions' => [
+        'player_id' => $id
+      ]
+    ]);
+    $this->set('fighters',$fighters);
+    $this->set('id',$id);
   }
 
   // Fonction d'ajout d'un utilisateur
@@ -67,10 +76,12 @@ class PlayersController extends AppController
       // On enregistre les modifications
       if($this->Players->save($player)){
         // On indique à l'utilisateur que les informations ont été mises à jour
-        $this->Flash->success(__('Votre article a été mis à jour.'));
+        $this->Flash->success(__('Les informations ont été mises à jour.'));
       }
-      // En cas d'erreur au cours de la sauvegarde, on l'indique à l'utilisateur
-      $this->Flash->error(__('Impossible de mettre à jour votre article.'));
+      else {
+        // En cas d'erreur au cours de la sauvegarde, on l'indique à l'utilisateur
+        $this->Flash->error(__('Impossible de mettre à jour les informations.'));
+      }
     }
     // On met à jour les informations de la vue
     $this->set('player', $player);
@@ -98,6 +109,25 @@ class PlayersController extends AppController
       else {
         $this->Flash->error(__('Aucun compte avec ces identifiants n\'a été trouvé. Veuillez réessayer.'));
       }
+    }
+  }
+
+  public function editPlayer(){
+    $id = $this->request->data('playerid');
+    $fighterId = $this->request->data('fighterid');
+
+    if($id == null)
+      return $this->redirect(['action' => 'index']);
+
+    if($fighterId == null)
+      return $this->redirect(['action' => 'view', $id]);
+    else {
+      if($this->request->is('post')){
+        $f = $this->Players->Fighters->get($fighterId);
+        $f -> setName($this->request->data('name'));
+        $this->Players->Fighters->save($f);
+      }
+      return $this->redirect(['action' => 'view', $id]);
     }
   }
 }
