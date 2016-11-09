@@ -4,8 +4,12 @@
 
 namespace App\Controller;
 
+use Cake\Utility\Security;
+
 class PlayersController extends AppController
 {
+  // On démarre les cookies
+  var $components = array('Cookie');
   // Fonction d'initialisation du module
   public function initialize(){
     // On appelle le constructeur du parent AppController
@@ -21,9 +25,11 @@ class PlayersController extends AppController
 
   // Fonction de visualisation des paramètres du compte identifié par son id
   // Entrées : $id | null par défaut
-  public function view($id = null){
+  public function view(){
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
     if($id == null)
-      return $this->Flash->error(__('Aucun identifiant n\'a été fourni.'));
+      return $this->redirect(['action' => 'login']);
 
     $fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
@@ -55,7 +61,7 @@ class PlayersController extends AppController
         // On sauvegarde l'entrée, en cas d'échec une erreur sera levée
         if ($this->Players->save($player)) {
           // On indique à l'utilisateur la réussite de son inscription
-          $this->Flash->success(__('Compte créé. Vous pouvez maintenant vous connecter.'));
+          return $this->redirect(['action' => 'login',"Compte créé. Vous pouvez maintenant vous connecter."]);
         }
         $this->Flash->error(__('La création du compte a échoué.'));
       }
@@ -68,7 +74,10 @@ class PlayersController extends AppController
 
   // Fonction d'édition du profil identifié par id
   // Entrées : $id | null par défaut
-  public function edit($id = null){
+  public function edit(){
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null)
+      return $this->redirect(['action' => 'login']);
     // On récupère les informations du joueur
     $player = $this->Players->get($id);
     // On vérifie que la requête est bien de type POST ou PUT
@@ -90,7 +99,17 @@ class PlayersController extends AppController
   }
 
   // Fonction de login
-  public function login(){
+  public function login($message = null){
+    // On configure les cookies
+    $this->Cookie->config('User', 'path', '/');
+    $this->Cookie->configKey('User', [
+        'expires' => '+10 days',
+        'httpOnly' => true
+    ]);
+
+    if($message != null)
+      $this->Flash->success(__($message));
+
     // On vérifie qu'il s'agit d'une requête POST
     if($this->request->is('post')){
       // On recherche l'utilisateur dans la base
@@ -104,8 +123,11 @@ class PlayersController extends AppController
       if($players->count() != 0){
         // On récupère la première ligne du fetch
         $player = $players->first();
+        // On écrit les cookies
+        $this->Cookie->write('email',$player->email);
+        $this->Cookie->write('password',Security::encrypt($player->password,'wt1U5MACWJFTXGenFoZoiLwQGrLgdbHA'));
         // Puis on redirige vers la page de l'utilisateur
-        return $this->redirect(['action' => 'view', $player->id]);
+        return $this->redirect(['action' => 'view']);
       }
       // Sinon, on indique l'erreur à l'utilisateur
       else {
@@ -115,68 +137,92 @@ class PlayersController extends AppController
   }
 
   public function editPlayer(){
-    $id = $this->request->data('playerid');
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null)
+      return $this->redirect(['action' => 'login']);
+
     $fighterId = $this->request->data('fighterid');
 
-    if($id == null)
-      return $this->redirect(['action' => 'index']);
-
     if($fighterId == null)
-      return $this->redirect(['action' => 'view', $id]);
+      return $this->redirect(['action' => 'view']);
     else {
       if($this->request->is('post')){
         $f = $this->Players->Fighters->get($fighterId);
+        if($f->player_id != $id)
+          return $this->redirect(['action' => 'error',"Ce personnage ne vous appartient pas."]);
+
         $f -> setName($this->request->data('name'));
         $this->Players->Fighters->save($f);
       }
-      return $this->redirect(['action' => 'view', $id]);
+      return $this->redirect(['action' => 'view']);
     }
   }
 
   public function createFighter(){
-    $id = $this->request->data('player_id');
-
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
-      return $this->redirect(['action' => 'index']);
+      return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
 
     if($this->request->is('post')){
       $fighter = $this->Players->Fighters->newEntity();
       $this->Players->Fighters->patchEntity($fighter, $this->request->data);
       $fighter->initParametersToNull();
+      $fighter->player_id = $id;
       // On enregistre les modifications
       $this->Players->Fighters->save($fighter);
-      return $this->redirect(['action' => 'view', $id]);
-    }
-    else {
       return $this->redirect(['action' => 'view']);
     }
+    else {
+      return $this->redirect(['action' => 'error',"La requête n\'est pas de type POST."]);
+    }
   }
 
-  public function removeFighter($fighter_id = null, $id = null){
+  public function removeFighter($fighter_id = null){
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null)
+      return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
+
     $fighter = $this->Players->Fighters->get($fighter_id);
 
+    if($fighter->player_id != $id)
+      return $this->redirect(['action' => 'error',"Ce personnage ne vous appartient pas."]);
+
     if($this->Players->Fighters->delete($fighter)){
-      if($id != null)
-        $this->redirect(['action' => 'view', $id]);
-      else
-        $this->redirect(['action' => 'error',"Aucun identifiant utilisateur."]);
+        $this->redirect(['action' => 'view']);
     }
     else {
-      $this->redirect(['action' => 'error',"Impossible de supprimer le combattant.", $id]);
+      $this->redirect(['action' => 'error',"Impossible de supprimer le combattant."]);
     }
   }
 
-  public function error($error = null, $id = null){
+  public function error($error = null){
     if($error ==  null)
       $error = "Nous ne sommes pas en mesure d'identifier l'erreur.";
 
     $this->set('error',$error);
-    $this->set('id',$id);
-    
-    if($id == null)
-      $this->set('link','index');
-    else
-      $this->set('link','view');
+
+    $this->set('link','view');
+  }
+
+  public function authenticateUserWithCookies($email = null,$password = null){
+    if($email == null || $password == null)
+      return null;
+
+    $password = Security::decrypt($password,'wt1U5MACWJFTXGenFoZoiLwQGrLgdbHA');
+
+    $players = $this->Players->find('all',[
+      'conditions' => [
+        'email'=>$email,
+        'password'=>$password
+      ]
+    ]);
+    if($players->count() != 0){
+      $player = $players->first();
+      return $player->id;
+    }
+    else {
+      return null;
+    }
   }
 }
 

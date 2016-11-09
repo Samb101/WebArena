@@ -14,7 +14,7 @@
     <tr>
         <td><?= $player->id ?></td>
         <td>
-            <?= $this->Html->link($player->email, ['action' => 'edit', $player->id]) ?>
+            <?= $this->Html->link($player->email, ['action' => 'edit']) ?>
         </td>
         <td>
             <?= $player->password ?>

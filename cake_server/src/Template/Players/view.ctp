@@ -24,7 +24,6 @@
         ));
         echo $this->Form->input('name',array('type' => 'text','label' => 'Nom :','value' => $fighter->name));
         echo $this->Form->input('fighterid',array('type' => 'hidden','value' => $fighter->id));
-        echo $this->Form->input('playerid',array('type' => 'hidden','value' => $id));
         echo $this->Form->button(__("Renommer le perso"));
         echo $this->Form->end();
         ?>
@@ -35,7 +34,7 @@
       <td><?= $fighter->skill_strength ?></td>
       <td><?= $fighter->skill_health ?></td>
       <td><?= $fighter->guild_id ?></td>
-      <td><?= $this->Html->link("Supprimer", ['controller' => 'players','action' => 'removeFighter', $fighter->id, $id], ['class' => 'button']) ?></td>
+      <td><?= $this->Html->link("Supprimer", ['controller' => 'players','action' => 'removeFighter', $fighter->id], ['class' => 'button']) ?></td>
     </tr>
   <?php endforeach; ?>
 </table>
@@ -47,7 +46,6 @@
     )
   ));
   echo $this->Form->input('name',array('type' => 'text','label' => 'Nom :'));
-  echo $this->Form->input('player_id',array('type' => 'hidden','value' => $id));
   ?>
   <label for="guild_id">Guilde :</label>
   <select name="guild_id">
