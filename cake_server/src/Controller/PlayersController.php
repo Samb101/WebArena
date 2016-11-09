@@ -30,6 +30,8 @@ class PlayersController extends AppController
         'player_id' => $id
       ]
     ]);
+    $guilds = $this->Players->Fighters->Guilds->find("all");
+    $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
   }
@@ -129,6 +131,52 @@ class PlayersController extends AppController
       }
       return $this->redirect(['action' => 'view', $id]);
     }
+  }
+
+  public function createFighter(){
+    $id = $this->request->data('player_id');
+
+    if($id == null)
+      return $this->redirect(['action' => 'index']);
+
+    if($this->request->is('post')){
+      $fighter = $this->Players->Fighters->newEntity();
+      $this->Players->Fighters->patchEntity($fighter, $this->request->data);
+      $fighter->initParametersToNull();
+      // On enregistre les modifications
+      $this->Players->Fighters->save($fighter);
+      return $this->redirect(['action' => 'view', $id]);
+    }
+    else {
+      return $this->redirect(['action' => 'view']);
+    }
+  }
+
+  public function removeFighter($fighter_id = null, $id = null){
+    $fighter = $this->Players->Fighters->get($fighter_id);
+
+    if($this->Players->Fighters->delete($fighter)){
+      if($id != null)
+        $this->redirect(['action' => 'view', $id]);
+      else
+        $this->redirect(['action' => 'error',"Aucun identifiant utilisateur."]);
+    }
+    else {
+      $this->redirect(['action' => 'error',"Impossible de supprimer le combattant.", $id]);
+    }
+  }
+
+  public function error($error = null, $id = null){
+    if($error ==  null)
+      $error = "Nous ne sommes pas en mesure d'identifier l'erreur.";
+
+    $this->set('error',$error);
+    $this->set('id',$id);
+    
+    if($id == null)
+      $this->set('link','index');
+    else
+      $this->set('link','view');
   }
 }
 
