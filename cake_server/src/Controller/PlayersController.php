@@ -20,7 +20,12 @@ class PlayersController extends AppController
 
   // On redirige vers la connection si l'utilisateur n'est pas connecté
   public function index(){
-    return $this->redirect(['action' => 'login']);
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null)
+      return $this->redirect(['action' => 'login']);
+    else
+      return $this->redirect(['action' => 'view']);
   }
 
   // Fonction de visualisation des paramètres du compte identifié par son id
@@ -136,22 +141,24 @@ class PlayersController extends AppController
     }
   }
 
-  public function editPlayer(){
+  public function editFighter(){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
-    $fighterId = $this->request->data('fighterid');
+    $fighter_id = $this->request->data('fighterId');
+    $guild_id = $this->request->data('guildId');
 
-    if($fighterId == null)
+    if($fighter_id == null || $guild_id == null)
       return $this->redirect(['action' => 'view']);
     else {
       if($this->request->is('post')){
-        $f = $this->Players->Fighters->get($fighterId);
+        $f = $this->Players->Fighters->get($fighter_id);
         if($f->player_id != $id)
           return $this->redirect(['action' => 'error',"Ce personnage ne vous appartient pas."]);
 
         $f -> setName($this->request->data('name'));
+        $f -> setGuild($this->request->data('guildId'));
         $this->Players->Fighters->save($f);
       }
       return $this->redirect(['action' => 'view']);

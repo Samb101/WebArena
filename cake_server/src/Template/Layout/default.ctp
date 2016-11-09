@@ -14,6 +14,7 @@
  */
 
 $cakeDescription = 'CakePHP: the rapid development php framework';
+$basicURL = 'http://localhost:8888/';
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,8 +33,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 </head>
 <body>
+    <nav class="top-bar expanded" data-topbar role="navigation">
+        <div class="top-bar-section">
+            <ul>
+                <li><a href="<?= $basicURL ?>players/view">Profil</a></li>
+                <li><a href="<?= $basicURL ?>guilds">Guildes</a></li>
+                <li><a href="<?= $basicURL ?>play">Jouer</a></li>
+                <li><a href="<?= $basicURL ?>players/edit">Informations</a></li>
+            </ul>
+        </div>
+    </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

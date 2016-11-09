@@ -47,6 +47,10 @@ class Fighter extends Entity
       $this->__set('name',$name);
     }
 
+    public function setGuild($guild_id){
+      $this->__set('guild_id',$guild_id);
+    }
+
     public function initParametersToNull(){
       $this->coordinate_x = 0;
       $this->coordinate_y = 0;
