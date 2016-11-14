@@ -1,0 +1,1938 @@
+2016-11-08 14:39:46 Notice: Strict (2048): Declaration of App\Model\Table\PlayersTable::validationDefault() should be compatible with Cake\ORM\Table::validationDefault(Cake\Validation\Validator $validator) in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Table/PlayersTable.php, line 10]
+Request URL: /players
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Model/Table/PlayersTable.php, line 10
+Composer\Autoload\includeFile - ROOT/vendor/composer/ClassLoader.php, line 414
+Composer\Autoload\ClassLoader::loadClass() - ROOT/vendor/composer/ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+Cake\Core\App::_classExistsInBase() - CORE/src/Core/App.php, line 152
+Cake\Core\App::className() - CORE/src/Core/App.php, line 64
+Cake\ORM\Locator\TableLocator::_getClassName() - CORE/src/ORM/Locator/TableLocator.php, line 201
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 156
+Cake\Controller\Controller::loadModel() - CORE/src/Datasource/ModelAwareTrait.php, line 112
+Cake\Controller\Controller::__get() - CORE/src/Controller/Controller.php, line 350
+App\Controller\PlayersController::index() - APP/Controller/PlayersController.php, line 16
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 14:39:50 Notice: Strict (2048): Declaration of App\Model\Table\PlayersTable::validationDefault() should be compatible with Cake\ORM\Table::validationDefault(Cake\Validation\Validator $validator) in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Table/PlayersTable.php, line 10]
+Request URL: /players
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Model/Table/PlayersTable.php, line 10
+Composer\Autoload\includeFile - ROOT/vendor/composer/ClassLoader.php, line 414
+Composer\Autoload\ClassLoader::loadClass() - ROOT/vendor/composer/ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+Cake\Core\App::_classExistsInBase() - CORE/src/Core/App.php, line 152
+Cake\Core\App::className() - CORE/src/Core/App.php, line 64
+Cake\ORM\Locator\TableLocator::_getClassName() - CORE/src/ORM/Locator/TableLocator.php, line 201
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 156
+Cake\Controller\Controller::loadModel() - CORE/src/Datasource/ModelAwareTrait.php, line 112
+Cake\Controller\Controller::__get() - CORE/src/Controller/Controller.php, line 350
+App\Controller\PlayersController::index() - APP/Controller/PlayersController.php, line 16
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 14:40:00 Notice: Strict (2048): Declaration of App\Model\Table\PlayersTable::validationDefault() should be compatible with Cake\ORM\Table::validationDefault(Cake\Validation\Validator $validator) in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Table/PlayersTable.php, line 10]
+Request URL: /players/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Model/Table/PlayersTable.php, line 10
+Composer\Autoload\includeFile - ROOT/vendor/composer/ClassLoader.php, line 414
+Composer\Autoload\ClassLoader::loadClass() - ROOT/vendor/composer/ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+Cake\Core\App::_classExistsInBase() - CORE/src/Core/App.php, line 152
+Cake\Core\App::className() - CORE/src/Core/App.php, line 64
+Cake\ORM\Locator\TableLocator::_getClassName() - CORE/src/ORM/Locator/TableLocator.php, line 201
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 156
+Cake\Controller\Controller::loadModel() - CORE/src/Datasource/ModelAwareTrait.php, line 112
+Cake\Controller\Controller::__get() - CORE/src/Controller/Controller.php, line 350
+App\Controller\PlayersController::add() - APP/Controller/PlayersController.php, line 25
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 14:40:37 Notice: Strict (2048): Declaration of App\Model\Table\PlayersTable::validationDefault() should be compatible with Cake\ORM\Table::validationDefault(Cake\Validation\Validator $validator) in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Table/PlayersTable.php, line 10]
+Request URL: /players/add
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Model/Table/PlayersTable.php, line 10
+Composer\Autoload\includeFile - ROOT/vendor/composer/ClassLoader.php, line 414
+Composer\Autoload\ClassLoader::loadClass() - ROOT/vendor/composer/ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+Cake\Core\App::_classExistsInBase() - CORE/src/Core/App.php, line 152
+Cake\Core\App::className() - CORE/src/Core/App.php, line 64
+Cake\ORM\Locator\TableLocator::_getClassName() - CORE/src/ORM/Locator/TableLocator.php, line 201
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 156
+Cake\Controller\Controller::loadModel() - CORE/src/Datasource/ModelAwareTrait.php, line 112
+Cake\Controller\Controller::__get() - CORE/src/Controller/Controller.php, line 350
+App\Controller\PlayersController::add() - APP/Controller/PlayersController.php, line 25
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 15:59:24 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 60]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 60
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 15:59:24 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 60]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 60
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 15:59:44 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 61]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 61
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:02:48 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:03 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:04 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:08 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 54]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 54
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:08 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 55]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 55
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:34 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:37 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 54]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 54
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:37 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 55]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 55
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:03:38 Notice: Notice (8): Undefined property: Cake\ORM\Query::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:04:23 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:04:26 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 54]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 54
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:04:26 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 55]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 55
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:04:26 Notice: Notice (8): Undefined property: Cake\ORM\Query::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:08:19 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:08:22 Notice: Notice (8): Undefined property: Cake\ORM\Query::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:09:26 Notice: Notice (8): Undefined property: Cake\ORM\Query::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:10:18 Notice: Notice (8): Undefined property: Cake\ORM\Query::$email in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:16:34 Notice: Notice (8): Undefined property: Cake\ORM\Query::$email in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 59]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 59
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:25:49 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:27:34 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:31:00 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:31:01 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:31:37 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:31:39 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:33:19 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:33:22 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 61]
+Request URL: /players/connect
+Referer URL: http://localhost:8888/players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::connect() - APP/Controller/PlayersController.php, line 61
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:36:14 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:36:19 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 16:36:24 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/connect.ctp, line 5]
+Request URL: /players/connect
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/connect.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 18:51:29 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/add.ctp, line 5]
+Request URL: /players/add
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/add.ctp, line 5
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:46:15 Notice: Notice (8): Undefined property: App\Model\Entity\Fighter::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::__get() - CORE/src/Datasource/EntityTrait.php, line 135
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:47:25 Notice: Notice (8): Undefined property: App\Model\Entity\Fighter::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::__get() - CORE/src/Datasource/EntityTrait.php, line 135
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:48:29 Notice: Notice (8): Undefined property: App\Model\Entity\Fighter::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::__get() - CORE/src/Datasource/EntityTrait.php, line 135
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:48:37 Notice: Notice (8): Undefined variable: id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:48:41 Notice: Notice (8): Undefined property: App\Model\Entity\Fighter::$id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::__get() - CORE/src/Datasource/EntityTrait.php, line 135
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:48:58 Notice: Notice (8): Undefined variable: id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:49:30 Notice: Notice (8): Undefined variable: id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:49:39 Notice: Notice (8): Undefined variable: id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:49:41 Notice: Notice (8): Undefined variable: id in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Model/Entity/Fighter.php, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Model\Entity\Fighter::_getId() - APP/Model/Entity/Fighter.php, line 50
+Cake\ORM\Entity::get() - CORE/src/Datasource/EntityTrait.php, line 294
+Cake\ORM\Entity::extract() - CORE/src/Datasource/EntityTrait.php, line 601
+Cake\ORM\Entity::jsonSerialize() - CORE/src/Datasource/EntityTrait.php, line 496
+json_encode - [internal], line ??
+Cake\ORM\Entity::__toString() - CORE/src/Datasource/EntityTrait.php, line 993
+rawurlencode - [internal], line ??
+array_map - [internal], line ??
+Cake\Routing\Route\Route::_writeUrl() - CORE/src/Routing/Route/Route.php, line 587
+Cake\Routing\Route\Route::match() - CORE/src/Routing/Route/Route.php, line 547
+Cake\Routing\Route\DashedRoute::match() - CORE/src/Routing/Route/DashedRoute.php, line 104
+Cake\Routing\RouteCollection::match() - CORE/src/Routing/RouteCollection.php, line 270
+Cake\Routing\Router::url() - CORE/src/Routing/Router.php, line 651
+Cake\View\Helper\UrlHelper::build() - CORE/src/View/Helper/UrlHelper.php, line 55
+Cake\View\Helper\HtmlHelper::link() - CORE/src/View/Helper/HtmlHelper.php, line 345
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:54:59 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/view.ctp, line 24]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 19:55:01 Notice: Notice (8): Undefined variable: player in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/view.ctp, line 24]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/view.ctp, line 24
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 20:11:00 Notice: Notice (8): Undefined variable: fighter in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 114]
+Request URL: /players/edit-player/3/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::editPlayer() - APP/Controller/PlayersController.php, line 114
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 20:12:48 Notice: Notice (8): Indirect modification of overloaded property App\Model\Entity\Fighter::$_properties has no effect in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 118]
+Request URL: /players/edit-player/3/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::editPlayer() - APP/Controller/PlayersController.php, line 118
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-08 20:14:14 Notice: Notice (8): Indirect modification of overloaded property App\Model\Entity\Fighter::$__set has no effect in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 118]
+Request URL: /players/edit-player/3/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::editPlayer() - APP/Controller/PlayersController.php, line 118
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 09:34:26 Notice: Notice (8): Undefined variable: guilds in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Players/view.ctp, line 50]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Players/view.ctp, line 50
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 09:43:07 Notice: Notice (8): Undefined variable: guilds in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 34]
+Request URL: /players/view/0645752f-d0b5-400b-97ff-813298e84bd5
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::view() - APP/Controller/PlayersController.php, line 34
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 11:43:11 Notice: Notice (8): Undefined variable: request in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 98]
+Request URL: /players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::login() - APP/Controller/PlayersController.php, line 98
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 11:43:11 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 98]
+Request URL: /players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::login() - APP/Controller/PlayersController.php, line 98
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 12:19:59 Notice: Notice (8): Undefined variable: monid in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 40]
+Request URL: /players/view/7fff78e5-a868-45a6-981d-c7de4408b7e7
+Referer URL: http://localhost:8888/players/login
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::view() - APP/Controller/PlayersController.php, line 40
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 12:22:43 Notice: Notice (8): Use of undefined constant id - assumed 'id' in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/PlayersController.php, line 183]
+Request URL: /players/remove-fighter/17
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\PlayersController::removeFighter() - APP/Controller/PlayersController.php, line 183
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:11:23 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/GuildsController.php, line 48]
+Request URL: /guilds
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\GuildsController::authenticateUserWithCookies() - APP/Controller/GuildsController.php, line 48
+App\Controller\GuildsController::index() - APP/Controller/GuildsController.php, line 25
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:53 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/GuildsController.php, line 68]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\GuildsController::view() - APP/Controller/GuildsController.php, line 68
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:53 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/GuildsController.php, line 68]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\GuildsController::view() - APP/Controller/GuildsController.php, line 68
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:53 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Controller/GuildsController.php, line 68]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+App\Controller\GuildsController::view() - APP/Controller/GuildsController.php, line 68
+Cake\Controller\Controller::invokeAction() - CORE/src/Controller/Controller.php, line 435
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 122
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:45:54 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 7]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 7
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-09 14:46:55 Notice: Notice (8): Trying to get property of non-object in [/Users/elliotmaincourt/Documents/Local Development/Cours/Web/Project/cake_server/src/Template/Guilds/view.ctp, line 9]
+Request URL: /guilds/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+include - APP/Template/Guilds/view.ctp, line 9
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::render() - CORE/src/View/View.php, line 597
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Http\ActionDispatcher::_invoke() - CORE/src/Http/ActionDispatcher.php, line 128
+Cake\Http\ActionDispatcher::dispatch() - CORE/src/Http/ActionDispatcher.php, line 96
+Cake\Http\BaseApplication::__invoke() - CORE/src/Http/BaseApplication.php, line 83
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\RoutingMiddleware::__invoke() - CORE/src/Routing/Middleware/RoutingMiddleware.php, line 62
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Routing\Middleware\AssetMiddleware::__invoke() - CORE/src/Routing/Middleware/AssetMiddleware.php, line 88
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Error\Middleware\ErrorHandlerMiddleware::__invoke() - CORE/src/Error/Middleware/ErrorHandlerMiddleware.php, line 81
+Cake\Http\Runner::__invoke() - CORE/src/Http/Runner.php, line 65
+Cake\Http\Runner::run() - CORE/src/Http/Runner.php, line 51
+Cake\Http\Server::run() - CORE/src/Http/Server.php, line 92
+[main] - ROOT/webroot/index.php, line 37
+
+
+
