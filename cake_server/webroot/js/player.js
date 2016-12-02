@@ -3,6 +3,7 @@ var playerH = 1;
 var playR;
 var onMove = false;
 var playerTexture = "../webroot/img/assets/smiley_texture.jpeg";
+var playerModel = "../webroot/img/assets/daftpunk.babylon";
 var shotTexture = "../webroot/img/assets/fire.jpg";
 var movingSpeed = 2;
 var movingDelay = 10;
@@ -121,7 +122,7 @@ function smartMove(){
     playR.position.z -= sinR*2*playerH;
 }
 // Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3
-// Définission de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
+// Définition de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
 // la valeur inexacte fournie par défaut
 Math.Sin = function(w){
     return parseFloat(Math.sin(w).toFixed(10));
