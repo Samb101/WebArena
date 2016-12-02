@@ -231,6 +231,10 @@ class PlayersController extends AppController
       return null;
     }
   }
+
+  public function play(){
+    
+  }
 }
 
 ?>
