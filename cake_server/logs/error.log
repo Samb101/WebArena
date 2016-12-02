@@ -5656,3 +5656,562 @@ Stack Trace:
 #13 {main}
 
 
+2016-11-14 15:25:34 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:25:38 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:25:42 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:25:46 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:25:54 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:26:41 Error: [PDOException] SQLSTATE[HY000]: General error: 11 database disk image is malformed
+Request URL: /
+Stack Trace:
+#0 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): PDOStatement->execute(NULL)
+#1 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#2 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/BufferedStatement.php(75): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Statement/SqliteStatement.php(41): Cake\Database\Statement\BufferedStatement->execute(NULL)
+#4 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Statement\SqliteStatement->execute()
+#5 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Query.php(189): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#6 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1670): Cake\Database\Query->execute()
+#7 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1564): Cake\ORM\Table->_insert(Object(DebugKit\Model\Entity\Request), Array)
+#8 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\ORM\Table->_processSave(Object(DebugKit\Model\Entity\Request), Object(ArrayObject))
+#9 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/ORM/Table.php(1493): Cake\Database\Connection->transactional(Object(Closure))
+#11 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/debug_kit/src/Routing/Filter/DebugBarFilter.php(214): Cake\ORM\Table->save(Object(DebugKit\Model\Entity\Request))
+#12 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(426): DebugKit\Routing\Filter\DebugBarFilter->afterDispatch(Object(Cake\Event\Event), Object(Cake\Network\Request), Object(Cake\Network\Response))
+#13 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#14 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#15 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(101): Cake\Http\ActionDispatcher->dispatchEvent('Dispatcher.afte...', Array)
+#16 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#17 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Middleware/ErrorHandlerMiddleware.php(81): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/Server.php(92): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/webroot/index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2016-11-14 15:27:50 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:27:50 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:27:50 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:27:50 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:28:10 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:28:11 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:28:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:28:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:28:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:29:03 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:29:03 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:29:03 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:29:03 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:09 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:11 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:30:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (512): Unable to emit headers. Headers sent in file=/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php line=753 in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:27 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 146]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:28 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
+2016-11-14 15:31:28 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Error/Debugger.php:753) in [/Users/Samuel/Documents/workspace/Web/git_arena/cake_server/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /guilds/view
+Referer URL: http://localhost:8888/players/view
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 118
+[main] - ROOT/webroot/index.php, line 37
+
+
+
