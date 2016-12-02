@@ -52,7 +52,7 @@ $basicURL = 'http://localhost:8888/';
             <ul class="nav navbar-nav">
                 <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/view">Profil</a></li>
                 <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>guilds">Guildes</a></li>
-                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>play">Jouer</a></li>
+                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/play">Jouer</a></li>
                 <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/edit">Informations</a></li>
             </ul>
     </nav>
