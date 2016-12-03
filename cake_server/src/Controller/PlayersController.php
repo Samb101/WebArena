@@ -36,12 +36,22 @@ class PlayersController extends AppController
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
+    $others_fighters = $this->Players->Fighters->find("all",[
+      'conditions' => [
+        'player_id !=' => $id
+      ],
+      'limit' => 5,
+      'order' => array('level DESC')
+
+    ]);
+
     $fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id' => $id
       ]
     ]);
     $guilds = $this->Players->Fighters->Guilds->find("all");
+    $this->set('others_fighters',$others_fighters);
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
