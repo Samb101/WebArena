@@ -233,7 +233,26 @@ class PlayersController extends AppController
   }
 
   public function play(){
-    
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    $fighters = $this->Players->Fighters->find("all",[
+      'conditions' => [
+        'player_id' => $id
+      ]
+    ]);
+    if($fighters->count() != 0){
+      $fighter = $fighters->first();
+      $health = $fighter->skill_health;
+      $sight = $fighter->skill_sight;
+      $strength = $fighter->skill_strength;
+    }
+    else {
+      $health = 0;
+      $sight = 0;
+      $strenght = 0;
+    }
+    $this->set('health',$health);
+    $this->set('sight',$sight);
+    $this->set('strength',$strength);
   }
 }
 
