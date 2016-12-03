@@ -2,6 +2,7 @@ var shotSize = 1;
 var playerH = 5;
 var playerWidth = 1;
 var playR;
+var fighters = [];
 var onMove = false;
 var playerTexture = "../webroot/img/assets/smiley_texture.jpeg";
 var playerModel = "../webroot/img/assets/daftpunk.babylon";
@@ -34,13 +35,36 @@ function loadModels(scene,canvas,engine){
     PLAYER_MODEL = m;
 
     createPlayer();
+
+    fetchFighters();
+
     addInteractionsListeners(scene);
+
     scene.camera = createCamera(scene,canvas);
     // Permet au jeu de tourner
     engine.runRenderLoop(function () {
         scene.render();
     });
   })
+}
+
+function fetchFighters(){
+  $.get("http://localhost:8888/players/getFightersPosition",function(response){
+    response = JSON.parse(response);
+    response.forEach(function(el){
+      console.log(el.coordinate_x,el.coordinate_y);
+      createFighter(el.coordinate_x,el.coordinate_y);
+    });
+  });
+}
+
+function createFighter(x,y){
+  var fighter = PLAYER_MODEL.clone(PLAYER_MODEL.name);
+  fighter.position = new BABYLON.Vector3(xmin+x*2+playerWidth,playerH/2,zmin+y*2+playerWidth);
+  fighter.rotationQuaternion = null;
+  fighter.rotation = new BABYLON.Vector3(0,-Math.PI,0);
+  fighter.isVisible = true;
+  fighters.push(fighter);
 }
 
 function createPlayer(){

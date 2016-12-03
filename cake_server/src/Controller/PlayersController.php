@@ -254,6 +254,94 @@ class PlayersController extends AppController
     $this->set('sight',$sight);
     $this->set('strength',$strength);
   }
+
+  public function addEventWithMessage(){
+
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($this->request->is('post')){
+
+      $fighterId = $this->request->data("id");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        'conditions' => [
+          'id' => $fighterId,
+          'player_id' => $id
+        ]
+      ]);
+
+      if($fighters->count() != 0){
+        $event = $this->Events->newEntity();
+        $event->name = $this->request->data("message").$this->request->data("id");
+        $event->date = date('Y-m-d H-i-s');
+        $event->coordinate_y = $this->request->data("y");
+        $event->coordinate_x = $this->request->data("x");
+        $this->Events->save($event);
+        $this->response->body(json_encode(array(
+        'success' => 1,
+        'message' => 'Ok.'
+        )));
+
+        $this->response->send();
+      }
+      else {
+        $this->response->body(json_encode(array(
+        'success' => 0,
+        'message' => 'You are not allowed to perform the operation.'
+        )));
+
+        $this->response->send();
+      }
+    }
+  }
+
+  public function getFightersPosition(){
+
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null){
+      $this->response->body(json_encode(array(
+        'success' => 0,
+        'message' => 'You are not allowed to perform the operation.'
+      )));
+      return;
+    }
+
+    if($this->request->is('get')){
+
+      $fighters = $this->Players->Fighters->find("all",[
+        'conditions' => [
+          'coordinate_x !=' => -1
+        ]
+      ]);
+      $this->response->charset('UTF-8');
+      $this->response->type('JSON');
+      $this->response->body(json_encode($fighters));
+      $this->response->send();
+      die();
+      return;
+
+    }
+    else {
+      $this->response->body(json_encode(array(
+      'success' => 0,
+      'message' => 'Wrong request headers.'
+      )));
+
+      $this->response->send();
+    }
+  }
+
 }
 
 ?>
