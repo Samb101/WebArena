@@ -12,13 +12,8 @@ Game = function(canvasId) {
     // On initie la scène avec une fonction associé à l'objet Game
     this.scene = this._initScene(engine);
 
-    var _player = new Player(_this, canvas);
+    var _player = new Player(_this, canvas, engine);
     var _arena = new Arena(_this);
-
-    // Permet au jeu de tourner
-    engine.runRenderLoop(function () {
-        _this.scene.render();
-    });
 
     // Ajuste la vue 3D si la fenetre est agrandi ou diminué
     window.addEventListener("resize", function () {
