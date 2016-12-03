@@ -254,6 +254,7 @@ class PlayersController extends AppController
       $health = $fighter->skill_health;
       $sight = $fighter->skill_sight;
       $strength = $fighter->skill_strength;
+      $id = $fighter->id;
     }
     else {
       $health = 0;
@@ -263,6 +264,7 @@ class PlayersController extends AppController
     $this->set('health',$health);
     $this->set('sight',$sight);
     $this->set('strength',$strength);
+    $this->set('id',$id);
   }
 
   public function addEventWithMessage(){
@@ -310,6 +312,58 @@ class PlayersController extends AppController
     }
   }
 
+  public function updateFighterInformations(){
+    $this->autoRender = false;
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null){
+      sendErrorMessage($this->response);
+      return;
+    }
+
+    if($this->request->is('post')){
+      $current_health = $this->request->data("current_health");
+      $coordinate_x = $this->request->data("coordinate_x");
+      $coordinate_y = $this->request->data("coordinate_y");
+      $fighterID = $this->request->data("id");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        "conditions" => [
+          "id" => $fighterID,
+          "player_id" => $id
+        ]
+      ]);
+
+      if($fighters->count()>0){
+        $fighter = $fighters->first();
+        $fighter->__set('current_health',$current_health);
+        $fighter->__set('coordinate_x',$coordinate_x);
+        $fighter->__set('coordinate_y',$coordinate_y);
+
+        $this->Players->Fighters->save($fighter);
+
+        $this->response->body(json_encode(array(
+          'success' => 1,
+          'message' => 'OK.'
+        )));
+
+        $this->response->send();
+        die();
+        return;
+      }
+      else {
+        sendErrorMessage($this->response);
+        return;
+      }
+    }
+    else {
+      sendErrorMessage($this->response);
+      return;
+    }
+
+  }
+
   public function getFightersPosition(){
 
     date_default_timezone_set('UTC');
@@ -320,10 +374,7 @@ class PlayersController extends AppController
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
 
     if($id == null){
-      $this->response->body(json_encode(array(
-        'success' => 0,
-        'message' => 'You are not allowed to perform the operation.'
-      )));
+      sendErrorMessage($this->response);
       return;
     }
 
@@ -343,15 +394,20 @@ class PlayersController extends AppController
 
     }
     else {
-      $this->response->body(json_encode(array(
-      'success' => 0,
-      'message' => 'Wrong request headers.'
-      )));
-
-      $this->response->send();
+      sendErrorMessage($this->response);
+      return;
     }
   }
 
 }
 
+function sendErrorMessage($response){
+  $response->body(json_encode(array(
+  'success' => 0,
+  'message' => 'Wrong request headers.'
+  )));
+
+  $response->send();
+  die();
+}
 ?>
