@@ -52,7 +52,6 @@ function fetchFighters(){
   $.get("http://localhost:8888/players/getFightersPosition",function(response){
     response = JSON.parse(response);
     response.forEach(function(el){
-      console.log(el.coordinate_x,el.coordinate_y);
       createFighter(el.coordinate_x,el.coordinate_y);
     });
   });
@@ -60,7 +59,7 @@ function fetchFighters(){
 
 function createFighter(x,y){
   var fighter = PLAYER_MODEL.clone(PLAYER_MODEL.name);
-  fighter.position = new BABYLON.Vector3(xmin+x*2+playerWidth,playerH/2,zmin+y*2+playerWidth);
+  fighter.position = new BABYLON.Vector3(x,y);
   fighter.rotationQuaternion = null;
   fighter.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   fighter.isVisible = true;
@@ -123,6 +122,8 @@ function smartMove(){
     playR.position.z -= cosR*2*playerWidth;
   if(playR.position.x-sinR*2*playerWidth<=xmax && playR.position.x-sinR*2*playerWidth>=xmin)
     playR.position.x -= sinR*2*playerWidth;
+
+  updateFighterInformations();
 }
 
 function getSin(rotationY){
@@ -182,6 +183,21 @@ function shoot(scene){
   },100);
 }
 
+function updateFighterInformations(){
+  var id = document.getElementById('fighterID').innerText;
+  var current_health = document.getElementById('health').value;
+  var coordinate_x = playR.position.x;
+  var coordinate_y = playR.position.z;
+  var data = {
+    "id" : id,
+    "current_health" : current_health,
+    "coordinate_x" : coordinate_x,
+    "coordinate_y" : coordinate_y
+  }
+  $.post("http://localhost:8888/players/updateFighterInformations",data,function(response){
+    alert(response);
+  });
+}
 // Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3
 // Définition de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
 // la valeur inexacte fournie par défaut
