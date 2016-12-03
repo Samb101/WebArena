@@ -8,7 +8,7 @@
   <div style="display:inline-block; margin:5px; padding:10px; border:1px solid black">
     <h2>My title</h2>
     <img style="display:block; margin:auto" src="../webroot/img/portrait/portrait_1.png">
-    <p style="text-align:center">Descriptif</p>
+    <p style="text-align:center; padding:10px">Descriptif</p>
   </div>
 
 
