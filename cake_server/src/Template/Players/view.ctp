@@ -1,20 +1,5 @@
 <div class=container>
-
-  <div style="display:inline-block; margin 5px; padding:10px; border:1px solid black">
-    <h2 style="text-align:center">My title</h2>
-    <img style="display:block; margin:auto"src="../webroot/img/portrait/portrait_1.png">
-    <p style="text-align:center">Descriptif</p>
-  </div>
-  <div style="display:inline-block; margin:5px; padding:10px; border:1px solid black">
-    <h2>My title</h2>
-    <img style="display:block; margin:auto" src="../webroot/img/portrait/portrait_1.png">
-    <p style="text-align:center; padding:10px">Descriptif</p>
-  </div>
-
-
-
     <div class="card-columns">
-
       <div class="jumbotron card">
         <h3 class="display-5">Bienvenue sur l'interface de votre personnage</h3>
         <p class="lead">C'est un véritable tableau de bord qui s'offre à vous.</p>
@@ -144,7 +129,7 @@
               </ol>
               <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active"></div>
-                <?php foreach($fighters as $fighter): ?>
+                <?php foreach($others_fighters as $fighter): ?>
 
                 <div class="carousel-item">
                   <div class="col-lg-6 col-lg-offset-6">
@@ -169,26 +154,18 @@
           </div>
 
             <ul class="list-group list-group-flush" style="margin-left:0">
+              <?php foreach($others_fighters as $fighter): ?>
+
               <li class="list-group-item">
                 <img src="../webroot/img/ranks/PVPRank14.png" class="carac-img"/>
-                1.
+                1.         <?= $fighter->name ?>
+                        <?= $fighter->level ?>
               </li>
-              <li class="list-group-item">
-                <img src="../webroot/img/ranks/PVPRank13.png" class="carac-img"/>
-                2.
-              </li>
-              <li class="list-group-item">
-                <img src="../webroot/img/ranks/PVPRank12.png" class="carac-img"/>
-                3.
-              </li>
-              <li class="list-group-item">
-                <img src="../webroot/img/ranks/PVPRank11.png" class="carac-img"/>
-                4.
-              </li>
-              <li class="list-group-item">
-                <img src="../webroot/img/ranks/PVPRank10.png" class="carac-img"/>
-                5.
-              </li>
+
+
+            <?php endforeach; ?>
+
+
             </ul>
 
           </div>
@@ -211,6 +188,19 @@ echo "<img src=\"../webroot/img/portrait/portrait_". $i .".png\"> ";
 
 
       </div>
+
+        <div style="display:inline-block; margin 5px; padding:10px; border:1px solid black">
+          <h2 style="text-align:center">My title</h2>
+          <img style="display:block; margin:auto"src="../webroot/img/portrait/portrait_1.png">
+          <p style="text-align:center">Descriptif</p>
+        </div>
+        <div style="display:inline-block; margin:5px; padding:10px; border:1px solid black">
+          <h2>My title</h2>
+          <img style="display:block; margin:auto" src="../webroot/img/portrait/portrait_1.png">
+          <p style="text-align:center; padding:10px">Descriptif</p>
+        </div>
+
+
     </div>
 
     <div class="col-lg-4">

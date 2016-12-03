@@ -12,6 +12,7 @@ use Cake\ORM\Entity;
  * @property int $coordinate_x
  * @property int $coordinate_y
  */
+
 class Event extends Entity
 {
 

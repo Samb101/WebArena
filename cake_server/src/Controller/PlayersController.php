@@ -36,12 +36,22 @@ class PlayersController extends AppController
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
+    $others_fighters = $this->Players->Fighters->find("all",[
+      'conditions' => [
+        'player_id !=' => $id
+      ],
+      'limit' => 5,
+      'order' => array('level DESC')
+
+    ]);
+
     $fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id' => $id
       ]
     ]);
     $guilds = $this->Players->Fighters->Guilds->find("all");
+    $this->set('others_fighters',$others_fighters);
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
@@ -233,8 +243,115 @@ class PlayersController extends AppController
   }
 
   public function play(){
-    
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    $fighters = $this->Players->Fighters->find("all",[
+      'conditions' => [
+        'player_id' => $id
+      ]
+    ]);
+    if($fighters->count() != 0){
+      $fighter = $fighters->first();
+      $health = $fighter->skill_health;
+      $sight = $fighter->skill_sight;
+      $strength = $fighter->skill_strength;
+    }
+    else {
+      $health = 0;
+      $sight = 0;
+      $strenght = 0;
+    }
+    $this->set('health',$health);
+    $this->set('sight',$sight);
+    $this->set('strength',$strength);
   }
+
+  public function addEventWithMessage(){
+
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($this->request->is('post')){
+
+      $fighterId = $this->request->data("id");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        'conditions' => [
+          'id' => $fighterId,
+          'player_id' => $id
+        ]
+      ]);
+
+      if($fighters->count() != 0){
+        $event = $this->Events->newEntity();
+        $event->name = $this->request->data("message").$this->request->data("id");
+        $event->date = date('Y-m-d H-i-s');
+        $event->coordinate_y = $this->request->data("y");
+        $event->coordinate_x = $this->request->data("x");
+        $this->Events->save($event);
+        $this->response->body(json_encode(array(
+        'success' => 1,
+        'message' => 'Ok.'
+        )));
+
+        $this->response->send();
+      }
+      else {
+        $this->response->body(json_encode(array(
+        'success' => 0,
+        'message' => 'You are not allowed to perform the operation.'
+        )));
+
+        $this->response->send();
+      }
+    }
+  }
+
+  public function getFightersPosition(){
+
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null){
+      $this->response->body(json_encode(array(
+        'success' => 0,
+        'message' => 'You are not allowed to perform the operation.'
+      )));
+      return;
+    }
+
+    if($this->request->is('get')){
+
+      $fighters = $this->Players->Fighters->find("all",[
+        'conditions' => [
+          'coordinate_x !=' => -1
+        ]
+      ]);
+      $this->response->charset('UTF-8');
+      $this->response->type('JSON');
+      $this->response->body(json_encode($fighters));
+      $this->response->send();
+      die();
+      return;
+
+    }
+    else {
+      $this->response->body(json_encode(array(
+      'success' => 0,
+      'message' => 'Wrong request headers.'
+      )));
+
+      $this->response->send();
+    }
+  }
+
 }
 
 ?>

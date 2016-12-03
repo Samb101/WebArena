@@ -10,8 +10,39 @@ form{
   display: inline-block;
 }
 
+#arena_container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#arena_container > .details{
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  padding: 5px 0 0 10px;
+}
+
+.details > label{
+  color:white;
+}
+
+#arena_container > .details:first-of-type{
+  top: 0;  left:0;
+}
+#arena_container > .details:nth-of-type(2){
+  top: 30px;  left:0;
+}
+#arena_container > .details:nth-of-type(3){
+  top: 60px;  left:0;
+}
+
 canvas{
-  width: 400px;
-  height: 300px;
-  margin: auto;
+  width: 1200px;
+  height: 600px;
+  position: absolute;
+  top: 0;  left: 0;
 }

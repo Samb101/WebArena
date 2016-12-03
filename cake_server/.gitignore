@@ -16,6 +16,12 @@
 !/tmp/sessions/empty
 /tmp/tests/*
 !/tmp/tests/empty
+/tmp/debug_kit.sqlite
+
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
 
 /logs/*
 !/logs/empty
