@@ -248,13 +248,19 @@ function computeCollisions(){
 function lossOfLifePoints(f){
   var data = {
     'id' : f.id,
-    'loss' : 1
+    'loss' : 1,
+    'level' : parseInt(document.getElementById('level').innerText)
   }
   $.post("http://localhost:8888/players/lossOfLifePoints",data,function(response){
+    alert(response);
     if(JSON.parse(response).over == true)
     {
       f.isVisible = false;
       fighters.splice(fighters.indexOf(f),1);
+    }
+    if(JSON.parse(response).got == false)
+    {
+      alert('Attaque manquée.');
     }
   })
 }

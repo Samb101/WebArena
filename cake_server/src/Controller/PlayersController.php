@@ -265,6 +265,7 @@ class PlayersController extends AppController
       $posX = $fighter->coordinate_x;
       $posY = $fighter->coordinate_y;
       $xp = $fighter->xp;
+      $level = $fighter->level;
     }
     else {
       $health = 0;
@@ -281,6 +282,7 @@ class PlayersController extends AppController
     $this->set('posX',$posX);
     $this->set('posY',$posY);
     $this->set('xp',$xp);
+    $this->set('level',$level);
   }
 
   public function addEventWithMessage(){
@@ -390,6 +392,7 @@ class PlayersController extends AppController
 
     if($this->request->is('post')){
       $fighterID = $this->request->data("id");
+      $level = $this->request->data("level");
       $loss = $this->request->data("loss");
 
       $fighters = $this->Players->Fighters->find("all",[
@@ -399,12 +402,13 @@ class PlayersController extends AppController
       ]);
 
       if($fighters->count()>0){
-        $fighter = $fighters->first();
-        $current_health = $fighter->current_health-$loss;
 
-        $this->response->body(json_encode(array(
-          'current_health' => $current_health
-        )));
+        $fighter = $fighters->first();
+
+        $threshold = (rand(0,20)>10+$fighter->level-$level) ? true : false;
+
+        if($threshold)
+          $current_health = $fighter->current_health-$loss;
 
         $fighter->__set('current_health',$current_health);
         $this->Players->Fighters->save($fighter);
@@ -414,7 +418,8 @@ class PlayersController extends AppController
           $this->response->body(json_encode(array(
             'success' => 1,
             'message' => 'OK.',
-            'over' => true
+            'over' => true,
+            'got' => $threshold
           )));
         }
         else {

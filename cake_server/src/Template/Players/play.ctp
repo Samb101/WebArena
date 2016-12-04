@@ -4,6 +4,7 @@
   <span display="none" id="fighterID"><?=$id?></span>
   <span display="none" id="posX"><?=$posX?></span>
   <span display="none" id="posY"><?=$posY?></span>
+  <h3>Niveau <span id="level"><?=$level?></span></h3>
   <div class="details">
     <label>Santé : <?=$current_health?> / <?=$health?></label>
     <progress value="<?=$current_health?>" max="<?=$health?>" id="health"></progress>
