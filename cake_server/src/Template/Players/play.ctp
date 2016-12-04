@@ -21,6 +21,4 @@
     <label>XP : <?=$xp?> / 4</label>
     <progress value="<?=$xp%4?>" max="4" id="health"></progress>
   </div>
-  <div class="menu">
-  </div>
 </div>

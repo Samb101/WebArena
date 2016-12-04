@@ -260,7 +260,7 @@ class PlayersController extends AppController
     ]);
 
     $this->set('fighters',$fighters);
-    
+
     if($fighters->count() != 0){
       $fighter = $fighters->first();
       $current_health = $fighter->current_health;
@@ -415,6 +415,8 @@ class PlayersController extends AppController
 
         if($threshold)
           $current_health = $fighter->current_health-$loss;
+        else
+          $current_health = $fighter->current_health;
 
         $fighter->__set('current_health',$current_health);
         $this->Players->Fighters->save($fighter);
@@ -432,7 +434,8 @@ class PlayersController extends AppController
           $this->response->body(json_encode(array(
             'success' => 1,
             'message' => 'OK.',
-            'over' => false
+            'over' => false,
+            'got' => $threshold
           )));
         }
 
