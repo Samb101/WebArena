@@ -4,7 +4,7 @@
     <ol class="breadcrumb" style="margin-left:0">
       <li class="breadcrumb-item active">L'Arène</li>
     </ol>
-    
+
     <div class=col-lg-9 id="arena_container">
       <!-- IMPORTANT DO NOT DELETE -->
       <span style="display:none" id="fighterID"><?=$id?></span>
@@ -21,14 +21,14 @@
             <h3 class="text-center">
                 <?= $name ?>
             </h3>
-            <h5 class="text-center">
+            <h5 class="text-center" id="level">
                 LVL  <?= $level ?>
             </h5>
             </div>
-            <div class="text-xs-center" id="example-caption-1">XP <?= $xp ?></div>
-            <progress class="progress" value="<?= $xp%4/4*100?>" max="100" aria-describedby="example-caption-1"></progress>
-            <div class="text-xs-center" id="example-caption-1">PV <?= $xp ?></div>
-            <progress class="progress" value="<?=$current_health?>" max="<?=$health?>" aria-describedby="example-caption-1"></progress>
+            <div class="text-xs-center" id="xp-text">XP : <?= $xp ?></div>
+            <progress class="progress" value="<?= $xp%4/4*100?>" max="100" aria-describedby="xp-test" id="xp-progress"></progress>
+            <div class="text-xs-center" id="pv-text">PV : <?= $xp ?></div>
+            <progress class="progress" value="<?=$current_health?>" max="<?=$health?>" aria-describedby="pv-progress" id="pv-progress"></progress>
         </div>
         <ul class="list-group list-group-flush" style="margin-left:0">
           <li class="list-group-item">
@@ -40,12 +40,12 @@
             Position Y
           </li>
           <li class="list-group-item">
-            <span class="tag tag-default tag-pill float-xs-right"><?=$sight?></span>
+            <span class="tag tag-default tag-pill float-xs-right" id="sight"><?=$sight?></span>
             <img src="../webroot/img/caracteristiques/view.png" class=""/>
              Vue
           </li>
           <li class="list-group-item">
-            <span class="tag tag-default tag-pill float-xs-right"><?=$strength?></span>
+            <span class="tag tag-default tag-pill float-xs-right" id="strength"><?=$strength?></span>
             <img src="../webroot/img/caracteristiques/attack.png" class=""/>
             Force
           </li>

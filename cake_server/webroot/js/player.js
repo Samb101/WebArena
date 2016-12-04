@@ -75,15 +75,13 @@ function fetchFighters(){
 }
 
 function updateFighterInformations(fighterInformations){
-  document.querySelector(".details:first-of-type > label").innerText = "Santé : "+fighterInformations.current_health+" / "+fighterInformations.skill_health;
-  document.querySelector(".details:first-of-type > progress").value = fighterInformations.current_health;
-  document.querySelector(".details:first-of-type > progress").max = fighterInformations.skill_health;
-  document.querySelector(".details:nth-of-type(2) > label").innerText = "Vue : "+fighterInformations.skill_sight;
-  document.querySelector(".details:nth-of-type(2) > progress").value = fighterInformations.skill_sight;
-  document.querySelector(".details:nth-of-type(3) > label").innerText = "Force : "+fighterInformations.skill_strength;
-  document.querySelector(".details:nth-of-type(3) > progress").value = fighterInformations.skill_strength;
-  document.querySelector(".details:nth-of-type(4) > label").innerText = "XP : "+fighterInformations.xp;
-  document.querySelector(".details:nth-of-type(4) > progress").value = fighterInformations.xp;
+  document.querySelector("#pv-text").innerText = "PV : "+fighterInformations.current_health+" / "+fighterInformations.skill_health;
+  document.querySelector("#pv-progress").value = fighterInformations.current_health;
+  document.querySelector("#pv-progress").max = fighterInformations.skill_health;
+  document.querySelector("#sight").innerText = fighterInformations.skill_sight;
+  document.querySelector("#strength").innerText = fighterInformations.skill_strength;
+  document.querySelector("#xp-text").innerText = "XP : "+fighterInformations.xp;
+  document.querySelector("#xp-progress").value = fighterInformations.xp;
 }
 
 function updateFightersLocally(arr){
@@ -274,7 +272,7 @@ function createTextualInformation(path){
 
 function sendFighterInformations(){
   var id = document.getElementById('fighterID').innerText;
-  var current_health = document.getElementById('health').value;
+  var current_health = document.getElementById('pv-text').value;
   var coordinate_x = playR.position.x;
   var coordinate_y = playR.position.z;
   var data = {
