@@ -204,6 +204,25 @@ class PlayersController extends AppController
     }
   }
 
+  public function historique(){
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+    $date = date('Y-m-d');
+    $date = date_create($date);
+
+    $beg = date_sub($date,date_interval_create_from_date_string("1 day"));
+
+    $events = $this->Events->find("all",[
+      "conditions" => [
+        "date >=" => $beg
+      ]
+    ]);
+
+    $this->set('events',$events);
+  }
+
   public function removeFighter($fighter_id = null){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
