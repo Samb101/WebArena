@@ -272,6 +272,7 @@ class PlayersController extends AppController
       $posY = $fighter->coordinate_y;
       $xp = $fighter->xp;
       $level = $fighter->level;
+      $name = $fighter->name;
     }
     else {
       $health = 0;
@@ -289,6 +290,7 @@ class PlayersController extends AppController
     $this->set('posY',$posY);
     $this->set('xp',$xp);
     $this->set('level',$level);
+    $this->set('name',$name);
   }
 
   public function addEventWithMessage(){
@@ -364,7 +366,7 @@ class PlayersController extends AppController
         $xp = $fighter->xp;
 
         $this->response->type('json');
-        
+
         $this->response->body(json_encode(array(
           'current_health' => $current_health,
           'skill_sight' => $skill_sight,

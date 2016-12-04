@@ -10,6 +10,16 @@ form{
   display: inline-block;
 }
 
+.image-center{
+  display:block;
+  margin:auto;
+}
+
+#HUD-player{
+  max-width: 150px;
+  margin-top: 20px;
+}
+
 @keyframes struggle {
   0% {transform: rotate(-10deg) translate(-50%,-50%);}
   25% {transform: rotate(0deg) translate(-50%,-50%);}
@@ -31,39 +41,8 @@ form{
   animation: struggle 1s linear infinite;
 }
 
-#arena_container > .details{
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  padding: 5px 0 10px 10px;
-  margin-bottom: 30px;
-}
 
-.details > label{
-  color:white;
-}
 
-#arena_container > h3{
-  position: absolute;
-  top: 0;  left: 0;
-  color: white;
-  padding: 5px 0 0 10px;
-}
-#arena_container > .details:first-of-type{
-  top: 30px;  left:0;
-}
-#arena_container > .details:nth-of-type(2){
-  top: 60px;  left:0;
-}
-#arena_container > .details:nth-of-type(3){
-  top: 90px;  left:0;
-}
-#arena_container > .details:nth-of-type(4){
-  top: 120px;  left:0;
-}
 
 canvas{
   width: 100%;
