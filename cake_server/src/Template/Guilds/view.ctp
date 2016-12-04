@@ -18,9 +18,8 @@
                 <?= $fighter->name ?>
               </h3>
             </div>
-
             <p class="text-center font-weight-bold"> LVL  <?= $fighter->level?></p>
-            
+
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>

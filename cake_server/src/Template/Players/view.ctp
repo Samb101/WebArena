@@ -58,7 +58,7 @@
                 <div class="col-lg-6 col-lg-offset-6">
                   <img class="" src="../webroot/img/portrait/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
                 </div>
-                <p>
+                <p style="padding:auto;margin:auto;">
                   <?= $fighter->name ?>
                   - LVL  <?= $fighter->level ?>
                 </p>
