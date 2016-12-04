@@ -36,6 +36,8 @@ class PlayersController extends AppController
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
+
+
     $others_fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id !=' => $id
@@ -54,6 +56,7 @@ class PlayersController extends AppController
   /*  $average_xp_guild =
 
     $classement_guild =*/
+
 
 
     $guilds = $this->Players->Fighters->Guilds->find("all");

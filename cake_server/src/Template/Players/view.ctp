@@ -1,6 +1,7 @@
 <div class="container">
+  <div class="card-deck-wrapper">
   <div class="card-deck">
-    <div class="jumbotron card ">
+    <div class="card jumbotron">
       <h3 class="display-5">Bienvenue sur l'interface de votre personnage</h3>
       <p class="lead">C'est un véritable tableau de bord qui s'offre à vous.</p>
       <hr class="my-2">
@@ -29,6 +30,8 @@
             <option value=<?= $guild->id ?>><?= $guild->name ?></option>
           <?php endforeach; ?>
         </select>
+        <br/>
+        <br/>
         <?php
         echo $this->Form->button(__("Ajouter un combattant"), array('class' => 'btn btn-success'));
         echo $this->Form->end();
@@ -87,8 +90,10 @@
     </ul>
   </div>
 </div>
+</div>
 
-<div class=" card-deck">
+
+
   <?php foreach($fighters as $fighter):
     echo $this->Form->create('UpdateName',array(
       'url' => array(
@@ -123,17 +128,17 @@
       <ul class="list-group list-group-flush" style="margin-left:0">
         <li class="list-group-item">
           <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>
-          <img src="../webroot/img/caracteristiques/view.png" class="carac-img"/>
+          <img src="../webroot/img/caracteristiques/view.png" class=""/>
           Distance de vue
         </li>
         <li class="list-group-item">
           <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_strength ?></span>
-          <img src="../webroot/img/caracteristiques/health.png" class="carac-img"/>
+          <img src="../webroot/img/caracteristiques/health.png" class=""/>
           Santé
         </li>
         <li class="list-group-item">
           <span class="tag tag-default tag-pill float-xs-right"> <?= $fighter->skill_health ?></span>
-          <img src="../webroot/img/caracteristiques/attack.png" class="carac-img"/>
+          <img src="../webroot/img/caracteristiques/attack.png" class=""/>
           Force
         </li>
       </ul>
@@ -141,17 +146,18 @@
         <div class=card-block>
           <h4 class="card-title text-justify">
             <img class=col-lg-3 src="../webroot/img/tabard_guilde/guild_<?= $guild->id ?>.png">
-            <?= $guild->name ?></h4>
+            <?= $guild->name ?>
+          </h4>
           </div>
           <ul class="list-group list-group-flush" style="margin-left:0">
             <li class="list-group-item">
               <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_strength ?></span>
-              <img src="../webroot/img/caracteristiques/health.png" class="carac-img"/>
+              <img src="../webroot/img/avg_lvl.png" class="img-responsive"/>
               Moyenne LVL
             </li>
             <li class="list-group-item">
               <span class="tag tag-default tag-pill float-xs-right"> <?= $fighter->skill_health ?></span>
-              <img src="../webroot/img/caracteristiques/attack.png" class="carac-img"/>
+              <img src="../webroot/img/clsmt_guild.png" class=""/>
               Classement guilde
             </li>
           </ul>
@@ -167,8 +173,13 @@
 
             <div class="card-link">
               <?php
+<<<<<<< HEAD
+              echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success', action));
+              echo $this->Form->button(__("Supprimer"), array('class' => 'btn btn-danger'));
+=======
               echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success'));
               echo $this->Html->link(__("Supprimer"), ['controller' => 'players', 'action' => 'removeFighter', $fighter->id], array('class' => 'btn btn-danger'));
+>>>>>>> 8ccae5476560380d736a8d5c16dfcf68cc6e6dd1
               echo $this->Form->end();
               ?>
             </div>
@@ -176,6 +187,7 @@
         </div>
       <?php endforeach; ?>
     <?php endforeach; ?>
+</div>
 </div>
 </div>
 
