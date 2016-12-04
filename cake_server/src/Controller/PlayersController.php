@@ -64,6 +64,7 @@ class PlayersController extends AppController
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
+    $this->set('guildCount',$guilds->count());
   }
 
   // Fonction d'ajout d'un utilisateur
@@ -253,6 +254,7 @@ class PlayersController extends AppController
 
   public function play(){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
     $fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id' => $id
@@ -263,24 +265,23 @@ class PlayersController extends AppController
 
     if($fighters->count() != 0){
       $fighter = $fighters->first();
-      $current_health = $fighter->current_health;
-      $health = $fighter->skill_health;
-      $sight = $fighter->skill_sight;
-      $strength = $fighter->skill_strength;
-      $id = $fighter->id;
-      $posX = $fighter->coordinate_x;
-      $posY = $fighter->coordinate_y;
-      $xp = $fighter->xp;
-      $level = $fighter->level;
-      $name=$fighter->name;
     }
     else {
-      $health = 0;
-      $sight = 0;
-      $strenght = 0;
-      $posX = 0;
-      $posY = 0;
+      $fighter = $this->Players->Fighters->newEntity();
+      $this->Players->Fighters->save($fighter);
     }
+
+    $current_health = $fighter->current_health;
+    $health = $fighter->skill_health;
+    $sight = $fighter->skill_sight;
+    $strength = $fighter->skill_strength;
+    $id = $fighter->id;
+    $posX = $fighter->coordinate_x;
+    $posY = $fighter->coordinate_y;
+    $xp = $fighter->xp;
+    $level = $fighter->level;
+    $name=$fighter->name;
+
     $this->set('health',$health);
     $this->set('sight',$sight);
     $this->set('strength',$strength);

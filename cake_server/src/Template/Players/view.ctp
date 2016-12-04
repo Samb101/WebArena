@@ -144,11 +144,14 @@
           Force
         </li>
       </ul>
-      <?php foreach($guilds as $guild): ?>
         <div class=card-block>
           <h4 class="card-title text-justify">
             <img class=col-lg-3 src="../webroot/img/tabard_guilde/guild_<?= $guild->id ?>.png">
-            <?= $guild->name ?>
+            <?php foreach($guilds as $guild):?>
+            <?php if($guild->id==$fighter->guild_id){
+                    echo $guild->name;
+                  }
+                  endforeach;?>
           </h4>
           </div>
           <ul class="list-group list-group-flush" style="margin-left:0">
@@ -182,7 +185,6 @@
             </div>
           </div>
         </div>
-      <?php endforeach; ?>
     <?php endforeach; ?>
 </div>
 <ol class="breadcrumb" style="margin-left:0">

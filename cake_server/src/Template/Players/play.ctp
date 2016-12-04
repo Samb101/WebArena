@@ -27,7 +27,7 @@
             </div>
             <div class="text-xs-center" id="xp-text">XP : <?= $xp ?></div>
             <progress class="progress" value="<?= $xp%4/4*100?>" max="100" aria-describedby="xp-test" id="xp-progress"></progress>
-            <div class="text-xs-center" id="pv-text">PV : <?= $xp ?></div>
+            <div class="text-xs-center" id="pv-text">PV : <?= $current_health ?></div>
             <progress class="progress" value="<?=$current_health?>" max="<?=$health?>" aria-describedby="pv-progress" id="pv-progress"></progress>
         </div>
         <ul class="list-group list-group-flush" style="margin-left:0">
