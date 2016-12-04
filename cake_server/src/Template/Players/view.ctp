@@ -173,8 +173,13 @@
 
             <div class="card-link">
               <?php
+<<<<<<< HEAD
               echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success', action));
               echo $this->Form->button(__("Supprimer"), array('class' => 'btn btn-danger'));
+=======
+              echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success'));
+              echo $this->Html->link(__("Supprimer"), ['controller' => 'players', 'action' => 'removeFighter', $fighter->id], array('class' => 'btn btn-danger'));
+>>>>>>> 8ccae5476560380d736a8d5c16dfcf68cc6e6dd1
               echo $this->Form->end();
               ?>
             </div>

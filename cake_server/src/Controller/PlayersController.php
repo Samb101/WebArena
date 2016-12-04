@@ -260,20 +260,32 @@ class PlayersController extends AppController
     ]);
     if($fighters->count() != 0){
       $fighter = $fighters->first();
+      $current_health = $fighter->current_health;
       $health = $fighter->skill_health;
       $sight = $fighter->skill_sight;
       $strength = $fighter->skill_strength;
       $id = $fighter->id;
+      $posX = $fighter->coordinate_x;
+      $posY = $fighter->coordinate_y;
+      $xp = $fighter->xp;
+      $level = $fighter->level;
     }
     else {
       $health = 0;
       $sight = 0;
       $strenght = 0;
+      $posX = 0;
+      $posY = 0;
     }
     $this->set('health',$health);
     $this->set('sight',$sight);
     $this->set('strength',$strength);
+    $this->set('current_health',$current_health);
     $this->set('id',$id);
+    $this->set('posX',$posX);
+    $this->set('posY',$posY);
+    $this->set('xp',$xp);
+    $this->set('level',$level);
   }
 
   public function addEventWithMessage(){
@@ -318,6 +330,121 @@ class PlayersController extends AppController
 
         $this->response->send();
       }
+    }
+  }
+
+  public function getFighterInformations(){
+    $this->autoRender = false;
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null){
+      sendErrorMessage($this->response);
+      return;
+    }
+
+    if($this->request->is('post')){
+      $fighterID = $this->request->data("id");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        "conditions" => [
+          "id" => $fighterID
+        ]
+      ]);
+
+      if($fighters->count()>0){
+        $fighter = $fighters->first();
+        $current_health = $fighter->current_health;
+        $skill_sight = $fighter->skill_sight;
+        $skill_health = $fighter->skill_health;
+        $skill_strength = $fighter->skill_strength;
+        $xp = $fighter->xp;
+
+        $this->response->body(json_encode(array(
+          'current_health' => $current_health,
+          'skill_sight' => $skill_sight,
+          'skill_health' => $skill_health,
+          'skill_strength' => $skill_strength,
+          'xp' => $xp
+        )));
+
+        $this->response->send();
+        die();
+        return;
+      }
+      else {
+        sendErrorMessage($this->response);
+        return;
+      }
+    }
+    else {
+      sendErrorMessage($this->response);
+      return;
+    }
+  }
+
+  public function lossOfLifePoints(){
+    $this->autoRender = false;
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
+    if($id == null){
+      sendErrorMessage($this->response);
+      return;
+    }
+
+    if($this->request->is('post')){
+      $fighterID = $this->request->data("id");
+      $level = $this->request->data("level");
+      $loss = $this->request->data("loss");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        "conditions" => [
+          "id" => $fighterID
+        ]
+      ]);
+
+      if($fighters->count()>0){
+
+        $fighter = $fighters->first();
+
+        $threshold = (rand(0,20)>10+$fighter->level-$level) ? true : false;
+
+        if($threshold)
+          $current_health = $fighter->current_health-$loss;
+
+        $fighter->__set('current_health',$current_health);
+        $this->Players->Fighters->save($fighter);
+
+        if($current_health<=0){
+          $this->Players->Fighters->delete($fighter);
+          $this->response->body(json_encode(array(
+            'success' => 1,
+            'message' => 'OK.',
+            'over' => true,
+            'got' => $threshold
+          )));
+        }
+        else {
+          $this->response->body(json_encode(array(
+            'success' => 1,
+            'message' => 'OK.',
+            'over' => false
+          )));
+        }
+
+        $this->response->send();
+        die();
+        return;
+      }
+      else {
+        sendErrorMessage($this->response);
+        return;
+      }
+    }
+    else {
+      sendErrorMessage($this->response);
+      return;
     }
   }
 
@@ -391,7 +518,7 @@ class PlayersController extends AppController
 
       $fighters = $this->Players->Fighters->find("all",[
         'conditions' => [
-          'coordinate_x !=' => -1,
+          'coordinate_x !=' => -21,
           'player_id !=' => $id
         ]
       ]);
