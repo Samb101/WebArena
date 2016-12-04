@@ -1,8 +1,6 @@
 <!-- File: src/Template/Players/play.ctp -->
 <div id="arena_container">
   <canvas id="arena"></canvas>
-  <div class="menu">
-  </div>
   <span display="none" id="fighterID"><?=$id?></span>
   <span display="none" id="posX"><?=$posX?></span>
   <span display="none" id="posY"><?=$posY?></span>
@@ -22,5 +20,7 @@
   <div class="details">
     <label>XP : <?=$xp?> / 4</label>
     <progress value="<?=$xp%4?>" max="4" id="health"></progress>
+  </div>
+  <div class="menu">
   </div>
 </div>
