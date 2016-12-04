@@ -363,12 +363,15 @@ class PlayersController extends AppController
         $skill_strength = $fighter->skill_strength;
         $xp = $fighter->xp;
 
+        $this->response->type('json');
+        
         $this->response->body(json_encode(array(
           'current_health' => $current_health,
           'skill_sight' => $skill_sight,
           'skill_health' => $skill_health,
           'skill_strength' => $skill_strength,
-          'xp' => $xp
+          'xp' => $xp,
+          'success' => 1
         )));
 
         $this->response->send();
@@ -545,6 +548,8 @@ class PlayersController extends AppController
 }
 
 function sendErrorMessage($response){
+  $response->type('json');
+
   $response->body(json_encode(array(
   'success' => 0,
   'message' => 'Wrong request headers.'

@@ -63,15 +63,12 @@ function fetchFighters(){
         updateFightersLocally(JSON.parse(response));
       });
       $.post("http://localhost:8888/players/getFighterInformations",{"id":document.getElementById('fighterID').innerText},function(response){
-        var res = JSON.parse(response);
-        var fighterInformations = {};
-        fighterInformations.current_health = res.current_health;
-        fighterInformations.level = res.level;
-        fighterInformations.xp = res.xp;
-        fighterInformations.skill_sight = res.skill_sight;
-        fighterInformations.skill_health = res.skill_health;
-        fighterInformations.skill_strength = res.skill_strength;
-        updateFighterInformations(fighterInformations);
+        if(response.success == 1){
+          updateFighterInformations(response);
+        }
+        else {
+          window.location = "http://localhost:8888/players/view";
+        }
       })
     },300);
   });
