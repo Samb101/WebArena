@@ -1,6 +1,8 @@
 <!-- File: src/Template/Players/play.ctp -->
 <div id="arena_container">
   <canvas id="arena"></canvas>
+  <div class="menu">
+  </div>
   <span display="none" id="fighterID"><?=$id?></span>
   <span display="none" id="posX"><?=$posX?></span>
   <span display="none" id="posY"><?=$posY?></span>

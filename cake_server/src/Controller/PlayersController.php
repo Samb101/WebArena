@@ -255,6 +255,9 @@ class PlayersController extends AppController
         'player_id' => $id
       ]
     ]);
+
+    $this->set('fighters',$fighters);
+    
     if($fighters->count() != 0){
       $fighter = $fighters->first();
       $current_health = $fighter->current_health;
