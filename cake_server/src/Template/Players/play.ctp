@@ -13,8 +13,8 @@
       <!-- IMPORTANT DO NOT DELETE --->
 
       <canvas id="arena"></canvas>
-
-      <div class=card id="HUD-player">
+      <div class=row>
+      <div class="card col-lg-3">
         <div class=card-block>
           <div class=card-title>
             <img class="image-center" src="../webroot/img/portrait/portrait_<?=$id?>.png" alt="Icône de personnage" />
@@ -51,8 +51,14 @@
           </li>
         </ul>
       </div>
-    </div>
 
+      <div class="card col-lg-3 pull-right"  >
+        <div class=card-block>
+          <h2 class=card-title> LVL UP ! </h2>
+        </div>
+    </div>
+</div>
+</div>
 
   <div class="col-lg-3">
     <div class=card>

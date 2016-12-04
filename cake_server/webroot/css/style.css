@@ -16,8 +16,8 @@ form{
 }
 
 #HUD-player{
-  max-width: 150px;
-  margin-top: 20px;
+  max-width: 150px !important;
+  margin-top: 20px !important;
 }
 
 @keyframes struggle {

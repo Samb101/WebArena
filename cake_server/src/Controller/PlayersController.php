@@ -53,9 +53,9 @@ class PlayersController extends AppController
     ]);
 
 
-  /*  $average_xp_guild =
-
-    $classement_guild =*/
+    $avg_guild =  $this->Players->Fighters->Guilds->find("all",[
+      "fields"     => array("AVG(level) AS avg")
+    ]);
 
 
 
@@ -64,6 +64,8 @@ class PlayersController extends AppController
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
+    $this->set('avg_guild',$avg_guild);
+
   }
 
   // Fonction d'ajout d'un utilisateur
@@ -359,6 +361,7 @@ class PlayersController extends AppController
 
       if($fighters->count()>0){
         $fighter = $fighters->first();
+          //      $name=$fighter->name;
         $current_health = $fighter->current_health;
         $skill_sight = $fighter->skill_sight;
         $skill_health = $fighter->skill_health;

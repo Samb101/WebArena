@@ -2,15 +2,13 @@
 <div class=container>
 <?php
   foreach($guilds as $guild) {?>
-
     <div class="row">
       <ol class="breadcrumb" style="margin-left:0">
-        <li class=breadcrumb-item><?= $guild->name ?></h2></li>
+        <li class=breadcrumb-item><?= $guild->name ?> <?= $avg_guild->avg ?></h2></li>
       </ol>
     </div>
-<div class=card-columns>
+    <div class=card-columns>
       <?php foreach($guild->fighters as $fighter){ ?>
-
         <div class=card>
           <div class=card-block>
             <div class=card-title>
@@ -18,9 +16,8 @@
                 <?= $fighter->name ?>
               </h3>
             </div>
-
             <p class="text-center font-weight-bold"> LVL  <?= $fighter->level?></p>
-            
+
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>

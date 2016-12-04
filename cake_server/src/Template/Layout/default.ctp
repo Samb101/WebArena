@@ -56,7 +56,7 @@ $basicURL = 'http://localhost:8888/';
        <ul class="nav navbar-nav">
            <li class="nav-item active"><a class="btn btn-outline-primary" href="<?= $basicURL ?>players/view">Tableau de bord</a></li>
            <li class="nav-item active"><a class="btn btn-outline-info" href="<?= $basicURL ?>guilds">Guildes</a></li>
-           <li class="nav-item active"><a class="btn btn-outline-warning" href="<?= $basicURL ?>players/edit">Historique</a></li>
+           <li class="nav-item active"><a class="btn btn-outline-warning" href="<?= $basicURL ?>players/historique">Historique</a></li>
            <li class="nav-item active"><a class="btn btn-outline-secondary" href="<?= $basicURL ?>players/edit">Paramètres du compte</a></li>
        </ul>
      </div>

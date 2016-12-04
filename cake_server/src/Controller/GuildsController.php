@@ -39,6 +39,7 @@ class GuildsController extends AppController
 
     $guildsArray = $this->buildUserGuildsArray($id);
     $this->set('guilds',$guildsArray);
+    $this->set('avg_guild',$avg_guild);
 
   }
 

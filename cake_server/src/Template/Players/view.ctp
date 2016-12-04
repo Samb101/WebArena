@@ -147,9 +147,13 @@
       <?php foreach($guilds as $guild): ?>
         <div class=card-block>
           <h4 class="card-title text-justify">
-            <img class=col-lg-3 src="../webroot/img/tabard_guilde/guild_<?= $guild->id ?>.png">
-            <?= $guild->name ?>
-          </h4>
+              <img class=col-lg-3 src="../webroot/img/tabard_guilde/guild_<?php foreach($guilds as $guild):?><?php if($guild->id==$fighter->guild_id){echo $guild->id;}endforeach;?>.png">
+              <?php foreach($guilds as $guild):?>
+              <?php if($guild->id==$fighter->guild_id){
+                      echo $guild->name;
+                    }
+                    endforeach;?>
+            </h4>
           </div>
           <ul class="list-group list-group-flush" style="margin-left:0">
             <li class="list-group-item">
