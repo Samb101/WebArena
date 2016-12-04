@@ -13,7 +13,7 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = 'WebArena';
 $basicURL = 'http://localhost:8888/';
 ?>
 <!DOCTYPE html>
@@ -48,16 +48,20 @@ $basicURL = 'http://localhost:8888/';
     <?= $this->Html->script('babylon.fireProceduralTexture.min.js') ?>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-inverse">
-            <ul class="nav navbar-nav">
-                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/view">Profil</a></li>
-                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>guilds">Guildes</a></li>
-                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/play">Jouer</a></li>
-                <li class="nav-item active"><a class="nav-link" href="<?= $basicURL ?>players/edit">Informations</a></li>
-            </ul>
+    <nav class="navbar navbar-light bg-faded" style="box-shadow:1px 1px rgba(0,0,0,0.2);">
+      <a class="navbar-brand" href="#"> Arena Junkies</a>
+  <a class="btn btn-outline-success" href="<?= $basicURL ?>players/play" role="button">Jouer</a>
+
+  <div class="float-xs-right">
+       <ul class="nav navbar-nav">
+           <li class="nav-item active"><a class="btn btn-outline-primary" href="<?= $basicURL ?>players/view">Tableau de bord</a></li>
+           <li class="nav-item active"><a class="btn btn-outline-info" href="<?= $basicURL ?>guilds">Guildes</a></li>
+           <li class="nav-item active"><a class="btn btn-outline-secondary" href="<?= $basicURL ?>players/edit">Paramètres du compte</a></li>
+       </ul>
+     </div>
     </nav>
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <div class="container clearfix" style="margin-top:50px">
         <?= $this->fetch('content') ?>
     </div>
     <footer>

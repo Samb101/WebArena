@@ -42,7 +42,6 @@ class PlayersController extends AppController
       ],
       'limit' => 5,
       'order' => array('level DESC')
-
     ]);
 
     $fighters = $this->Players->Fighters->find("all",[
@@ -50,6 +49,13 @@ class PlayersController extends AppController
         'player_id' => $id
       ]
     ]);
+
+
+  /*  $average_xp_guild =
+
+    $classement_guild =*/
+
+
     $guilds = $this->Players->Fighters->Guilds->find("all");
     $this->set('others_fighters',$others_fighters);
     $this->set('guilds',$guilds);
