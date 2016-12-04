@@ -252,17 +252,27 @@ function lossOfLifePoints(f){
     'level' : parseInt(document.getElementById('level').innerText)
   }
   $.post("http://localhost:8888/players/lossOfLifePoints",data,function(response){
-    alert(response);
     if(JSON.parse(response).over == true)
     {
+      createTextualInformation("../webroot/img/texts/dead.png");
       f.isVisible = false;
       fighters.splice(fighters.indexOf(f),1);
     }
-    if(JSON.parse(response).got == false)
-    {
-      alert('Attaque manquée.');
+    else {
+      if(JSON.parse(response).got == false)
+        createTextualInformation("../webroot/img/texts/missed.png");
+      else
+        createTextualInformation("../webroot/img/texts/gotcha.png");
     }
   })
+}
+
+function createTextualInformation(path){
+  var img = $('<img src="'+path+'" alt="info" class="textualInformation"/>');
+  $('#arena_container').append(img);
+  window.setTimeout(function(){
+    img.remove();
+  },1000);
 }
 
 function sendFighterInformations(){
