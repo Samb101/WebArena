@@ -64,8 +64,12 @@ class PlayersController extends AppController
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
+<<<<<<< HEAD
     $this->set('avg_guild',$avg_guild);
 
+=======
+    $this->set('guildCount',$guilds->count());
+>>>>>>> 09b3d72d743cdfb6b61e65b0531f7706cad82217
   }
 
   // Fonction d'ajout d'un utilisateur
@@ -205,6 +209,25 @@ class PlayersController extends AppController
     }
   }
 
+  public function historique(){
+    date_default_timezone_set('UTC');
+
+    $this->autoRender = false;
+    $this->loadModel("Events");
+    $date = date('Y-m-d');
+    $date = date_create($date);
+
+    $beg = date_sub($date,date_interval_create_from_date_string("1 day"));
+
+    $events = $this->Events->find("all",[
+      "conditions" => [
+        "date >=" => $beg
+      ]
+    ]);
+
+    $this->set('events',$events);
+  }
+
   public function removeFighter($fighter_id = null){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
@@ -255,6 +278,7 @@ class PlayersController extends AppController
 
   public function play(){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
     $fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id' => $id
@@ -265,24 +289,23 @@ class PlayersController extends AppController
 
     if($fighters->count() != 0){
       $fighter = $fighters->first();
-      $current_health = $fighter->current_health;
-      $health = $fighter->skill_health;
-      $sight = $fighter->skill_sight;
-      $strength = $fighter->skill_strength;
-      $id = $fighter->id;
-      $posX = $fighter->coordinate_x;
-      $posY = $fighter->coordinate_y;
-      $xp = $fighter->xp;
-      $level = $fighter->level;
-      $name=$fighter->name;
     }
     else {
-      $health = 0;
-      $sight = 0;
-      $strenght = 0;
-      $posX = 0;
-      $posY = 0;
+      $fighter = $this->Players->Fighters->newEntity();
+      $this->Players->Fighters->save($fighter);
     }
+
+    $current_health = $fighter->current_health;
+    $health = $fighter->skill_health;
+    $sight = $fighter->skill_sight;
+    $strength = $fighter->skill_strength;
+    $id = $fighter->id;
+    $posX = $fighter->coordinate_x;
+    $posY = $fighter->coordinate_y;
+    $xp = $fighter->xp;
+    $level = $fighter->level;
+    $name=$fighter->name;
+
     $this->set('health',$health);
     $this->set('sight',$sight);
     $this->set('strength',$strength);
