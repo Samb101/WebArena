@@ -14,7 +14,7 @@
 
       <canvas id="arena"></canvas>
       <div class=row>
-      <div class="card col-lg-3">
+      <div class="card col-lg-3 HUD">
         <div class=card-block>
           <div class=card-title>
             <img class="image-center" src="../webroot/img/portrait/portrait_<?=$id?>.png" alt="Icône de personnage" />
@@ -52,9 +52,23 @@
         </ul>
       </div>
 
-      <div class="card col-lg-3 pull-right"  >
+      <div class="card col-lg-3 pull-right HUD">
         <div class=card-block>
-          <h2 class=card-title> LVL UP ! </h2>
+          <h5 class="text-center card-title"> LVL UP </h5>
+          <div class=row>
+          <img src="../webroot/img/caracteristiques/attack.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
+        <hr>
+        <div class=row>
+          <img src="../webroot/img/caracteristiques/view.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
+        <hr>
+        <div class=row>
+          <img src="../webroot/img/caracteristiques/health.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
         </div>
     </div>
 </div>

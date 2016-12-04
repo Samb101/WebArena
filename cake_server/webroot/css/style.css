@@ -1,9 +1,7 @@
-.navbar{
-  border-radius: 0 !important;
-}
 
-.card{
-  max-width: 300px;
+
+.pull-right{
+  float:right !important;
 }
 
 form{
@@ -15,9 +13,9 @@ form{
   margin:auto;
 }
 
-#HUD-player{
-  max-width: 150px !important;
-  margin-top: 20px !important;
+.HUD{
+  max-width: 180px;
+  margin:10px;
 }
 
 @keyframes struggle {
