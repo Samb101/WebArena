@@ -1,24 +1,25 @@
 <h1>Guildes</h1>
-<div class=jumbotron>
+<div class=container>
 <?php
   foreach($guilds as $guild) {?>
 
     <div class="row">
-    <img src="../webroot/img/tabard_guilde/guild_<?= $guild->id ?>.png" class="col-lg-3"/>
-    <h2><?= $guild->name ?></h2>
+      <ol class="breadcrumb" style="margin-left:0">
+        <li class=breadcrumb-item><?= $guild->name ?></h2></li>
+      </ol>
     </div>
-    <div class=card-deck>
+<div class=card-columns>
       <?php foreach($guild->fighters as $fighter){ ?>
 
         <div class=card>
           <div class=card-block>
-              <h3 class="card-title">
-                <img src="../webroot/img/portrait/portrait_<?= $fighter->id ?>.png" class="col-lg-6"/>
+            <div class=card-title>
+              <h3 class=""><img class="" src="../webroot/img/portrait/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
                 <?= $fighter->name ?>
               </h3>
-            <p class=font-weight-bold> LVL  <?= $fighter->level ?></p>
-            <p class=font-weight-bold> XP <?= $fighter->xp ?></p>
             </div>
+            <p class="text-center font-weight-bold"> LVL  <?= $fighter->level?></p>
+
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                   <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>
@@ -36,10 +37,9 @@
                   Classement guilde
                 </li>
               </ul>
+              </div>
             </div>
-            
       <?php }?>
-    <br/>
-  </div>
+    </div>
 <?php  }?>
 </div>

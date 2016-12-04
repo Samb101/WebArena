@@ -48,23 +48,40 @@ $basicURL = 'http://localhost:8888/';
     <?= $this->Html->script('babylon.fireProceduralTexture.min.js') ?>
 </head>
 <body>
+
     <nav class="navbar navbar-light bg-faded" style="box-shadow:1px 1px rgba(0,0,0,0.2);">
       <a class="navbar-brand" href="#"> Arena Junkies</a>
-  <a class="btn btn-outline-success" href="<?= $basicURL ?>players/play" role="button">Jouer</a>
-
-  <div class="float-xs-right">
+      <a class="btn btn-outline-success" href="<?= $basicURL ?>players/play" role="button">Jouer</a>
+      <div class="float-xs-right">
        <ul class="nav navbar-nav">
            <li class="nav-item active"><a class="btn btn-outline-primary" href="<?= $basicURL ?>players/view">Tableau de bord</a></li>
            <li class="nav-item active"><a class="btn btn-outline-info" href="<?= $basicURL ?>guilds">Guildes</a></li>
+           <li class="nav-item active"><a class="btn btn-outline-warning" href="<?= $basicURL ?>players/edit">Historique</a></li>
            <li class="nav-item active"><a class="btn btn-outline-secondary" href="<?= $basicURL ?>players/edit">Paramètres du compte</a></li>
        </ul>
      </div>
     </nav>
+
     <?= $this->Flash->render() ?>
     <div class="container clearfix" style="margin-top:50px">
         <?= $this->fetch('content') ?>
     </div>
-    <footer>
-    </footer>
+
+  <footer class="footer bd-footer">
+   <div class="container">
+    <ul class="inline-list">
+      <li><a href="https://github.com/twbs/bootstrap">Qui sommes-nous ?</a></li>
+      <li><a href="https://twitter.com/getbootstrap"></a></li>
+      <li><a href="/examples/">ECE Paris</a></li>
+      <li><a href="/about/history/">37 quai de Grenelle 75015</a></li>
+
+    </ul>
+    <ul class=inline-list>
+    <li> <p class=text-muted>Site Web réalisé par <a href="https://twitter.com/mdo" target="_blank"></a><a href="mailto:e.maincourt@gmail.com" target="_blank">Eliott Maincourt</a> et <a href="mailto:benais@edu.ece.fr">Samuel BENAÏS</a> sur une idée de Mr.Falconnet dans le cadre d'un projet en M1 à l'ECE Paris.</p>
+</li>
+</ul>
+   </div>
+  </footer>
+
 </body>
 </html>
