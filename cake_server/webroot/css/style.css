@@ -39,6 +39,9 @@ form{
 #arena_container > .details:nth-of-type(3){
   top: 60px;  left:0;
 }
+#arena_container > .details:nth-of-type(4){
+  top: 90px;  left:0;
+}
 
 canvas{
   width: 1200px;

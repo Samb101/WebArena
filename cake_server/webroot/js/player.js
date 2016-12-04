@@ -9,6 +9,7 @@ var playerModel = "../webroot/img/assets/daftpunk.babylon";
 var shotTexture = "../webroot/img/assets/fire.jpg";
 var movingSpeed = 2;
 var movingDelay = 10;
+var shots = [];
 
 var assets_path = "../img/assets/";
 var player_model = "clinton-vs-trump-chess-set.babylon";
@@ -54,40 +55,67 @@ function fetchFighters(){
 
     for(var i=0; i<response.length; i++)
     {
-      createFighter(response[i].coordinate_x,response[i].coordinate_y);
+      createFighter(response[i].coordinate_x,response[i].coordinate_y,response[i].id);
     }
 
     setInterval(function(){
       $.get("http://localhost:8888/players/getFightersPosition",function(response){
         updateFightersLocally(JSON.parse(response));
+      });
+      $.post("http://localhost:8888/players/getFighterInformations",{"id":document.getElementById('fighterID').innerText},function(response){
+        var res = JSON.parse(response);
+        var fighterInformations = {};
+        fighterInformations.current_health = res.current_health;
+        fighterInformations.level = res.level;
+        fighterInformations.xp = res.xp;
+        fighterInformations.skill_sight = res.skill_sight;
+        fighterInformations.skill_health = res.skill_health;
+        fighterInformations.skill_strength = res.skill_strength;
+        updateFighterInformations(fighterInformations);
       })
     },300);
   });
+}
+
+function updateFighterInformations(fighterInformations){
+  document.querySelector(".details:first-of-type > label").innerText = "Santé : "+fighterInformations.current_health+" / "+fighterInformations.skill_health;
+  document.querySelector(".details:first-of-type > progress").value = fighterInformations.current_health;
+  document.querySelector(".details:first-of-type > progress").max = fighterInformations.skill_health;
+  document.querySelector(".details:nth-of-type(2) > label").innerText = "Vue : "+fighterInformations.skill_sight;
+  document.querySelector(".details:nth-of-type(2) > progress").value = fighterInformations.skill_sight;
+  document.querySelector(".details:nth-of-type(3) > label").innerText = "Force : "+fighterInformations.skill_strength;
+  document.querySelector(".details:nth-of-type(3) > progress").value = fighterInformations.skill_strength;
+  document.querySelector(".details:nth-of-type(4) > label").innerText = "XP : "+fighterInformations.xp;
+  document.querySelector(".details:nth-of-type(4) > progress").value = fighterInformations.xp;
 }
 
 function updateFightersLocally(arr){
   for(var i=0; i<arr.length; i++)
     for(var j=0; j<fighters.length; j++)
       if(arr[i].id == fighters[j].id){
-        fighters[j].position = new BABYLON.Vector3(arr[i].coordinate_x,arr[i].coordinate_y);
+        fighters[j].position = new BABYLON.Vector3(arr[i].coordinate_x,playerH/2,arr[i].coordinate_y);
         arr.splice(i,1);
       }
-  for(var i=0; i<arr.length; i++)
-      createFighter(arr[i].coordinate_x,arr[i].coordinate_y);
+  for(var i=0; i<arr.length; i++){
+    createFighter(arr[i].coordinate_x,arr[i].coordinate_y,arr[i].id);
+  }
 }
 
-function createFighter(x,y){
+function createFighter(x,y,id){
   var fighter = PLAYER_MODEL.clone(PLAYER_MODEL.name);
   fighter.position = new BABYLON.Vector3(x,playerH/2,y);
   fighter.rotationQuaternion = null;
   fighter.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   fighter.isVisible = true;
+  fighter.id = id;
   fighters.push(fighter);
 }
 
 function createPlayer(){
+  var posX = document.getElementById('posX').innerText;
+  var posY = document.getElementById('posY').innerText;
   playR = PLAYER_MODEL.clone(PLAYER_MODEL.name);
-  playR.position = new BABYLON.Vector3(xmin+playerWidth,playerH/2,zmin+playerWidth);
+  playR.position = new BABYLON.Vector3(parseInt(posX),playerH/2,parseInt(posY));
   playR.rotationQuaternion = null;
   playR.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   playR.isVisible = true;
@@ -142,7 +170,7 @@ function smartMove(){
   if(playR.position.x-sinR*2*playerWidth<=xmax && playR.position.x-sinR*2*playerWidth>=xmin)
     playR.position.x -= sinR*2*playerWidth;
 
-  updateFighterInformations();
+  sendFighterInformations();
 }
 
 function getSin(rotationY){
@@ -186,7 +214,12 @@ function shoot(scene){
   shot.material = fireMaterial;
   shot.position = new BABYLON.Vector3(startx,shotSize,startz);
 
+  shots.push(shot);
+
   var myInterval = window.setInterval(function(){
+
+    computeCollisions();
+
     var cosR = getCos(rotationY);
     var sinR = getSin(rotationY);
 
@@ -202,7 +235,31 @@ function shoot(scene){
   },100);
 }
 
-function updateFighterInformations(){
+function computeCollisions(){
+  for(var i=0; i<shots.length; i++)
+    for(var j=0; j<fighters.length; j++)
+      if(shots[i].isVisible == true && shots[i].position.x == fighters[j].position.x && shots[i].position.z == fighters[j].position.z && fighters[j].isVisible == true){
+        shots[i].isVisible = false;
+        shots.splice(i,1);
+        lossOfLifePoints(fighters[j]);
+      }
+}
+
+function lossOfLifePoints(f){
+  var data = {
+    'id' : f.id,
+    'loss' : 1
+  }
+  $.post("http://localhost:8888/players/lossOfLifePoints",data,function(response){
+    if(JSON.parse(response).over == true)
+    {
+      f.isVisible = false;
+      fighters.splice(fighters.indexOf(f),1);
+    }
+  })
+}
+
+function sendFighterInformations(){
   var id = document.getElementById('fighterID').innerText;
   var current_health = document.getElementById('health').value;
   var coordinate_x = playR.position.x;

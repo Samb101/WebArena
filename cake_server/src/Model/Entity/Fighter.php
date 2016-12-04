@@ -52,13 +52,13 @@ class Fighter extends Entity
     }
 
     public function initParametersToNull(){
-      $this->coordinate_x = 0;
-      $this->coordinate_y = 0;
-      $this->level = 0;
+      $this->coordinate_x = -21;
+      $this->coordinate_y = -21;
+      $this->level = 1;
       $this->xp = 0;
       $this->skill_sight = 0;
-      $this->skill_health = 0;
-      $this->skill_strength = 0;
-      $this->current_health = 0;
+      $this->skill_health = 3;
+      $this->skill_strength = 1;
+      $this->current_health = 3;
     }
 }

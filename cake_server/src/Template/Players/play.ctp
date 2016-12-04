@@ -2,16 +2,22 @@
 <div id="arena_container">
   <canvas id="arena"></canvas>
   <span display="none" id="fighterID"><?=$id?></span>
+  <span display="none" id="posX"><?=$posX?></span>
+  <span display="none" id="posY"><?=$posY?></span>
   <div class="details">
-    <label>Santé :</label>
-    <progress value="<?=$health?>" max="<?=$health?>" id="health"></progress>
+    <label>Santé : <?=$current_health?> / <?=$health?></label>
+    <progress value="<?=$current_health?>" max="<?=$health?>" id="health"></progress>
   </div>
   <div class="details">
-    <label>Vue :</label>
-    <progress value="<?=$sight?>" max="<?=$sight?>" id="sight"></progress>
+    <label>Vue : <?=$sight?></label>
+    <progress value="<?=$sight?>" max="100" id="sight"></progress>
   </div>
   <div class="details">
-    <label>Force :</label>
-    <progress value="<?=$strength?>" max="<?=$strength?>" id="strength"></progress>
+    <label>Force : <?=$strength?></label>
+    <progress value="<?=$strength?>" max="100" id="strength"></progress>
+  </div>
+  <div class="details">
+    <label>XP : <?=$xp?> / 4</label>
+    <progress value="<?=$xp%4?>" max="4" id="health"></progress>
   </div>
 </div>
