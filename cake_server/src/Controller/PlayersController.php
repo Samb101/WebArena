@@ -64,12 +64,8 @@ class PlayersController extends AppController
     $this->set('guilds',$guilds);
     $this->set('fighters',$fighters);
     $this->set('id',$id);
-<<<<<<< HEAD
     $this->set('avg_guild',$avg_guild);
-
-=======
     $this->set('guildCount',$guilds->count());
->>>>>>> 09b3d72d743cdfb6b61e65b0531f7706cad82217
   }
 
   // Fonction d'ajout d'un utilisateur
