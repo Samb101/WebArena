@@ -51,15 +51,34 @@ function loadModels(scene,canvas,engine){
 function fetchFighters(){
   $.get("http://localhost:8888/players/getFightersPosition",function(response){
     response = JSON.parse(response);
-    response.forEach(function(el){
-      createFighter(el.coordinate_x,el.coordinate_y);
-    });
+
+    for(var i=0; i<response.length; i++)
+    {
+      createFighter(response[i].coordinate_x,response[i].coordinate_y);
+    }
+
+    setInterval(function(){
+      $.get("http://localhost:8888/players/getFightersPosition",function(response){
+        updateFightersLocally(JSON.parse(response));
+      })
+    },300);
   });
+}
+
+function updateFightersLocally(arr){
+  for(var i=0; i<arr.length; i++)
+    for(var j=0; j<fighters.length; j++)
+      if(arr[i].id == fighters[j].id){
+        fighters[j].position = new BABYLON.Vector3(arr[i].coordinate_x,arr[i].coordinate_y);
+        arr.splice(i,1);
+      }
+  for(var i=0; i<arr.length; i++)
+      createFighter(arr[i].coordinate_x,arr[i].coordinate_y);
 }
 
 function createFighter(x,y){
   var fighter = PLAYER_MODEL.clone(PLAYER_MODEL.name);
-  fighter.position = new BABYLON.Vector3(x,y);
+  fighter.position = new BABYLON.Vector3(x,playerH/2,y);
   fighter.rotationQuaternion = null;
   fighter.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   fighter.isVisible = true;
@@ -195,7 +214,6 @@ function updateFighterInformations(){
     "coordinate_y" : coordinate_y
   }
   $.post("http://localhost:8888/players/updateFighterInformations",data,function(response){
-    alert(response);
   });
 }
 // Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3

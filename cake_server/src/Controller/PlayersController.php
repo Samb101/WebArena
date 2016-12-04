@@ -388,7 +388,8 @@ class PlayersController extends AppController
 
       $fighters = $this->Players->Fighters->find("all",[
         'conditions' => [
-          'coordinate_x !=' => -1
+          'coordinate_x !=' => -1,
+          'player_id !=' => $id
         ]
       ]);
       $this->response->charset('UTF-8');
