@@ -25,6 +25,10 @@
   margin:10px;
 }
 
+#lvlup{
+  display:none;
+}
+
 /* pour la bordure de la navbar */
 #navbar-border{
   box-shadow:1px 1px rgba(0,0,0,0.2);

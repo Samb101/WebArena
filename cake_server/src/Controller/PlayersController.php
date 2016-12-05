@@ -38,8 +38,6 @@ class PlayersController extends AppController
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
-
-
     $others_fighters = $this->Players->Fighters->find("all",[
       'conditions' => [
         'player_id !=' => $id
@@ -54,12 +52,9 @@ class PlayersController extends AppController
       ]
     ]);
 
-
     $avg_guild =  $this->Players->Fighters->Guilds->find("all",[
       "fields"     => array("AVG(level) AS avg")
     ]);
-
-
 
     $guilds = $this->Players->Fighters->Guilds->find("all");
     $this->set('others_fighters',$others_fighters);
@@ -411,6 +406,7 @@ class PlayersController extends AppController
         $skill_health = $fighter->skill_health;
         $skill_strength = $fighter->skill_strength;
         $xp = $fighter->xp;
+        $level = $fighter->level;
 
         $this->response->type('json');
 
@@ -420,6 +416,7 @@ class PlayersController extends AppController
           'skill_health' => $skill_health,
           'skill_strength' => $skill_strength,
           'xp' => $xp,
+          'level' => $level,
           'success' => 1
         )));
 
@@ -449,6 +446,7 @@ class PlayersController extends AppController
     }
 
     if($this->request->is('post')){
+      $ownFighter = $this->request->data("player");
       $fighterID = $this->request->data("id");
       $level = $this->request->data("level");
       $loss = $this->request->data("loss");
@@ -474,20 +472,51 @@ class PlayersController extends AppController
         $this->Players->Fighters->save($fighter);
 
         if($current_health<=0){
+          $player = $this->Players->Fighters->find("all",[
+            "conditions" => [
+              "id" => $ownFighter
+            ]
+          ]);
+          if($player->count()>0 && $threshold)
+          {
+            $player = $player->first();
+            $oldLevel = $player->level;
+            $player->xp+=1;
+            $player->xp+=$fighter->level;
+            $player->level = floor($player->xp/4)+1;
+            $this->Players->Fighters->save($player);
+          }
           $this->Players->Fighters->delete($fighter);
+          $this->response->type('json');
           $this->response->body(json_encode(array(
             'success' => 1,
             'message' => 'OK.',
             'over' => true,
-            'got' => $threshold
+            'got' => $threshold,
+            'levelup' => $oldLevel!=$player->level
           )));
         }
         else {
+          $player = $this->Players->Fighters->find("all",[
+            "conditions" => [
+              "id" => $ownFighter
+            ]
+          ]);
+          if($player->count()>0  && $threshold)
+          {
+            $player = $player->first();
+            $oldLevel = $player->level;
+            $player->xp+=1;
+            $player->level = floor($player->xp/4);
+            $this->Players->Fighters->save($player);
+          }
+          $this->response->type('json');
           $this->response->body(json_encode(array(
             'success' => 1,
             'message' => 'OK.',
             'over' => false,
-            'got' => $threshold
+            'got' => $threshold,
+            'levelup' => $oldLevel!=$player->level
           )));
         }
 
@@ -615,11 +644,7 @@ class PlayersController extends AppController
 
       if($fighters->count()>0){
         $fighter = $fighters->first();
-        $this->response->charset('UTF-8');
-        $this->response->type('JSON');
-        $this->response->body(json_encode($fighter));
-        $this->response->send();
-        die();
+        sendJSONMessage($this->response,$fighter);
         return;
       }
       else{
@@ -633,6 +658,15 @@ class PlayersController extends AppController
     }
   }
 }
+
+function sendJSONMessage($response,$array){
+  $this->response->charset('UTF-8');
+  $response->type('json');
+  $response->body(json_encode($array))
+  $response->send();
+  die();
+}
+
 function sendErrorMessage($response){
   $response->type('json');
 

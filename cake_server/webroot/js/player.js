@@ -10,6 +10,7 @@ var shotTexture = "../webroot/img/assets/fire.jpg";
 var movingSpeed = 2;
 var movingDelay = 10;
 var shots = [];
+var currentImprovements = 0;
 
 var assets_path = "../img/assets/";
 var player_model = "clinton-vs-trump-chess-set.babylon";
@@ -82,6 +83,7 @@ function updateFighterInformations(fighterInformations){
   document.querySelector("#strength").innerText = fighterInformations.skill_strength;
   document.querySelector("#xp-text").innerText = "XP : "+fighterInformations.xp;
   document.querySelector("#xp-progress").value = fighterInformations.xp;
+  document.querySelector("#level").innerText = "LVL "+fighterInformations.level;
 }
 
 function updateFightersLocally(arr){
@@ -258,22 +260,38 @@ function lossOfLifePoints(f){
   var data = {
     'id' : f.id,
     'loss' : 1,
-    'level' : parseInt(document.getElementById('level').innerText)
+    'level' : parseInt(document.getElementById('level').innerText),
+    'player' : parseInt(document.getElementById('fighterID').innerText)
   }
   $.post("http://localhost:8888/players/lossOfLifePoints",data,function(response){
-    if(JSON.parse(response).over == true)
+    alert(JSON.stringify(response));
+    if(response.over == true)
     {
       createTextualInformation("../webroot/img/texts/dead.png");
       f.isVisible = false;
       fighters.splice(fighters.indexOf(f),1);
     }
     else {
-      if(JSON.parse(response).got == false)
+      if(response.got == false)
         createTextualInformation("../webroot/img/texts/missed.png");
       else
         createTextualInformation("../webroot/img/texts/gotcha.png");
     }
+    if(response.levelup == true){
+      currentImprovements++;
+      document.getElementById('lvlup').style.display = 'block';
+    }
   })
+}
+
+function changeTabard(pictureId, guildId){
+  var data = {
+    'id' : pictureId,
+    'guild_id' : guildId
+  }
+  $.post('http://localhost:8888/change-tabard',data,function(response){
+    window.redirect('http://localhost:8888/guilds/view');
+  });
 }
 
 function createTextualInformation(path){
