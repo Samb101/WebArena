@@ -3,14 +3,17 @@ var playerH = 5;
 var playerWidth = 1;
 var playR;
 var fighters = [];
+var obstacles = [];
 var onMove = false;
 var playerTexture = "../webroot/img/assets/smiley_texture.jpeg";
 var playerModel = "../webroot/img/assets/daftpunk.babylon";
 var shotTexture = "../webroot/img/assets/fire.jpg";
+var woodTexture = "../webroot/img/assets/ground_texture_2.jpg";
 var movingSpeed = 2;
 var movingDelay = 10;
 var shots = [];
 var currentImprovements = 0;
+var obstaclesHeight = 2;
 
 var assets_path = "../img/assets/";
 var player_model = "clinton-vs-trump-chess-set.babylon";
@@ -25,7 +28,6 @@ Player = function(game, canvas, engine) {
     // Initialisation de la caméra
     loadModels(this.scene,canvas,engine);
 };
-
 
 function loadModels(scene,canvas,engine){
   BABYLON.SceneLoader.ImportMesh("king",assets_path,player_model,scene,function(meshes){
@@ -42,6 +44,8 @@ function loadModels(scene,canvas,engine){
 
     addInteractionsListeners(scene);
 
+    getObstacles(scene);
+
     scene.camera = createCamera(scene,canvas);
     // Permet au jeu de tourner
     engine.runRenderLoop(function () {
@@ -52,7 +56,6 @@ function loadModels(scene,canvas,engine){
 
 function fetchFighters(){
   $.get("http://localhost:8888/players/getFightersPosition",function(response){
-    response = JSON.parse(response);
 
     for(var i=0; i<response.length; i++)
     {
@@ -61,7 +64,7 @@ function fetchFighters(){
 
     setInterval(function(){
       $.get("http://localhost:8888/players/getFightersPosition",function(response){
-        updateFightersLocally(JSON.parse(response));
+        updateFightersLocally(response);
       });
       $.post("http://localhost:8888/players/getFighterInformations",{"id":document.getElementById('fighterID').innerText},function(response){
         if(response.success == 1){
@@ -127,6 +130,7 @@ function createPlayer(){
   var posY = document.getElementById('posY').innerText;
   playR = PLAYER_MODEL.clone(PLAYER_MODEL.name);
   playR.position = setRandomPosition();
+  sendFighterInformations();
   playR.rotationQuaternion = null;
   playR.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   playR.isVisible = true;
@@ -152,7 +156,7 @@ function addInteractionsListeners(scene){
 			playR.rotation.y += (playR.rotation.y*180/Math.PI==-315)?playR.rotation.y:Math.PI/4;
     else if (char=="a")
       playR.rotation.y -= (playR.rotation.y*180/Math.PI==315)?-1*playR.rotation.y:Math.PI/4;
-    else if (char == " ")
+    else if (char == "s")
       shoot(scene);
     else if (char == "o")
       scene.camera.radius-=2;
@@ -176,9 +180,9 @@ function smartMove(){
   cosR = getCos(rotationY);
   sinR = getSin(rotationY);
 
-  if(playR.position.z-cosR*2*playerWidth<=zmax && playR.position.z-cosR*2*playerWidth>=zmin)
+  if(playR.position.z-cosR*2*playerWidth<=zmax && playR.position.z-cosR*2*playerWidth>=zmin && isAvailable(playR.position.x,playR.position.z-cosR*2*playerWidth))
     playR.position.z -= cosR*2*playerWidth;
-  if(playR.position.x-sinR*2*playerWidth<=xmax && playR.position.x-sinR*2*playerWidth>=xmin)
+  if(playR.position.x-sinR*2*playerWidth<=xmax && playR.position.x-sinR*2*playerWidth>=xmin && isAvailable(playR.position.x-sinR*2*playerWidth,playR.position.z))
     playR.position.x -= sinR*2*playerWidth;
 
   sendFighterInformations();
@@ -210,6 +214,30 @@ function getCos(rotationY){
   return cosR;
 }
 
+function getObstacles(scene){
+  $.get('http://localhost:8888/players/getObstacles',function(response){
+    var obstacles = response;
+    for(var i=0; i<obstacles.length; i++){
+      if(obstacles[i].type == "1"){
+        obstacles.model = createObstacle(obstacles[i].coordinate_x,obstacles[i].coordinate_y,scene);
+      }
+    }
+  });
+}
+
+function createObstacle(x,y,scene){
+  var box = BABYLON.Mesh.CreateBox("box", obstaclesHeight, scene);
+
+  var woodMaterial = new BABYLON.StandardMaterial("wood",scene);
+  woodMaterial.diffuseTexture = new BABYLON.Texture(woodTexture, scene);
+
+  box.position = new BABYLON.Vector3(x,2*obstaclesHeight/2,y);
+  box.material = woodMaterial;
+
+  box.isVisible = true;
+
+  return box;
+}
 
 function shoot(scene){
   var startx = playR.position.x;
@@ -227,8 +255,9 @@ function shoot(scene){
 
   shots.push(shot);
 
-  var myInterval = window.setInterval(function(){
+  var sight = parseInt(document.querySelector("#sight").innerText)+3;
 
+  setIntervalX(function(){
     computeCollisions();
 
     var cosR = getCos(rotationY);
@@ -239,11 +268,9 @@ function shoot(scene){
       shot.position.z -= 2*shotSize*cosR;
       shot.position.x -= 2*shotSize*sinR;
     }
-    else {
-      clearInterval(myInterval);
-      shot.dispose();
-    }
-  },100);
+
+    return shot;
+  },100,sight);
 }
 
 function computeCollisions(){
@@ -254,17 +281,33 @@ function computeCollisions(){
         shots.splice(i,1);
         lossOfLifePoints(fighters[j]);
       }
+  for(var i=0; i<shots.length; i++)
+    for(var j=0; j<obstacles.length; j++)
+      if(shots[i].isVisible == true && shots[i].position.x == obstacles[j].model.position.x && shots[i].position.z == obstacles[j].model.position.z && obstacles[j].model.isVisible == true){
+        shots[i].isVisible = false;
+        shots.splice(i,1);
+      }
+}
+
+function isAvailable(x,y){
+  for(var i=0; i<obstacles.length; i++){
+    console.log("Comparing : xplayer "+x+" yplayer "+y+" xobs "+obstacles[i].model.position.x+" yosb "+obstacles[i].model.position.y);
+    if(obstacles[i].model.position.x==x && obstacles[i].model.position.y==y)
+      return false;
+  }
+  for(var i=0; i<fighters.length; i++)
+    if(fighters[i].position.x==x && fighters[i].position.y==y)
+      return false;
+  return true;
 }
 
 function lossOfLifePoints(f){
   var data = {
     'id' : f.id,
     'loss' : 1,
-    'level' : parseInt(document.getElementById('level').innerText),
     'player' : parseInt(document.getElementById('fighterID').innerText)
   }
   $.post("http://localhost:8888/players/lossOfLifePoints",data,function(response){
-    alert(JSON.stringify(response));
     if(response.over == true)
     {
       createTextualInformation("../webroot/img/texts/dead.png");
@@ -282,6 +325,16 @@ function lossOfLifePoints(f){
       document.getElementById('lvlup').style.display = 'block';
     }
   })
+}
+
+function upgradeSkill(skill){
+  var data = {
+    'skill' : skill,
+    'id' : parseInt(document.getElementById('fighterID').innerText)
+  }
+  $.post('http://localhost:8888/players/upgradeSkill',data,function(response){
+    document.getElementById('lvlup').style.display = 'none';
+  });
 }
 
 function changeTabard(pictureId, guildId){
@@ -306,7 +359,6 @@ function setNewPlayer(id){
   var oldId = document.getElementById('fighterID').innerText;
 
   $.post('http://localhost:8888/players/getPosition',{'id':id},function(response){
-    response = JSON.parse(response);
     playR.position = setRandomPosition();
     document.getElementById('fighterID').innerText = id;
   })
@@ -320,7 +372,6 @@ function setRandomPosition(){
     set=true;
     x = Math.floor((Math.random() * 2*xmax) + 1)-xmax;
     y = Math.floor((Math.random() * 2*zmax) + 1)-zmax;
-    console.log(x%2+' '+y%2);
     for(var i=0; i<fighters.length; i++)
       if(fighters[i].coordinate_x==x && fighters[i].coordinate_y==y)
         set=false;
@@ -368,3 +419,17 @@ Math.Sin = function(w){
 Math.Cos = function(w){
     return parseFloat(Math.cos(w).toFixed(10));
 };
+
+// Thanks to Daniel Vassallo http://stackoverflow.com/questions/2956966/javascript-telling-setinterval-to-only-fire-x-amount-of-times
+function setIntervalX(callback, delay, repetitions) {
+    var x = 0;
+    var intervalID = window.setInterval(function () {
+
+       var shot = callback();
+
+       if (++x === repetitions) {
+           window.clearInterval(intervalID);
+           shot.dispose();
+       }
+    }, delay);
+}

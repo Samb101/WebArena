@@ -334,49 +334,17 @@ class PlayersController extends AppController
     $this->set('name',$name);
   }
 
-  public function addEventWithMessage(){
+  public function addEventWithMessage($message){
 
     date_default_timezone_set('UTC');
 
     $this->autoRender = false;
     $this->loadModel("Events");
 
-    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
-
-    if($this->request->is('post')){
-
-      $fighterId = $this->request->data("id");
-
-      $fighters = $this->Players->Fighters->find("all",[
-        'conditions' => [
-          'id' => $fighterId,
-          'player_id' => $id
-        ]
-      ]);
-
-      if($fighters->count() != 0){
-        $event = $this->Events->newEntity();
-        $event->name = $this->request->data("message").$this->request->data("id");
-        $event->date = date('Y-m-d H-i-s');
-        $event->coordinate_y = $this->request->data("y");
-        $event->coordinate_x = $this->request->data("x");
-        $this->Events->save($event);
-        $this->response->body(json_encode(array(
-        'success' => 1,
-        'message' => 'Ok.'
-        )));
-
-        $this->response->send();
-      }
-      else {
-        $this->response->body(json_encode(array(
-        'success' => 0,
-        'message' => 'You are not allowed to perform the operation.'
-        )));
-
-        $this->response->send();
-      }
-    }
+    $event = $this->Events->newEntity();
+    $event->name = $message;
+    $event->date = date('Y-m-d H-i-s');
+    $this->Events->save($event);
   }
 
   public function getFighterInformations(){
@@ -446,88 +414,57 @@ class PlayersController extends AppController
     }
 
     if($this->request->is('post')){
+
       $ownFighter = $this->request->data("player");
       $fighterID = $this->request->data("id");
-      $level = $this->request->data("level");
       $loss = $this->request->data("loss");
 
-      $fighters = $this->Players->Fighters->find("all",[
-        "conditions" => [
-          "id" => $fighterID
-        ]
-      ]);
+      $fighter = $this->Players->Fighters->get($fighterID);
+      $player = $this->Players->Fighters->get($ownFighter);
+      $oldLevel = $player->level;
+      $threshold = (rand(0,20)>10+$fighter->level-$player->level) ? true : false;
 
-      if($fighters->count()>0){
+      if($threshold){
+        $this->addEventWithMessage($player->name." attaque ".$fighter->name);
+        $this->addEventWithMessage($fighter->name." perd ".$loss." points de vie.");
+        $current_health = $fighter->current_health-$loss;
+      }
+      else
+      {
+        $this->addEventWithMessage($player->name." rate son attaque sur ".$fighter->name);
+        $current_health = $fighter->current_health;
+      }
 
-        $fighter = $fighters->first();
+      $fighter->__set('current_health',$current_health);
+      $this->Players->Fighters->save($fighter);
 
-        $threshold = (rand(0,20)>10+$fighter->level-$level) ? true : false;
-
+      if($current_health<=0){
+        $this->addEventWithMessage($fighter->name." meurt.");
         if($threshold)
-          $current_health = $fighter->current_health-$loss;
-        else
-          $current_health = $fighter->current_health;
-
-        $fighter->__set('current_health',$current_health);
-        $this->Players->Fighters->save($fighter);
-
-        if($current_health<=0){
-          $player = $this->Players->Fighters->find("all",[
-            "conditions" => [
-              "id" => $ownFighter
-            ]
-          ]);
-          if($player->count()>0 && $threshold)
-          {
-            $player = $player->first();
-            $oldLevel = $player->level;
-            $player->xp+=1;
-            $player->xp+=$fighter->level;
-            $player->level = floor($player->xp/4)+1;
-            $this->Players->Fighters->save($player);
-          }
-          $this->Players->Fighters->delete($fighter);
-          $this->response->type('json');
-          $this->response->body(json_encode(array(
-            'success' => 1,
-            'message' => 'OK.',
-            'over' => true,
-            'got' => $threshold,
-            'levelup' => $oldLevel!=$player->level
-          )));
+        {
+          $player->xp+=1;
+          $player->xp+=$fighter->level;
+          $player->level = floor($player->xp/4)+1;
+          $exp = $fighter->level+1;
+          if($oldLevel!=$player->level)
+            $this->addEventWithMessage($player->name." gagne ".$exp." points d'expérience et monte d'un niveau. Niveau actuel : ".$player->level);
         }
-        else {
-          $player = $this->Players->Fighters->find("all",[
-            "conditions" => [
-              "id" => $ownFighter
-            ]
-          ]);
-          if($player->count()>0  && $threshold)
-          {
-            $player = $player->first();
-            $oldLevel = $player->level;
-            $player->xp+=1;
-            $player->level = floor($player->xp/4);
-            $this->Players->Fighters->save($player);
-          }
-          $this->response->type('json');
-          $this->response->body(json_encode(array(
-            'success' => 1,
-            'message' => 'OK.',
-            'over' => false,
-            'got' => $threshold,
-            'levelup' => $oldLevel!=$player->level
-          )));
-        }
-
-        $this->response->send();
-        die();
-        return;
+        $this->Players->Fighters->save($player);
+        $this->Players->Fighters->delete($fighter);
+        $array = array('success' => 1,'message' => 'OK.','over' => true,'got' => $threshold,'levelup' => $oldLevel!=$player->level);
       }
       else {
-        sendErrorMessage($this->response);
-        return;
+        if($threshold)
+        {
+          $player->xp+=1;
+          $player->level = floor($player->xp/4);
+          $this->addEventWithMessage($player->name." gagne 1 point d'expérience.");
+        }
+        $this->Players->Fighters->save($player);
+        $array = array('success' => 1,'message' => 'OK.','over' => false,'got' => $threshold,'levelup' => $oldLevel!=$player->level);
       }
+      sendJSONMessage($this->response,$array);
+      return;
     }
     else {
       sendErrorMessage($this->response);
@@ -565,13 +502,7 @@ class PlayersController extends AppController
 
         $this->Players->Fighters->save($fighter);
 
-        $this->response->body(json_encode(array(
-          'success' => 1,
-          'message' => 'OK.'
-        )));
-
-        $this->response->send();
-        die();
+        sendJSONMessage($this->response,['success'=>1,'message'=>'OK.']);
         return;
       }
       else {
@@ -608,11 +539,7 @@ class PlayersController extends AppController
           'player_id !=' => $id
         ]
       ]);
-      $this->response->charset('UTF-8');
-      $this->response->type('JSON');
-      $this->response->body(json_encode($fighters));
-      $this->response->send();
-      die();
+      sendJSONMessage($this->response,$fighters);
       return;
 
     }
@@ -657,12 +584,50 @@ class PlayersController extends AppController
       return;
     }
   }
+
+  public function upgradeSkill(){
+    $skill = $this->request->data('skill');
+    $id = $this->request->data('id');
+
+    $player = $this->Players->Fighters->get($id);
+    $allowUpgrade = $player->level-($player->skill_health/3+$player->skill_sight+$player->skill_strength);
+
+    if($allowUpgrade>0)
+    {
+      switch($skill){
+        case '1' :
+          $player->skill_health+=3;
+          break;
+        case '2' :
+          $player->skill_strength+=1;
+          break;
+        case '3' :
+          $player->skill_sight+=1;
+          break;
+        default :
+          break;
+      }
+      $this->Players->Fighters->save($player);
+      sendJSONMessage($this->response,['success'=>'1','message'=>'Skill Upgraded']);
+    }
+    else {
+      sendErrorMessage($this->response);
+    }
+  }
+
+  public function getObstacles(){
+    $this->loadModel('Surroundings');
+    $this->autoRender = false;
+    $obstacles = $this->Surroundings->find("all");
+    $obstacles = $obstacles->toArray();
+    sendJSONMessage($this->response,$obstacles);
+  }
 }
 
 function sendJSONMessage($response,$array){
-  $this->response->charset('UTF-8');
+  $response->charset('UTF-8');
   $response->type('json');
-  $response->body(json_encode($array))
+  $response->body(json_encode($array));
   $response->send();
   die();
 }

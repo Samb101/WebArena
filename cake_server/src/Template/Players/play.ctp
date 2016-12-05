@@ -57,17 +57,17 @@
           <h5 class="text-center card-title"> LVL UP </h5>
           <div class=row>
           <img src="../webroot/img/caracteristiques/attack.png" class="col-lg-6"/>
-          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6" onclick="upgradeSkill(2)"/>
         </div>
         <hr>
         <div class=row>
           <img src="../webroot/img/caracteristiques/view.png" class="col-lg-6"/>
-          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6" onclick="upgradeSkill(3)"/>
         </div>
         <hr>
         <div class=row>
           <img src="../webroot/img/caracteristiques/health.png" class="col-lg-6"/>
-          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6" onclick="upgradeSkill(1)"/>
         </div>
         </div>
     </div>
