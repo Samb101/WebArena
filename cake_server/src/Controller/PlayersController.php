@@ -662,7 +662,7 @@ class PlayersController extends AppController
 function sendJSONMessage($response,$array){
   $this->response->charset('UTF-8');
   $response->type('json');
-  $response->body(json_encode($array))
+  $response->body(json_encode($array));
   $response->send();
   die();
 }
