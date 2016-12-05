@@ -87,7 +87,7 @@ $basicURL = 'http://localhost:8888/';
       <p class=text-muted>Site Web réalisé par <a href="https://twitter.com/mdo" target="_blank"></a><a href="mailto:e.maincourt@gmail.com" target="_blank">Eliott Maincourt</a> et <a href="mailto:benais@edu.ece.fr">Samuel BENAÏS</a> sur une idée de Mr.Falconnet dans le cadre d'un projet en M1 à l'ECE Paris.</p>
     </li>
     <li>
-      <p class=text-muted>Hébergement à cette <a href="https://twitter.com/mdo" target="_blank">addresse.</a></p>
+      <p class=text-muted>Hébergement à cette <a href="http://www.arenajunkies.ovh" target="_blank">addresse.</a></p>
     </li>
     </ul>
    </div>
