@@ -110,14 +110,52 @@ class GuildsController extends AppController
     return false;
   }
 
-  public function removeGuild(){
+  public function changeTabard($id, $guild_id){
+    // On récupère l'ID du portrait que l'utilisateur avait choisi
+    $guild_id = $this->request->data('guild_id');
+    $guild_id = $this->request->data('id');
+
+    //On sélectionne ce portrait dans le dossier des modèles
+    $file = new File('../webroot/img/tabard_guilde/guild_'.$id.'.png', true, 0644);
+    $file->name = "guild_" . $guild_id . ".png";
+    // et on le copie dans le dossier des portraits des personnages avec l'ID de son personnage
+    if ($file->exists()) {
+        $dir = new Folder('../webroot/img/tabards_guilde/', true);
+        $file->copy($dir->path . DS . $file->name, true);
+    }
+
 
   }
+  public function removeGuild($guild_id = null){
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null) return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
+
+
+    $guild = $this->Guilds->get($guild_id);
+
+
+    $players_orphelin =$this->Guilds->Fighters->Players->find("all", [
+    'conditions' => [
+      'guild_id' => $guild
+    ]
+    ]);
+
+    if($this->Guilds->delete($guild)){
+      foreach($players_orphelin as $orphelin){
+          $orphelin->guild_id = NULL;
+      }
+        $this->redirect(['action' => 'view']);
+    }
+    else {
+      $this->redirect(['action' => 'error',"Impossible de supprimer le combattant."]);
+    }
+  }
+
 
   public function editGuild(){
 
   }
-  
+
 }
 
 
