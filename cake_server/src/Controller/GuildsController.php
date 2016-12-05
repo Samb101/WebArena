@@ -146,6 +146,7 @@ class GuildsController extends AppController
   }
 
 
+
   public function removeGuild($guild_id = null){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
 
@@ -174,33 +175,6 @@ class GuildsController extends AppController
       $this->redirect(['action' => 'error',"Impossible de supprimer le combattant."]);
     }
   }
-
-
-  public function editGuild(){
-    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
-    if($id == null)
-      return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
-
-    if($this->request->is('post')){
-      $guild_id = $this->request->data('id');
-      $tabard_id = $this->request->data('tabard');
-
-
-      $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0644);
-
-      if ($file->exists()) {
-          $file->name = "guild_" . $guild_id . ".png";
-          $dir = new Folder('../webroot/img/tabard_guilde/', true);
-          $file->copy($dir->path . DS . $file->name, true);
-      }
-      $this->redirect(['action' => 'view']);
-
-    }
-    else {
-      return $this->redirect(['action' => 'error',"La requête n\'est pas de type POST."]);
-    }
-
-}
 
 }
 

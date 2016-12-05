@@ -258,7 +258,7 @@
         <li class="nav-item"><a class="nav-link" href="#deroulement">Déroulement de la partie</a></li>
         <li class="nav-item"><a class="nav-link" href="#deplacements">Déplacements et raccourcis</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Règles de combat</a>
+          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Règles de combat et Bugs</a>
           <div class="dropdown-menu">
             <a class="dropdown-item active" href="#attaquer">Attaquer</a>
             <a class="dropdown-item" href="#two">Défendre</a>
@@ -273,6 +273,11 @@
 <!-- Le texte qui est Scrollspy -->
 <div data-spy="scroll" data-target="#mytarget" data-offset="0" class="scrollspy-example">
   <div class=container>
+    <h2> Scénario que l'on vous propose </h2>
+    <p> Créer un ou des joueurs sur cette page. </p>
+    <p> Créer une ou des guildes dans l'onglet Guildes. </p>
+    <p> Revenir sur cette page et attribuez une guilde à chacun de vos personnages </p>
+    <p> Allez sur le jeu et suivre ce texte. </p>
     <h2 id="deroulement">Déroulement de la partie</h2>
     <p>Vous pouvez créez des personnages sur cette page et ainsi composer une Armée.</p>
     <p>La puissance des personnages est définie par trois caractéristiques :</p>

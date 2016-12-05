@@ -159,34 +159,18 @@ class PlayersController extends AppController
     }
   }
 
-  // Fonction de destruction de la session
-  public function destroySession(){
-    $this->Cookie->write('email','');
-    $this->Cookie->write('password','');
-    $this->Cookie->delete('email');
-    $this->Cookie->delete('password');
-    return $this->redirect(['action' => 'login']);
-  }
-
-  // Fonction de modification des attributs d'un combattant
-  // Entrées :
-  // - fighterId : l'identifiant du combattant
-  // - guildId : l'identifiant de la nouvelle guilde
-  // - id_portrait : l'identifiant du nouveau portrait
   public function editFighter(){
-    // On vérifie que l'utilisateur est connecté
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
-    // S'il n'est pas connecté, on renvoit au login
     if($id == null)
       return $this->redirect(['action' => 'login']);
 
-    // On lit les informations du formulaire
     $fighter_id = $this->request->data('fighterId');
     $guild_id = $this->request->data('guildId');
 
     // On récupère l'ID du portrait que l'utilisateur avait choisi
     $portrait_id = $this->request->data('id_portrait');
     //On sélectionne ce portrait dans le dossier des modèles
+
     $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0644);
     $file->name = "portrait_" . $fighter_id . ".png";
     // et on le copie dans le dossier des portraits des personnages avec l'ID de son personnage
@@ -194,6 +178,7 @@ class PlayersController extends AppController
         $dir = new Folder('../webroot/img/portrait_fighters/', true);
         $file->copy($dir->path . DS . $file->name, true);
     }
+
 
     if($fighter_id == null || $guild_id == null)
       return $this->redirect(['action' => 'view']);
@@ -637,14 +622,6 @@ class PlayersController extends AppController
     $obstacles = $this->Surroundings->find("all");
     $obstacles = $obstacles->toArray();
     sendJSONMessage($this->response,$obstacles);
-  }
-
-  public function kill(){
-    $this->autoRender = false;
-    $player = $this->Players->Fighters->get($this->request->data('id'));
-    $player->current_health = 0;
-    $this->Players->Fighters->delete($player);
-    sendJSONMessage($this->response,['success'=>1,'message'=>'dead']);
   }
 }
 
