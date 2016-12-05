@@ -305,7 +305,8 @@ class PlayersController extends AppController
       ]
     ]);
 
-    $this->set('fighters',$fighters);
+    $army = $fighters->toArray();
+    $this->set('fighters',$army);
 
     if($fighters->count() != 0){
       $fighter = $fighters->first();

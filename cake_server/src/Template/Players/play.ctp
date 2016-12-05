@@ -78,14 +78,14 @@
     <div class=card>
     <div class=card-block>
       <h2 class="card-title text-center">Armée</h2>
-      <?php foreach($fighters as $fighterz): ?>
+      <?php foreach($fighters as $fighter):?>
         <button type="button" class="btn btn-secondary">
-          <span class="tag tag-default tag-pill float-xs-right">LVL <?=$fighterz->level?></span>
-          <img src="../webroot/img/portrait_fighters/portrait_<?= $fighterz->id ?>.png" class=""/>
-           <?= $fighterz->name ?>
+          <span class="tag tag-default tag-pill float-xs-right">LVL <?=$fighter->level?></span>
+          <img src="../webroot/img/portrait_fighters/portrait_<?= $fighter->id ?>.png" class=""/>
+           <?= $fighter->name ?>
         </button>
-    </div>
       <?php endforeach;?>
+    </div>
     </div>
   </div>
 
