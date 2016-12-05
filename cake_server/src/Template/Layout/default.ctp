@@ -49,6 +49,7 @@ $basicURL = 'http://localhost:8888/';
 </head>
 <body>
 
+<!-- Navbar -->
   <nav class="navbar navbar-light bg-faded" id="navbar-border">
       <a class="navbar-brand" href="#"> Arena Junkies</a>
       <a class="btn btn-outline-success" href="<?= $basicURL ?>players/play" role="button">Jouer</a>
@@ -61,12 +62,17 @@ $basicURL = 'http://localhost:8888/';
        </ul>
      </div>
   </nav>
+<!-- Fin Navbar -->
 
+<!-- Contenu -->
   <?= $this->Flash->render() ?>
   <div class="container" id="myMargin">
       <?= $this->fetch('content') ?>
   </div>
+<!-- Fin Contenu -->
 
+
+<!-- Footer -->
   <footer class="footer bd-footer">
    <div class="container">
     <ul class="inline-list">
@@ -84,6 +90,8 @@ $basicURL = 'http://localhost:8888/';
     </ul>
    </div>
   </footer>
+<!-- Footer -->
 
+<!-- Fin de la page -->
 </body>
 </html>

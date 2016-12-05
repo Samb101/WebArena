@@ -171,13 +171,19 @@ class PlayersController extends AppController
 
     $fighter_id = $this->request->data('fighterId');
     $guild_id = $this->request->data('guildId');
+
+    // On récupère l'ID du portrait que l'utilisateur avait choisi
     $portrait_id = $this->request->data('id_portrait');
+    //On sélectionne ce portrait dans le dossier des modèles
     $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0644);
     $file->name = "portrait_" . $fighter_id . ".png";
+    // et on le copie dans le dossier des portraits des personnages avec l'ID de son personnage
     if ($file->exists()) {
         $dir = new Folder('../webroot/img/portrait_fighters/', true);
         $file->copy($dir->path . DS . $file->name, true);
     }
+
+
     if($fighter_id == null || $guild_id == null)
       return $this->redirect(['action' => 'view']);
     else {
