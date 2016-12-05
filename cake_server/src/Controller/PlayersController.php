@@ -657,8 +657,6 @@ class PlayersController extends AppController
     $obstacles = $obstacles->toArray();
     sendJSONMessage($this->response,$obstacles);
   }
-<<<<<<< HEAD
-=======
 
   // Fonction d'exécution immédiate d'un joueur, appelée lors du passage sur un obstacle de type 2 ou 3
   // On authentifie l'utilisateur avant, bien sur
@@ -677,7 +675,6 @@ class PlayersController extends AppController
     $this->Players->Fighters->delete($player);
     sendJSONMessage($this->response,['success'=>1,'message'=>'dead']);
   }
->>>>>>> 55f77397f9f8bd7a3093c5260cc8e41924834b34
 }
 
 // Fonction de formattage des messages au format json
