@@ -52,7 +52,7 @@
         </ul>
       </div>
 
-      <div class="card col-lg-3 pull-right HUD">
+      <div class="card col-lg-3 pull-right HUD" id="lvlup">
         <div class=card-block>
           <h5 class="text-center card-title"> LVL UP </h5>
           <div class=row>
