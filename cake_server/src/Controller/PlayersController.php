@@ -266,6 +266,15 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de destruction de la session
+  public function destroySession(){
+    $this->Cookie->write('email','');
+    $this->Cookie->write('password','');
+    $this->Cookie->delete('email');
+    $this->Cookie->delete('password');
+    return $this->redirect(['action' => 'login']);
+  }
+
   // Fonction d'injection d'une erreur en cas de problème lors de la gestion
   // des personnages
   public function error($error = null){
