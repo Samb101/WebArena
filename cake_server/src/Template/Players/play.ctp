@@ -79,7 +79,7 @@
     <div class=card-block>
       <h2 class="card-title text-center">Armée</h2>
       <?php foreach($fighters as $fighter):?>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" onclick="setNewPlayer(<?= $fighter->id ?>)">
           <span class="tag tag-default tag-pill float-xs-right">LVL <?=$fighter->level?></span>
           <img src="../webroot/img/portrait_fighters/portrait_<?= $fighter->id ?>.png" class=""/>
            <?= $fighter->name ?>

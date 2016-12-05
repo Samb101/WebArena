@@ -531,7 +531,6 @@ class PlayersController extends AppController
 
       if($fighters->count()>0){
         $fighter = $fighters->first();
-        $fighter->__set('current_health',$current_health);
         $fighter->__set('coordinate_x',$coordinate_x);
         $fighter->__set('coordinate_y',$coordinate_y);
 
@@ -594,8 +593,46 @@ class PlayersController extends AppController
     }
   }
 
-}
+  public function getPosition(){
+    $this->autoRender = false;
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
 
+    if($id == null){
+      sendErrorMessage($this->response);
+      return;
+    }
+
+    if($this->request->is('post')){
+
+      $fighterID = $this->request->data("id");
+
+      $fighters = $this->Players->Fighters->find("all",[
+        'conditions' => [
+          'id' => $fighterID,
+          'player_id' => $id
+        ]
+      ]);
+
+      if($fighters->count()>0){
+        $fighter = $fighters->first();
+        $this->response->charset('UTF-8');
+        $this->response->type('JSON');
+        $this->response->body(json_encode($fighter));
+        $this->response->send();
+        die();
+        return;
+      }
+      else{
+        sendErrorMessage($this->response);
+        return;
+      }
+    }
+    else {
+      sendErrorMessage($this->response);
+      return;
+    }
+  }
+}
 function sendErrorMessage($response){
   $response->type('json');
 
