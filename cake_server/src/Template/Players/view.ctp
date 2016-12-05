@@ -142,7 +142,7 @@
   <div class=card-deck-wrapper>
       <div class=card-deck>
           <?php foreach($fighters as $fighter):
-            // input : nom, id_portrait si modif, guild_id si modif
+            // input de la modification du personnage : nom, id_portrait, guild_id
             echo $this->Form->create('UpdateName',array(
               'url' => array(
                 'controller' => 'players',
@@ -174,7 +174,7 @@
                 ?>
               </div>
 
-              <!-- Liste de la Card -->
+              <!-- Liste des caractéristiques -->
               <ul class="list-group list-group-flush no-margin-left">
                 <li class="list-group-item">
                   <img alt="Portraits" src="../webroot/img/portrait_modele/portrait_example.png" class="" id="change_modele_<?= $fighter->name ?>"/>
@@ -182,6 +182,7 @@
                     Changer d'avatar
                   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <!-- Le dropdown contient les 18 portraits sélectionnables -->
                     <?php for($i=1;$i<18;$i++){ ?>
                       <a class="col-lg-3" href="#"><img alt="Portraits" src="../webroot/img/portrait_modele/portrait_<?php echo $i;?>.png"  class="changePortrait" name="<?= $fighter->name?>"id="<?php echo $i;?>" ></a>
                       <?php }?>

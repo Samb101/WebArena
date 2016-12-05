@@ -17,20 +17,22 @@
         <img src="../webroot/img/tabard_guilde/guild_<?= $guild->id ?>.png" alt="<?= $guild->name ?>" class="image-center">
         <hr class="my-2">
         <p class="lead">
+          <div class="btn-group dropup">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Changer de tabard
-          </button>
+          Changer de tabard</button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>        </p>
+            <?php for($i=1;$i<11;$i++){ ?>
+              <a class="col-lg-5" href="#"><img alt="Tabard de Guilde" src="../webroot/img/tabard_guilde/guild_<?php echo $i;?>.png"  href="/guilds/change-tabard/<?php echo $i;?>)" onclick="setTabard(<?php echo $i ?>, <?= $guild->name ?>)" ></a>
+              <?php }?>
+          </div>
+        </div>
+        </p>
         <p class="lead">
-        <a class="btn btn-danger" href="../guilds/view" role="button">Supprimer la guilde</a>
+        <?php
+          echo $this->Html->link(__("Supprimer la guilde"), ['controller' => 'guilds', 'action' => 'removeGuild', $guild->id], array('class' => 'btn btn-danger col-lg-6'));
+          ?>
       </p>
-      </div>
+    </div>
 
       <!-- Card des personnages de la guilde -->
       <?php foreach($guild->fighters as $fighter){ ?>
