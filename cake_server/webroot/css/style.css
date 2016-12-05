@@ -1,6 +1,6 @@
 /* pour ne pas display */
 .hide{
-  display:none;
+  display:none !important;
 }
 
 /* l'alinéa que provoque les ul,ol et certaines classes de bootstrap ne sont parfois pas désirés */

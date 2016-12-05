@@ -59,7 +59,7 @@ $basicURL = 'http://localhost:8888/';
            <li class="nav-item active"><a class="btn btn-outline-info" href="<?= $basicURL ?>guilds">Guildes</a></li>
            <li class="nav-item active"><a class="btn btn-outline-warning" href="<?= $basicURL ?>players/historique">Historique</a></li>
            <li class="nav-item active"><a class="btn btn-outline-secondary"  href="<?= $basicURL ?>players/edit">Mon Compte</a></li>
-           <li class="nav-item active"><a class="btn btn-outline-danger"  href="destroySession()">Déconnexion</a></li>
+           <li class="nav-item active"><a class="btn btn-outline-danger"  href="destroySession" >Déconnexion</a></li>
 
        </ul>
      </div>

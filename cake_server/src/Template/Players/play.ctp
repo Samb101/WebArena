@@ -34,15 +34,15 @@
             <progress class="progress" value="<?=$current_health?>" max="<?=$health?>" aria-describedby="pv-progress" id="pv-progress"></progress>
         </div>
         <ul class="list-group list-group-flush no-margin-left">
-          <li class="list-group-item">
+          <li class="list-group-item hide">
             <span class="tag tag-default tag-pill float-xs-right"><?=$posX?></span>
-            Position X
+            X départ
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item hide">
               <span class="tag tag-default tag-pill float-xs-right"><?=$posY?></span>
-            Position Y
+            Y départ
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item ">
             <span class="tag tag-default tag-pill float-xs-right" id="sight"><?=$sight?></span>
             <img src="../webroot/img/caracteristiques/view.png" class=""/>
              Vue

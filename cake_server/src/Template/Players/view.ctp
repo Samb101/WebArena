@@ -287,7 +287,8 @@
             <img alt="Force" src="../webroot/img/caracteristiques/view.png" class=""/>
             Distance de vue : c'est la portée en case que votre boule de feu possède.</li>
           </ul>
-          <p>Au début de la partie vous pouvez sélectionner le personnage que vous souhaitez jouer sur le damier.</p>
+          <p>Au début de la partie un de vos personnage vous est attribué.
+          <p>Vous pouvez sélectionner à tout moment le personnage que vous souhaitez jouer sur le damier dans la colonne "Armée".</p>
           <p>Vous commencez à une position X Y sur le plateau, et la partie commence.</p>
           <p>Le but du jeu est d'éliminer les autres ennemis du plateau, joués par d'autres utilisateurs du site.</p>
           <p>A chaque niveau vous gagnez 1 point pour améliorer l'une de vos tros caractéristiques.
