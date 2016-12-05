@@ -208,7 +208,6 @@ class PlayersController extends AppController
   public function historique(){
     date_default_timezone_set('UTC');
 
-    $this->autoRender = false;
     $this->loadModel("Events");
     $date = date('Y-m-d');
     $date = date_create($date);
