@@ -302,7 +302,15 @@
           <p>Z pour avancer.</p>
           <p>E pour pivoter vers la droite.</p>
           <p>A pour pivoter vers la gauche.</p>
-          <p> O et I pour pivoter la caméra et ainsi mieux voir vos tirs</p>
+          <p>K et L pour pivoter la caméra et ainsi mieux voir vos tirs</p>
+          <p>I dézoomer, O zoomer</p>
+          <p>P monter la caméra, M baisser la caméra </p>
+          <p>Des pièges sont sur la carte il y en a trois types</p>
+          <ul>
+            <li>Piège visible : constitue uniquement un obstacle</li>
+            <li>Piège invisible : il avertit par un message textuel</li>
+            <li>Piège invisible détruisable avec un tir : vous pouvez le détruire.</li>
+          </ul>
           <h2>Règles de comnbat</h2>
           <h4 id="attaquer">Attaquer</h4>
           <p>Appuyez sur S pour tirer des boules de feu.</p>
