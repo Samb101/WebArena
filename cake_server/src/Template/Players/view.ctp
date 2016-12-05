@@ -296,17 +296,19 @@
           <p>Z pour avancer.</p>
           <p>E pour pivoter vers la droite.</p>
           <p>A pour pivoter vers la gauche.</p>
-          <p>L pour zommer la caméra.</p>
+          <p> O et I pour pivoter la caméra et ainsi mieux voir vos tirs</p>
           <h2>Règles de comnbat</h2>
           <h4 id="attaquer">Attaquer</h4>
-          <p>Appuyez sur la barre d'Espace pour tirer des boules de feu !</p>
+          <p>Appuyez sur S pour tirer des boules de feu.</p>
           <h4 id="defendre">Défendre</h4>
           <p>Avec un peu de chance, l'adversaire ratera son coup.</p>
           <h2 id="probleme">Bugs</h2>
           <h4>Refresh parfois nécessaire </h2>
-            Lors de la modification de l'image de portrait ou de tabard, un refresh de la page est parfois nécessaire.
+          <p>  Lors de la modification de l'image de portrait ou de tabard, un refresh de la page est parfois nécessaire. </p>
           <h4>Après la suppression de guilde </h4>
           <p>Les fighters de la guilde supprimée ne retrouvent sans guilde.</p>
+          <h4>Le changement d'image de guilde ne marche pas </h4>
+          <p> Bug étonnant vu que la fonction homologue chez le Fighter marche </p>
           <h2 id="probleme">Un problème ?</h2>
           <p>N'hésitez pas à contacter e.maincourt@gmail.com il vous répondra dans les plus brefs délais.</p>
     </div>

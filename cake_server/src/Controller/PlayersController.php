@@ -425,7 +425,7 @@ class PlayersController extends AppController
       $threshold = (rand(0,20)>10+$fighter->level-$player->level) ? true : false;
 
       if($threshold){
-        $this->addEventWithMessage($player->name." attaque ".$fighter->name);
+        $this->addEventWithMessage($player->name." réussi son attaque ".$fighter->name);
         $this->addEventWithMessage($fighter->name." perd ".$loss." points de vie.");
         $current_health = $fighter->current_health-$loss;
       }

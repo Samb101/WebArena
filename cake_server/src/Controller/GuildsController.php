@@ -113,23 +113,6 @@ class GuildsController extends AppController
     return false;
   }
 
-  public function changeTabard($id, $guild_id){
-    // On récupère l'ID du portrait que l'utilisateur avait choisi
-    $guild_id = $this->request->data('guild_id');
-    $guild_id = $this->request->data('id');
-
-    //On sélectionne ce portrait dans le dossier des modèles
-    $file = new File('../webroot/img/tabard_guilde/guild_'.$id.'.png', true, 0644);
-    $file->name = "guild_" . $guild_id . ".png";
-    // et on le copie dans le dossier des portraits des personnages avec l'ID de son personnage
-    if ($file->exists()) {
-        $dir = new Folder('../webroot/img/tabards_guilde/', true);
-        $file->copy($dir->path . DS . $file->name, true);
-    }
-
-
-  }
-
   public function createGuild(){
 
 
@@ -149,8 +132,8 @@ class GuildsController extends AppController
       $tabard_id = $this->request->data('add_portrait');
       $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0777);
 
-      $file->name = "guild_" . $guild->id . ".png";
       if ($file->exists()) {
+        $file->name = "guild_" . $guild->id . ".png";
           $dir = new Folder('../webroot/img/tabard_guilde/', true);
           $file->copy($dir->path . DS . $file->name, array('mode' => 0777, 'scheme' => Folder::OVERWRITE));
       }
@@ -200,15 +183,15 @@ class GuildsController extends AppController
 
     if($this->request->is('post')){
       $guild_id = $this->request->data('id');
-      $tabard_id = $this->request->data('change_tabard');
+      $tabard_id = $this->request->data('tabard');
 
 
-      $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0777);
+      $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0644);
 
-      $file->name = "guild_" . $guild_id . ".png";
       if ($file->exists()) {
+          $file->name = "guild_" . $guild_id . ".png";
           $dir = new Folder('../webroot/img/tabard_guilde/', true);
-          $file->copy($dir->path . DS . $file->name, array('mode' => 0777, 'scheme' => Folder::OVERWRITE));
+          $file->copy($dir->path . DS . $file->name, true);
       }
       $this->redirect(['action' => 'view']);
 

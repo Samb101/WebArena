@@ -24,9 +24,8 @@
               'action' => 'editGuild'
             )
           ));
-          echo $this->Form->input('id', array('type'=> 'hidden', 'value' => $guild->id));
-          echo "<br><br> ";
-          echo $this->Form->input('change_tabard', array('type'=> 'hidden') );
+          echo $this->Form->input('id', array('type' => 'text', 'value' => $guild->id));
+          echo $this->Form->input('tabard', array('name' => $guild->name));
           ?>
           <div class="btn-group dropup">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,7 +41,7 @@
         </p>
         <p class="lead">
         <?php
-          echo $this->Form->button(__("Valider modification"), array('class' => 'btn btn-success'));
+          echo $this->Form->button(__("Valider modification"), array('class' => 'btn btn-success inline-list'));
           echo $this->Html->link(__("Supprimer"), ['controller' => 'guilds', 'action' => 'removeGuild', $guild->id], array('class' => 'btn btn-danger col-lg-6'));
           echo $this->Form->end();
           ?>
@@ -135,6 +134,7 @@ $(document).ready(function() {
     }, 1000);
   });
 
+// choix du tabard pour une nouvelle ligne
   $(".takeTabard").click(function() {
     event.preventDefault();
     var $this = $(this);
@@ -148,6 +148,9 @@ $(document).ready(function() {
     return;
   });
 
+
+// modification du tabard
+
   $(".changeTabard").click(function() {
     event.preventDefault();
     var $this = $(this);
@@ -157,7 +160,7 @@ $(document).ready(function() {
     console.log(id_img);
     console.log(name);
     console.log(src);
-    $("input[name=change_tabard]").attr("value", id_img);
+    $("input[name="+name+"]").attr("value", id_img);
     $("img[name=guild_"+name+"]").attr("src", src);
     return;
   });

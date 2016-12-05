@@ -12,7 +12,10 @@
       <span class=hide id="posY"><?=$posY?></span>
       <!-- IMPORTANT DO NOT DELETE --->
 
+      <!--  LE JEU -->
       <canvas id="arena"></canvas>
+
+      <!-- HUD DU PERSONNAGE-->
       <div class=row>
       <div class="card col-lg-3 HUD">
         <div class=card-block>
@@ -52,6 +55,8 @@
         </ul>
       </div>
 
+
+      <!-- FENETRE QUI APPARAIT QUAND LVL UP POUR AUGMENTER UN SKILL -->
       <div class="card col-lg-3 pull-right HUD" id="lvlup">
         <div class=card-block>
           <h5 class="text-center card-title"> LVL UP </h5>
@@ -72,8 +77,10 @@
         </div>
     </div>
 </div>
+
 </div>
 
+<!-- VOTRE ARMEE -->
   <div class="col-lg-3">
     <div class=card>
     <div class=card-block>
@@ -90,4 +97,6 @@
   </div>
 
 </div>
+
+
 </div>
