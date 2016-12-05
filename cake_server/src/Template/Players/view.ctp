@@ -310,11 +310,11 @@
           <p>Avec un peu de chance, l'adversaire ratera son coup.</p>
           <h2 id="probleme">Bugs</h2>
           <h4>Refresh parfois nécessaire </h2>
-          <p>  Lors de la modification de l'image de portrait ou de tabard, un refresh de la page est parfois nécessaire. </p>
+          <p>  Lors de la modification de l'image de portrait un refresh de la page est parfois nécessaire. </p>
           <h4>Après la suppression de guilde </h4>
           <p>Les fighters de la guilde supprimée ne retrouvent sans guilde.</p>
-          <h4>Le changement d'image de guilde ne marche pas </h4>
-          <p> Bug étonnant vu que la fonction homologue chez le Fighter marche </p>
+          <h4>L'attribution d'une guilde à un personnage peut faire "sauter" son image de portrait</h4>
+          <p> Bug étonnant ... </p>
           <h2 id="probleme">Un problème ?</h2>
           <p>N'hésitez pas à contacter e.maincourt@gmail.com il vous répondra dans les plus brefs délais.</p>
     </div>
