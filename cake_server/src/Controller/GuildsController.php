@@ -39,8 +39,6 @@ class GuildsController extends AppController
 
     $guildsArray = $this->buildUserGuildsArray($id);
     $this->set('guilds',$guildsArray);
-    $this->set('avg_guild',$avg_guild);
-
   }
 
   public function authenticateUserWithCookies($email = null,$password = null){
@@ -111,6 +109,16 @@ class GuildsController extends AppController
     }
     return false;
   }
+
+  public function removeGuild(){
+
+  }
+
+  public function editGuild(){
+
+  }
+  
 }
+
 
 ?>

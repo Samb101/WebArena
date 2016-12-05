@@ -1,23 +1,23 @@
 <!-- File: src/Template/Players/play.ctp -->
 <div class=container>
   <div class=row>
-    <ol class="breadcrumb" style="margin-left:0">
+    <ol class="breadcrumb no-margin-left">
       <li class="breadcrumb-item active">L'Arène</li>
     </ol>
 
     <div class=col-lg-9 id="arena_container">
       <!-- IMPORTANT DO NOT DELETE -->
-      <span style="display:none" id="fighterID"><?=$id?></span>
-      <span style="display:none" id="posX"><?=$posX?></span>
-      <span style="display:none" id="posY"><?=$posY?></span>
+      <span class=hide id="fighterID"><?=$id?></span>
+      <span class=hide id="posX"><?=$posX?></span>
+      <span class=hide id="posY"><?=$posY?></span>
       <!-- IMPORTANT DO NOT DELETE --->
 
       <canvas id="arena"></canvas>
       <div class=row>
-      <div class="card col-lg-3">
+      <div class="card col-lg-3 HUD">
         <div class=card-block>
           <div class=card-title>
-            <img class="image-center" src="../webroot/img/portrait/portrait_<?=$id?>.png" alt="Icône de personnage" />
+            <img class="image-center" src="../webroot/img/portrait_fighters/portrait_<?=$id?>.png" alt="Icône de personnage" />
             <h3 class="text-center">
                 <?= $name ?>
             </h3>
@@ -30,7 +30,7 @@
             <div class="text-xs-center" id="pv-text">PV : <?= $current_health ?></div>
             <progress class="progress" value="<?=$current_health?>" max="<?=$health?>" aria-describedby="pv-progress" id="pv-progress"></progress>
         </div>
-        <ul class="list-group list-group-flush" style="margin-left:0">
+        <ul class="list-group list-group-flush no-margin-left">
           <li class="list-group-item">
             <span class="tag tag-default tag-pill float-xs-right"><?=$posX?></span>
             Position X
@@ -52,9 +52,23 @@
         </ul>
       </div>
 
-      <div class="card col-lg-3 pull-right"  >
+      <div class="card col-lg-3 pull-right HUD">
         <div class=card-block>
-          <h2 class=card-title> LVL UP ! </h2>
+          <h5 class="text-center card-title"> LVL UP </h5>
+          <div class=row>
+          <img src="../webroot/img/caracteristiques/attack.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
+        <hr>
+        <div class=row>
+          <img src="../webroot/img/caracteristiques/view.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
+        <hr>
+        <div class=row>
+          <img src="../webroot/img/caracteristiques/health.png" class="col-lg-6"/>
+          <img src="../webroot/img/add-skill.png" class="col-lg-6"/>
+        </div>
         </div>
     </div>
 </div>
@@ -67,7 +81,7 @@
       <?php foreach($fighters as $fighterz): ?>
         <button type="button" class="btn btn-secondary">
           <span class="tag tag-default tag-pill float-xs-right">LVL <?=$fighterz->level?></span>
-          <img src="../webroot/img/portrait/portrait_<?= $fighterz->id ?>.png" class=""/>
+          <img src="../webroot/img/portrait_fighters/portrait_<?= $fighterz->id ?>.png" class=""/>
            <?= $fighterz->name ?>
         </button>
     </div>

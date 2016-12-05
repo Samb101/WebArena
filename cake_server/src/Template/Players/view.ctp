@@ -1,234 +1,354 @@
 <div class="container">
+  <!-- Premier deck de Cards -->
   <div class="card-deck-wrapper">
-  <div class="card-deck">
-    <div class="card jumbotron">
-      <h3 class="display-5">Bienvenue sur l'interface de votre personnage</h3>
-      <p class="lead">C'est un véritable tableau de bord qui s'offre à vous.</p>
-      <hr class="my-2">
-      <p>Vous pouvez créer un nouveau personnage, le renommer à bon escient, et choisir d'intégrer une guilde.</p>
-      <p class="lead">
-        <a class="btn btn-primary btn-lg" href="../guilds/view" role="button">Voir les guildes</a>
-      </p>
-    </div>
 
+    <!-- Wrapper première ligne -->
+    <div class="card-deck">
 
-    <div class="card">
-      <div class=card-block>
-        <h3 class=card-title>Ajouter un combattant</h3>
-        <?php
-        echo $this->Form->create('CreateFighter',array(
-          'url' => array(
-            'controller' => 'players',
-            'action' => 'createFighter'
-          )
-        ));
-        echo $this->Form->input('name',array('type' => 'text','label' => 'Nom :'));
-        ?>
-        <label for="guild_id">Guilde :</label>
-        <select name="guild_id">
-          <?php foreach($guilds as $guild): ?>
-            <option value=<?= $guild->id ?>><?= $guild->name ?></option>
-          <?php endforeach; ?>
-        </select>
-        <br/>
-        <br/>
-        <?php
-        echo $this->Form->button(__("Ajouter un combattant"), array('class' => 'btn btn-success'));
-        echo $this->Form->end();
-        ?>
+      <!-- Deck première ligne -->
+      <!-- Première Card "Bienvenue" -->
+      <div class="card jumbotron">
+
+        <h3 class="display-5">Bienvenue sur l'interface de votre personnage</h3>
+        <p class="lead">C'est un véritable tableau de bord qui s'offre à vous.</p>
+        <a class="btn btn-success" href="#" id="show_regles" role="button">Apprendre à jouer</a>
+
+        <hr class="my-2">
+
+        <p>Vous pouvez créer un nouveau personnage, le renommer à bon escient, et choisir d'intégrer une guilde.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="../guilds/view" role="button">Voir les guildes</a>
+        </p>
       </div>
-    </div>
 
-
-    <div class=card>
-      <div class="card-block">
-        <h3 class=card-title>Top Ladder
-          <small class="text-muted">
-            <br/>Attention à ceux là.
-          </small></h3>
-        </div>
+      <!-- Deuxième Card "Ajouter un Combattant" -->
+      <div class="card">
         <div class=card-block>
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active"></div>
-              <?php
-              $i=0;
-              foreach($others_fighters as $fighter): ?>
-              <div class="carousel-item <?php if($i==0){echo "active";}?>">
-                <div class="col-lg-6 col-lg-offset-6">
-                  <img class="" src="../webroot/img/portrait/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
-                </div>
-                <p>
-                  <?= $fighter->name ?>
-                  - LVL  <?= $fighter->level ?>
-                </p>
+          <h3 class=card-title>Ajouter un combattant</h3>
+          <?php
+          // entrées : nom, id_portrait choisi, guilde
+          echo $this->Form->create('CreateFighter',array(
+            'url' => array(
+              'controller' => 'players',
+              'action' => 'createFighter'
+            )
+          ));
+          echo $this->Form->input('name',array('type' => 'text','label' => 'Nom :'));
+          echo $this->Form->input('add_portrait',array('type' => 'hidden'));
+          ?>
+          <label for="guild_id">Guilde :</label>
+
+          <!-- Choix guilde -->
+          <select name="guild_id">
+            <?php foreach($guilds as $guild): ?>
+              <option value=<?= $guild->id ?>><?= $guild->name ?></option>
+            <?php endforeach; ?>
+          </select>
+
+          <br/>
+          <br/>
+          <br/>
+
+          <!-- Choix avatar -->
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choississez un avatar
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+              <!-- Utilisation d'un for pour une banque de 18 portraits. -->
+              <?php for($i=1;$i<18;$i++){ ?>
+                <a class="col-lg-4" href="#"><img alt="Portraits" src="../webroot/img/portrait_modele/portrait_<?php echo $i;?>.png"  id="<?php echo $i;?>"class="takePortrait"></a>
+                <?php }?>
               </div>
-              <?php
-              $i++;
-            endforeach; ?>
+            </div>
+            <br/>
+
+            <!-- Balise tampon en attente d'un portrait pour prouver la sélection -->
+            <img src="" name="add_modele" alt="Votre portrait" class=col-lg-4>
+
+            <br/>
+            <br/>
+            <br/>
+
+            <?php
+            // fin du formulaire d'ajout
+            echo $this->Form->button(__("Ajouter un combattant"), array('class' => 'btn btn-success'));
+            echo $this->Form->end();
+            ?>
           </div>
-          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="icon-prev" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="icon-next" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-      <ul class="list-group list-group-flush" style="margin-left:0">
-        <?php
-        $i=1;
-        foreach($others_fighters as $fighter): ?>
-        <li class="list-group-item">
-          <img src="../webroot/img/ranks/PVPRank<?php echo 15-$i; ?>.png" class="carac-img"/>
-          <?php echo $i ."."; ?>         <?= $fighter->name ?>
-          - LVL    <?= $fighter->level ?>
-        </li>
-        <?php $i++; endforeach; ?>
-    </ul>
-  </div>
-</div>
-</div>
-<ol class="breadcrumb" style="margin-left:0">
-  <li class="breadcrumb-item active">Vos personnages</li>
-</ol>
-
-<div class=card-columns>
-  <?php foreach($fighters as $fighter):
-    echo $this->Form->create('UpdateName',array(
-      'url' => array(
-        'controller' => 'players',
-        'action' => 'editFighter'
-      ),
-      'class' => ['']
-    ));?>
-
-    <div class="card">
-      <div class="card-block">
-        <div class=card-title>
-          <h3 class=""><img class="" src="../webroot/img/portrait/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
-            <?= $fighter->name ?>
-            <small class="text-muted">
-              - LVL <?= $fighter->level ?>
-            </small>
-          </h3>
         </div>
 
-        <div class="text-xs-center" id="example-caption-1">XP <?= $fighter->xp ?></div>
-        <progress class="progress" value="<?= $fighter->xp%4/4*100?>" max="100" aria-describedby="example-caption-1"></progress>
+        <!-- Première Card "Top Ladder" -->
+        <!-- Montre les joueurs les plus haut niveaux -->
+        <div class=card>
+          <div class="card-block">
+            <h3 class=card-title>Top Ladder
+              <small class="text-muted">
+                <br/>Attention à ceux là.
+              </small></h3>
+            </div>
+            <div class=card-block>
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
+                <!-- Carousel qui classe les joueurs avec les plus LVL -->
+                <div class="carousel-inner" role="listbox">
+                  <?php
+                  $i=0;
+                  foreach($others_fighters as $fighter): ?>
+                  <div class="carousel-item <?php if($i==0){echo "active";}?>">
+                    <img class=image-center src="../webroot/img/portrait_fighters/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
+                    <p class=text-center><?= $fighter->name ?> - LVL <?= $fighter->level?></p>
+                  </div>
+                  <?php $i++;endforeach;?>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="icon-prev" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="icon-next" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
 
-        <?php
-        echo $this->Form->input('name',array('type' => 'text', 'label' => false , 'class' => 'form-control','value' => $fighter->name, 'aria-describedby'=>'basic-addon1'));
-        echo $this->Form->input('fighterId',array('type' => 'hidden','value' => $fighter->id));
-        ?>
+            <!-- Affichage en liste des joueurs les plus hauts niveaux -->
+            <ul class="list-group list-group-flush no-margin-left" >
+              <?php
+              $i=1;
+              foreach($others_fighters as $fighter): ?>
+              <li class="list-group-item">
+                <img src="../webroot/img/ranks/PVPRank<?php echo 15-$i; ?>.png" class="carac-img" alt="Grade PVP"/>
+                <?php echo $i ."."; ?>         <?= $fighter->name ?>
+                - LVL    <?= $fighter->level ?>
+              </li>
+              <?php $i++; endforeach; ?>
+            </ul>
+          </div>
 
+          <!-- Fermeture 1er Card Deck -->
       </div>
+        <!-- Fermeture 1er Card Deck Wrapper -->
+ </div>
 
-      <ul class="list-group list-group-flush" style="margin-left:0">
-        <li class="list-group-item">
-          <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>
-          <img src="../webroot/img/caracteristiques/view.png" class=""/>
-          Distance de vue
-        </li>
-        <li class="list-group-item">
-          <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_strength ?></span>
-          <img src="../webroot/img/caracteristiques/health.png" class=""/>
-          Santé
-        </li>
-        <li class="list-group-item">
-          <span class="tag tag-default tag-pill float-xs-right"> <?= $fighter->skill_health ?></span>
-          <img src="../webroot/img/caracteristiques/attack.png" class=""/>
-          Force
+
+<!-- Début Second Deck "Vos personnages" -->
+  <ol class="breadcrumb no-margin-left">
+    <li class="breadcrumb-item active">Vos personnages</li>
+  </ol>
+
+      <!-- Second Deck "Vos personnages"-->
+  <div class=card-deck-wrapper>
+      <div class=card-deck>
+          <?php foreach($fighters as $fighter):
+            // input : nom, id_portrait si modif, guild_id si modif
+            echo $this->Form->create('UpdateName',array(
+              'url' => array(
+                'controller' => 'players',
+                'action' => 'editFighter'
+              ),
+              'class' => ['']
+            ));?>
+            <!-- Card Personnage générée -->
+            <div class="card">
+              <div class="card-block">
+                <div class=card-title>
+
+                  <!-- Titre : nom du personnage-->
+                  <h3 class=""><img class="" src="../webroot/img/portrait_fighters/portrait_<?= $fighter->id ?>.png" alt="Icône de personnage" />
+                    <?= $fighter->name ?>
+                    <small class="text-muted">
+                      - LVL <?= $fighter->level ?>
+                    </small>
+                  </h3>
+                </div>
+
+                <!-- Barre d'XP -->
+                <div class="text-xs-center" id="example-caption-1">XP <?= $fighter->xp ?></div>
+                <progress class="progress" value="<?= $fighter->xp%4?>" max="4" aria-describedby="example-caption-1"></progress>
+                <?php
+                echo $this->Form->input('name',array('type' => 'text', 'label' => false , 'class' => 'form-control','value' => $fighter->name, 'aria-describedby'=>'basic-addon1'));
+                echo $this->Form->input('fighterId',array('type' => 'hidden','value' => $fighter->id));
+                echo $this->Form->input('id_portrait', array( 'type' => 'hidden','id' => $fighter->name));
+                ?>
+              </div>
+
+              <!-- Liste de la Card -->
+              <ul class="list-group list-group-flush no-margin-left">
+                <li class="list-group-item">
+                  <img alt="Portraits" src="../webroot/img/portrait_modele/portrait_example.png" class="" id="change_modele_<?= $fighter->name ?>"/>
+                  <a class="dropdown-toggle" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Changer d'avatar
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <?php for($i=1;$i<18;$i++){ ?>
+                      <a class="col-lg-3" href="#"><img alt="Portraits" src="../webroot/img/portrait_modele/portrait_<?php echo $i;?>.png"  class="changePortrait" name="<?= $fighter->name?>"id="<?php echo $i;?>" ></a>
+                      <?php }?>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_sight ?></span>
+                    <img alt="Vue" src="../webroot/img/caracteristiques/view.png" class=""/>
+                    Distance de vue
+                  </li>
+                  <li class="list-group-item">
+                    <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_strength ?></span>
+                    <img alt="Santé" src="../webroot/img/caracteristiques/health.png" class=""/>
+                    Santé
+                  </li>
+                  <li class="list-group-item">
+                    <span class="tag tag-default tag-pill float-xs-right"> <?= $fighter->skill_health ?></span>
+                    <img alt="Force" src="../webroot/img/caracteristiques/attack.png" class=""/>
+                    Force
+                  </li>
+                  <li class="list-group-item">
+                    <img alt="Guilde" class=image-center src="../webroot/img/tabard_guilde/guild_<?php foreach($guilds as $guild):?><?php if($guild->id==$fighter->guild_id){echo $guild->id;}endforeach;?>.png">
+                      <div class=text-center><?php foreach($guilds as $guild):?>
+                        <?php if($guild->id==$fighter->guild_id){
+                          echo $guild->name;
+                        }
+                      endforeach;?>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- Guilde du personnage -->
+                <div class=card-block>
+                  <div class="form-group">
+                    <select name="guildId" class="form-control">
+                      <?php foreach($guilds as $guild): ?>
+                        <option value=<?= $guild->id ?> <?php if($guild->id==$fighter->guild_id){ echo 'selected'; }?>><?= $guild->name ?></option>
+                      <?php endforeach; ?>
+                    </select>
+                  </div>
+
+                  <!-- Boutons d'envoi et de fin du formulaire de modifcation de personnage -->
+                  <div class="card-link">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+
+                      <?php
+                      echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success col-lg-6'));
+                      echo $this->Html->link(__("Supprimer"), ['controller' => 'players', 'action' => 'removeFighter', $fighter->id], array('class' => 'btn btn-danger col-lg-6'));
+                      echo $this->Form->end();
+                      ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <?php endforeach; ?>
+            <!-- Fin 2nd Card Deck -->
+      </div>
+          <!-- Fin du deuxième Deck des personnages -->
+ </div>
+
+
+        <!-- Dernière partie Les Règles -->
+  <ol class="breadcrumb no-margin-left">
+    <li class="breadcrumb-item active">Rappel des règles</li>
+  </ol>
+
+        <!-- Navbar du scrollspy -->
+  <div id="regles">
+   <nav id="mytarget" class="navbar navbar-light bg-faded">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" href="#deroulement">Déroulement de la partie</a></li>
+        <li class="nav-item"><a class="nav-link" href="#deplacements">Déplacements et raccourcis</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Règles de combat</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item active" href="#attaquer">Attaquer</a>
+            <a class="dropdown-item" href="#two">Défendre</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#probleme">Un problème ?</a>
+          </div>
         </li>
       </ul>
-        <div class=card-block>
-          <h4 class="card-title text-justify">
-              <img class=col-lg-3 src="../webroot/img/tabard_guilde/guild_<?php foreach($guilds as $guild):?><?php if($guild->id==$fighter->guild_id){echo $guild->id;}endforeach;?>.png">
-              <?php foreach($guilds as $guild):?>
-              <?php if($guild->id==$fighter->guild_id){
-                      echo $guild->name;
-                    }
-                    endforeach;?>
-            </h4>
-          </div>
-          <ul class="list-group list-group-flush" style="margin-left:0">
-            <li class="list-group-item">
-              <span class="tag tag-default tag-pill float-xs-right"><?= $fighter->skill_strength ?></span>
-              <img src="../webroot/img/avg_lvl.png" class="img-responsive"/>
-              Moyenne LVL
-            </li>
-            <li class="list-group-item">
-              <span class="tag tag-default tag-pill float-xs-right"> <?= $fighter->skill_health ?></span>
-              <img src="../webroot/img/clsmt_guild.png" class=""/>
-              Classement guilde
-            </li>
+    </nav>
+    </div>
+
+<!-- Le texte qui est Scrollspy -->
+<div data-spy="scroll" data-target="#mytarget" data-offset="0" class="scrollspy-example">
+  <div class=container>
+    <h2 id="deroulement">Déroulement de la partie</h2>
+    <p>Vous pouvez créez des personnages sur cette page et ainsi composer une Armée.</p>
+    <p>La puissance des personnages est définie par trois caractéristiques :</p>
+    <ul>
+      <li>
+        <img alt="Force" src="../webroot/img/caracteristiques/attack.png" class=""/>
+        Force : le nombre de vie que vous enlevez à l'adversaire en cas d'attaque réussie.</li>
+        <li>
+          <img alt="Force" src="../webroot/img/caracteristiques/health.png" class=""/>
+          Santé : PV que vous possédez. Lorque qu'ils tombent à 0, votre Fighter est mort et...</li>
+          <li>
+            <img alt="Force" src="../webroot/img/caracteristiques/view.png" class=""/>
+            Distance de vue : c'est la portée à laquelle votre personnage peut voir les adversaires.</li>
           </ul>
+          <p>Au début de la partie vous pouvez sélectionner le personnage que vous souhaitez jouer sur le damier.</p>
+          <p>Vous commencez à une position X Y sur le plateau, et la partie commence.</p>
+          <p>Le but du jeu est d'éliminer les autres ennemis du plateau, joués par d'autres utilisateurs du site.</p>
+          <p>A chaque niveau vous gagnez 1 point pour améliorer l'une de vos tros caractéristiques.
+          </p>
+          <h2 id="deplacements">Déplacements et raccourcis</h2>
+          <p>Z pour avancer.</p>
+          <p>E pour pivoter vers la droite.</p>
+          <p>A pour pivoter vers la gauche.</p>
+          <p>L pour zommer la caméra.</p>
+          <h2>Règles de comnbat</h2>
+          <h4 id="attaquer">Attaquer</h4>
+          <p>Appuyez sur la barre d'Espace pour tirer des boules de feu !</p>
+          <h4 id="defendre">Défendre</h4>
+          <p>Avec un peu de chance, l'adversaire ratera son coup.</p>
+          <h2 id="probleme">Un problème ?</h2>
+          <p>N'hésitez pas à contacter e.maincourt@gmail.com il vous répondra dans les plus brefs délais.</p>
+    </div>
+</div>
 
-          <div class=card-block>
-            <div class="form-group">
-              <select name="guildId" class="form-control">
-                <?php foreach($guilds as $guild): ?>
-                  <option value=<?= $guild->id ?> <?php if($guild->id==$fighter->guild_id){ echo 'selected'; }?>><?= $guild->name ?></option>
-                <?php endforeach; ?>
-              </select>
+              <!-- Fermeture container -->
             </div>
 
-            <div class="card-link">
-              <?php
-              echo $this->Form->button(__("Sauvegarder"), array('class' => 'btn btn-success'));
-              echo $this->Html->link(__("Supprimer"), ['controller' => 'players', 'action' => 'removeFighter', $fighter->id], array('class' => 'btn btn-danger'));
-              echo $this->Form->end();
-              ?>
-            </div>
-          </div>
-        </div>
-    <?php endforeach; ?>
-</div>
-<ol class="breadcrumb" style="margin-left:0">
-  <li class="breadcrumb-item active">Rappel des règles</li>
-</ol>
-<div class="bd-example">
-  <nav id="navbar-example2" class="navbar navbar-light bg-faded">
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a class="nav-link" href="#fat">Déroulement de la partie</a></li>
-      <li class="nav-item"><a class="nav-link" href="#mdo">Déplacements et raccourcis</a></li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Règles de combat</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item active" href="#one">Attaquer</a>
-          <a class="dropdown-item" href="#two"></a>
-          <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#three">Un problème ?</a>
-        </div>
-      </li>
-    </ul>
-  </nav>
-  </div>
-<div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example">
-  <h4 id="fat">@fat</h4>
-  <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
-  <h4 id="mdo">@mdo</h4>
-  <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
-  <h4 id="one">one</h4>
-  <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
-  <h4 id="two">two</h4>
-  <p>In incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
-  <h4 id="three">three</h4>
-  <p>Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.</p>
-  <p>Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
-  </p>
-</div>
-</div>
-<!--<div style="display:inline-block; margin 5px; padding:10px; border:1px solid black">
-<h2 style="text-align:center">My title</h2>
-<img style="display:block; margin:auto"src="../webroot/img/portrait/portrait_1.png">
-<p style="text-align:center">Descriptif</p>
-</div>
-<div style="display:inline-block; margin:5px; padding:10px; border:1px solid black">
-<h2>My title</h2>
-<img style="display:block; margin:auto" src="../webroot/img/portrait/portrait_1.png">
-<p style="text-align:center; padding:10px">Descriptif</p>
-</div>-->
+            <!-- Fonctions JS -->
+            <script>
+            $(document).ready(function() {
+              //effet jquery scroll to sur le bouton "Apprendre à jouer"
+              $("#show_regles").click(function() {
+                $('html, body').animate({
+                  scrollTop: $("#regles").offset().top
+                }, 2000);
+              });
+
+              //masque la balise image tampon lors de la sélection de portrait pour un nouveau personnage
+              $("img[name=add_modele]").hide();
+
+
+              //traitement du portrait pris pour le mettre dans un input du formulaire généré en cakePHP
+              $(".takePortrait").click(function() {
+                event.preventDefault();
+                var $this = $(this);
+                var id_img = $this.attr('id');
+                var src = $this.attr('src');
+                console.log(id_img);
+                console.log(src);
+                $("input[name=add_portrait]").attr("value", id_img);
+                $("img[name=add_modele").attr("src", src);
+                $("img[name=add_modele").show();
+                return;
+              });
+
+              //pareil mais pour la modification
+              $(".changePortrait").click(function() {
+                event.preventDefault();
+                var $this = $(this);
+                var id_img = $this.attr('id');
+                var name = $this.attr('name');
+                var src = $this.attr('src');
+                console.log(id_img);
+                console.log(name);
+                console.log(src);
+                $("input[id="+name+"]").attr("value", id_img);
+                $("img[id=change_modele_"+name+"]").attr("src", src);
+                return;
+              });
+            });
+
+            </script>
