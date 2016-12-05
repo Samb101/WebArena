@@ -4,6 +4,8 @@
 
 namespace App\Controller;
 
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 use Cake\Utility\Security;
 
 class GuildsController extends AppController
@@ -80,6 +82,7 @@ class GuildsController extends AppController
           'name'
         ]
       ]);
+      if($res->count()>0){
       $middleArray = (object) [
         "id" => $ownFighter->guild_id,
         "name" => $res->first()->name,
@@ -88,7 +91,7 @@ class GuildsController extends AppController
 
       if($this->isInArray($guildsArray,$middleArray) == false)
         array_push($guildsArray, $middleArray);
-    }
+    }}
 
     foreach ($guildsArray as $guild) {
       $res = $this->Guilds->Fighters->find("all",[
@@ -126,23 +129,61 @@ class GuildsController extends AppController
 
 
   }
+
+  public function createGuild(){
+
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null)
+      return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
+
+    if($this->request->is('post')){
+      $guild_id = $this->request->data('name');
+  //    $guild_id = $this->request->data('tabard');
+
+      $guild = $this->Guilds->newEntity();
+      $guild->name = $this->request->data('name');
+      // On enregistre les modifications
+      $this->Guilds->save($guild);
+
+      $tabard_id = $this->request->data('add_portrait');
+      $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0777);
+
+      $file->name = "guild_" . $guild->id . ".png";
+      if ($file->exists()) {
+          $dir = new Folder('../webroot/img/tabard_guilde/', true);
+          $file->copy($dir->path . DS . $file->name, array('mode' => 0777, 'scheme' => Folder::OVERWRITE));
+      }
+
+      return $this->redirect(['action' => 'view']);
+    }
+    else {
+      return $this->redirect(['action' => 'error',"La requête n\'est pas de type POST."]);
+    }
+  }
+
+
   public function removeGuild($guild_id = null){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
     if($id == null) return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
 
+    $this->loadModel('Fighters');
 
     $guild = $this->Guilds->get($guild_id);
 
-
-    $players_orphelin =$this->Guilds->Fighters->Players->find("all", [
+    $players_orphelin = $this->Fighters->find("all", [
     'conditions' => [
-      'guild_id' => $guild
+      'guild_id' => $guild->id
     ]
     ]);
 
+    $orph = $players_orphelin->toArray();
+
     if($this->Guilds->delete($guild)){
-      foreach($players_orphelin as $orphelin){
-          $orphelin->guild_id = NULL;
+      foreach($orph as $orphelin){
+          $orphelin->guild_id = null;
+          $this->Fighters->save($orphelin);
       }
         $this->redirect(['action' => 'view']);
     }
@@ -153,8 +194,30 @@ class GuildsController extends AppController
 
 
   public function editGuild(){
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+    if($id == null)
+      return $this->redirect(['action' => 'error',"Vous n\'êtes pas connecté(e)."]);
 
-  }
+    if($this->request->is('post')){
+      $guild_id = $this->request->data('id');
+      $tabard_id = $this->request->data('change_tabard');
+
+
+      $file = new File('../webroot/img/tabard_modele/guild_'.$tabard_id.'.png', true, 0777);
+
+      $file->name = "guild_" . $guild_id . ".png";
+      if ($file->exists()) {
+          $dir = new Folder('../webroot/img/tabard_guilde/', true);
+          $file->copy($dir->path . DS . $file->name, array('mode' => 0777, 'scheme' => Folder::OVERWRITE));
+      }
+      $this->redirect(['action' => 'view']);
+
+    }
+    else {
+      return $this->redirect(['action' => 'error',"La requête n\'est pas de type POST."]);
+    }
+
+}
 
 }
 

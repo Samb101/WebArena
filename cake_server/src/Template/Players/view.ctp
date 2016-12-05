@@ -243,6 +243,8 @@
           <!-- Fin du deuxième Deck des personnages -->
  </div>
 
+<hr>
+
 
         <!-- Dernière partie Les Règles -->
   <ol class="breadcrumb no-margin-left">
@@ -283,7 +285,7 @@
           Santé : PV que vous possédez. Lorque qu'ils tombent à 0, votre Fighter est mort et...</li>
           <li>
             <img alt="Force" src="../webroot/img/caracteristiques/view.png" class=""/>
-            Distance de vue : c'est la portée à laquelle votre personnage peut voir les adversaires.</li>
+            Distance de vue : c'est la portée en case que votre boule de feu possède.</li>
           </ul>
           <p>Au début de la partie vous pouvez sélectionner le personnage que vous souhaitez jouer sur le damier.</p>
           <p>Vous commencez à une position X Y sur le plateau, et la partie commence.</p>
@@ -300,6 +302,11 @@
           <p>Appuyez sur la barre d'Espace pour tirer des boules de feu !</p>
           <h4 id="defendre">Défendre</h4>
           <p>Avec un peu de chance, l'adversaire ratera son coup.</p>
+          <h2 id="probleme">Bugs</h2>
+          <h4>Refresh parfois nécessaire </h2>
+            Lors de la modification de l'image de portrait ou de tabard, un refresh de la page est parfois nécessaire.
+          <h4>Après la suppression de guilde </h4>
+          <p>Les fighters de la guilde supprimée ne retrouvent sans guilde.</p>
           <h2 id="probleme">Un problème ?</h2>
           <p>N'hésitez pas à contacter e.maincourt@gmail.com il vous répondra dans les plus brefs délais.</p>
     </div>

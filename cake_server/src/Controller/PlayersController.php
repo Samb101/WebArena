@@ -209,11 +209,11 @@ class PlayersController extends AppController
       $this->Players->Fighters->save($fighter);
 
       $portrait_id = $this->request->data('add_portrait');
-      $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0644);
+      $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0777);
       $file->name = "portrait_" . $fighter->id . ".png";
       if ($file->exists()) {
           $dir = new Folder('../webroot/img/portrait_fighters/', true);
-          $file->copy($dir->path . DS . $file->name, true);
+          $file->copy($dir->path . DS . $file->name, array('mode' => 0777, 'scheme' => Folder::OVERWRITE));
       }
 
 
