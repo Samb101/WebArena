@@ -29,31 +29,51 @@ Player = function(game, canvas, engine) {
     loadModels(this.scene,canvas,engine);
 };
 
+// Fonction d'initialisation de la scene avec babylonjs
+// Entrées :
+// - scene : la scene créée dans game.js qui contient les éléments graphiques du jeu
+// - canvas : le canvas dans lequel on dessine nos éléments
+// - engine : le moteur chargé du traitement des informations et de l'injection dans le canvas
 function loadModels(scene,canvas,engine){
+  // On charge le mesh de notre personnage
   BABYLON.SceneLoader.ImportMesh("king",assets_path,player_model,scene,function(meshes){
+    // On le stocke dans la variable mesh
     var m = meshes[0];
 
+    // On rend le mesh invisible, nous nous en servirons pour réutiliser le modèle plus tard
     m.isVisible = false;
+    // La taille étant trop importante on l'échelonne
     m.scaling = new BABYLON.Vector3(0.05,0.05,0.05);
 
+    // On stocke notre modèle dans une variable globale
     PLAYER_MODEL = m;
 
+    // On crée le joueur
     createPlayer();
 
+    // On récupère les autres joueurs sur le plateau
     fetchFighters();
 
+    // On ajoute les listeners des différentes interactions utilisateur
     addInteractionsListeners(scene);
 
+    // On récupère les obstacles lus dans la base
     getObstacles(scene);
 
+    // On ajoute une caméra à la scène
     scene.camera = createCamera(scene,canvas);
-    // Permet au jeu de tourner
+
+    // On fait tourner le moteur du jeu
     engine.runRenderLoop(function () {
         scene.render();
     });
   })
 }
 
+// Fonction de récupération des combattants du plateau
+// On en profite aussi pour définir des intervals auxquels les informations des combattants
+//  et du joueur seront synchronisées avec le serveur
+//  Si la mise à jour des informations du joueur n'est plus possible, c'est qu'il est mort. On redirige alors vers l'accueil.
 function fetchFighters(){
   $.get("http://localhost:8888/players/getFightersPosition",function(response){
 
@@ -78,6 +98,8 @@ function fetchFighters(){
   });
 }
 
+// Fonction de mise à jour des informations du joueur
+// Les valeurs obtenues sont injectées dans la vue
 function updateFighterInformations(fighterInformations){
   document.querySelector("#pv-text").innerText = "PV : "+fighterInformations.current_health+" / "+fighterInformations.skill_health;
   document.querySelector("#pv-progress").value = fighterInformations.current_health;
@@ -89,14 +111,14 @@ function updateFighterInformations(fighterInformations){
   document.querySelector("#level").innerText = "LVL "+fighterInformations.level;
 }
 
+// Fonction de mise à jour des joueurs présents sur le plateau
+// Ils peuvent selon le cas être supprimés (si morts), déplacés, ou ajoutés si nouveaux arrivants
 function updateFightersLocally(arr){
   for(var i=0; i<fighters.length; i++)
     if(shouldBeRemoved(arr,fighters[i].id)){
       fighters[i].isVisible = false;
       fighters.splice(i,1);
     }
-  for(var i=0; i<arr.length; i++)
-    console.log(JSON.stringify(arr[i]));
   for(var i=0; i<arr.length; i++)
     for(var j=0; j<fighters.length; j++)
       if(arr[i].id == fighters[j].id){
@@ -108,6 +130,8 @@ function updateFightersLocally(arr){
   }
 }
 
+// Cette fonction vérifie si un attaquant devrait être retiré de la carte car mort
+// Renvoit false si il est toujours vivant, true sinon
 function shouldBeRemoved(arr,id){
   for(var i=0; i<arr.length; i++)
     if(arr[i].id == id)
@@ -115,6 +139,8 @@ function shouldBeRemoved(arr,id){
   return true;
 }
 
+// Fonction de création d'un nouveau combattant sur le plateau
+// L'ensemble des combattants est stocké dans le tableau fighters, variable globale
 function createFighter(x,y,id){
   var fighter = PLAYER_MODEL.clone(PLAYER_MODEL.name);
   fighter.position = new BABYLON.Vector3(x,playerH/2,y);
@@ -125,6 +151,7 @@ function createFighter(x,y,id){
   fighters.push(fighter);
 }
 
+// Fonction de création du joueur en place
 function createPlayer(){
   var posX = document.getElementById('posX').innerText;
   var posY = document.getElementById('posY').innerText;
@@ -136,6 +163,8 @@ function createPlayer(){
   playR.isVisible = true;
 }
 
+// Fonction de création de la caméra de la scène
+// On place le focus sur le joueur également pour qu'elle soit en mesure de suivre le personnage
 function createCamera(scene,canvas){
   var camera = new BABYLON.FollowCamera("FollowCam", new BABYLON.Vector3(0, 15, -45), scene);
   camera.target = playR;
@@ -147,6 +176,7 @@ function createCamera(scene,canvas){
   return camera;
 }
 
+// Fonction d'ajout des listeners sur les interactions utilisateur expliquées sur la page d'accueil du site
 function addInteractionsListeners(scene){
   document.addEventListener("keydown", function(e){
     var char = String.fromCharCode(e.keyCode).toLowerCase();
@@ -173,6 +203,11 @@ function addInteractionsListeners(scene){
   });
 }
 
+// Fonction de déplacement du personnage
+// Nous nous servons de l'orientation du personnage et des sinus/cosinus de son angle de rotation pour déterminer la manière
+// dont celui-ci doit avancer sur le plateau
+// Nous exploitons aussi l'appel à cette fonction pour vérifier les collisions avec les obstacles et envoyer les nouvelles
+// informations du combattant au serveur
 function smartMove(){
   var rotationY = playR.rotation.y;
   var cosR, sinR;
@@ -185,9 +220,13 @@ function smartMove(){
   if(playR.position.x-sinR*2*playerWidth<=xmax && playR.position.x-sinR*2*playerWidth>=xmin && isAvailable(playR.position.x-sinR*2*playerWidth,playR.position.z))
     playR.position.x -= sinR*2*playerWidth;
 
+  checkHiddenObstacles();
+
   sendFighterInformations();
 }
 
+// Arrondi des sinus et cosinus pour le déplacement intelligent
+// Pas très intéressant
 function getSin(rotationY){
   var sinR;
 
@@ -214,18 +253,80 @@ function getCos(rotationY){
   return cosR;
 }
 
+// Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3
+// Définition de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
+// la valeur inexacte fournie par défaut
+Math.Sin = function(w){
+    return parseFloat(Math.sin(w).toFixed(10));
+};
+
+Math.Cos = function(w){
+    return parseFloat(Math.cos(w).toFixed(10));
+};
+
+// Fonction de vérification des collisions avec les obstacles invisibles
+// En cas de collision, le joueur meurt
+// En cas d'obstacle à proximité, on déclenche un avertissement visuel
+function checkHiddenObstacles(x,y){
+  for(var i=0; i<obstacles.length; i++)
+  {
+    if(obstacles[i].model.position.x==playR.position.x && obstacles[i].model.position.z==playR.position.z){
+      if(obstacles[i].type == 2)
+      {
+        killplayer(parseInt(document.getElementById('fighterID').innerText));
+        window.location = 'http://localhost:8888/players/view';
+      }
+      if(obstacles[i].type == 3)
+      {
+        killplayer(parseInt(document.getElementById('fighterID').innerText));
+        window.location = 'http://localhost:8888/players/view';
+      }
+    }
+    if(obstacles[i].model.position.x<=playR.position.x+playerWidth*2 && obstacles[i].model.position.x>=playR.position.x-playerWidth*2 && obstacles[i].model.position.z<=playR.position.z+playerWidth*2 && obstacles[i].model.position.z>=playR.position.z-playerWidth*2){
+      if(obstacles[i].type == 2)
+        createTextualInformation("../webroot/img/texts/brise.png");
+      if(obstacles[i].type == 3)
+        createTextualInformation("../webroot/img/texts/puanteur.png");
+    }
+  }
+}
+
+// Fonction d'exécution immédiate du joueur, en cas de collision avec un obstacle invisible
+function killplayer(id){
+  $.post("http://localhost:8888/players/kill",{'id':id},function(response){
+    if(response.success==1)
+      createTextualInformation("../webroot/img/texts/dead.png");
+  })
+}
+
+// Fonction de récupération des obstables depuis la table Surroundings stockés dans la variable globale obstacles
+// On crée également leurs modèles 3D avec comme propriété isVisible qui vaut true ou false en fonction du type
 function getObstacles(scene){
   $.get('http://localhost:8888/players/getObstacles',function(response){
-    var obstacles = response;
+    obstacles = response;
     for(var i=0; i<obstacles.length; i++){
-      if(obstacles[i].type == "1"){
-        obstacles.model = createObstacle(obstacles[i].coordinate_x,obstacles[i].coordinate_y,scene);
+      if(obstacles[i].type == "1")
+      {
+        obstacles[i].type = 1;
+        obstacles[i].model = createObstacle(obstacles[i].coordinate_x,obstacles[i].coordinate_y,scene,true);
+      }
+      if(obstacles[i].type == "2")
+      {
+        obstacles[i].type = 2;
+        obstacles[i].model = createObstacle(obstacles[i].coordinate_x,obstacles[i].coordinate_y,scene,false);
+      }
+      if(obstacles[i].type == "3")
+      {
+        obstacles[i].type = 3;
+        obstacles[i].model = createObstacle(obstacles[i].coordinate_x,obstacles[i].coordinate_y,scene,false);
       }
     }
   });
 }
 
-function createObstacle(x,y,scene){
+// Fonction de création d'un obstacle prenant en paramètre sa position initiale, la scène dans laquelle il évolue, et sa visibilité
+// dépendant du type d'obstacle
+function createObstacle(x,y,scene,isVisible){
   var box = BABYLON.Mesh.CreateBox("box", obstaclesHeight, scene);
 
   var woodMaterial = new BABYLON.StandardMaterial("wood",scene);
@@ -234,11 +335,14 @@ function createObstacle(x,y,scene){
   box.position = new BABYLON.Vector3(x,2*obstaclesHeight/2,y);
   box.material = woodMaterial;
 
-  box.isVisible = true;
+  box.isVisible = isVisible;
 
   return box;
 }
 
+// Fonction de création d'un tir
+// Un setInterval est également défini pour sa progression dans le temps. Celui-ci est borné par la compétence Vue du
+// joueur
 function shoot(scene){
   var startx = playR.position.x;
   var startz = playR.position.z;
@@ -273,6 +377,9 @@ function shoot(scene){
   },100,sight);
 }
 
+// Fonction de vérification des collisions entre les tirs et les combattants ainsi que les obstacles
+// Suppression du tir en cas de collision avec les combattants et les obstacles de type 3
+// Suppression des obstacles de type 3 en cas de collision également
 function computeCollisions(){
   for(var i=0; i<shots.length; i++)
     for(var j=0; j<fighters.length; j++)
@@ -286,21 +393,27 @@ function computeCollisions(){
       if(shots[i].isVisible == true && shots[i].position.x == obstacles[j].model.position.x && shots[i].position.z == obstacles[j].model.position.z && obstacles[j].model.isVisible == true){
         shots[i].isVisible = false;
         shots.splice(i,1);
+        if(obstacles[j].type == "3")
+          obstacles.splice(j,1);
       }
 }
 
+// Fonction de vérification de la disponibilité d'une case
 function isAvailable(x,y){
-  for(var i=0; i<obstacles.length; i++){
-    console.log("Comparing : xplayer "+x+" yplayer "+y+" xobs "+obstacles[i].model.position.x+" yosb "+obstacles[i].model.position.y);
-    if(obstacles[i].model.position.x==x && obstacles[i].model.position.y==y)
+  for(var i=0; i<obstacles.length; i++)
+    if(obstacles[i].model.position.x==x && obstacles[i].model.position.z==y && obstacles[i].type==1)
       return false;
-  }
   for(var i=0; i<fighters.length; i++)
-    if(fighters[i].position.x==x && fighters[i].position.y==y)
+    if(fighters[i].position.x==x && fighters[i].position.z==y)
       return false;
   return true;
 }
 
+// Fonction de soustraction des points de vie lors d'une attaque
+// Soustrait au joueur à l'identifiant id la valeur des points de combat du joueur à l'identifiant player
+// La fonction crée également des informations textuelles relativement à l'attaque en fonction de la réponse du serveur
+// Cette réponse indique aussi une montée de niveau, et la possibilité d'upgrade une compétence
+// La capacité d'upgrade est aussi vérifiée côté serveur
 function lossOfLifePoints(f){
   var data = {
     'id' : f.id,
@@ -327,6 +440,8 @@ function lossOfLifePoints(f){
   })
 }
 
+// Fonction d'upgrade d'une compétence
+// On masque la pop up de montée de niveau à la réponse du serveur
 function upgradeSkill(skill){
   var data = {
     'skill' : skill,
@@ -337,6 +452,8 @@ function upgradeSkill(skill){
   });
 }
 
+// Fonction de modification du tabard d'une guilde
+// On envoit la valeur de la nouvelle image et de la guilde en question
 function changeTabard(pictureId, guildId){
   var data = {
     'id' : pictureId,
@@ -347,6 +464,7 @@ function changeTabard(pictureId, guildId){
   });
 }
 
+// 
 function createTextualInformation(path){
   var img = $('<img src="'+path+'" alt="info" class="textualInformation"/>');
   $('#arena_container').append(img);
@@ -409,16 +527,6 @@ function disconnectPlayer(id){
   $.post("http://localhost:8888/players/updateFighterInformations",data,function(response){
   });
 }
-// Thanks to Sedat Kilinc @ http://stackoverflow.com/questions/8050722/math-cosmath-pi-2-returns-6-123031769111886e-17-in-javascript-as3
-// Définition de fonction sin et cos permettant l'arrondi du résultat nécessaire à cause de l'irrationnalité de PI et de
-// la valeur inexacte fournie par défaut
-Math.Sin = function(w){
-    return parseFloat(Math.sin(w).toFixed(10));
-};
-
-Math.Cos = function(w){
-    return parseFloat(Math.cos(w).toFixed(10));
-};
 
 // Thanks to Daniel Vassallo http://stackoverflow.com/questions/2956966/javascript-telling-setinterval-to-only-fire-x-amount-of-times
 function setIntervalX(callback, delay, repetitions) {
