@@ -49,7 +49,7 @@ $basicURL = 'http://localhost:8888/';
 </head>
 <body>
 
-    <nav class="navbar navbar-light bg-faded" style="box-shadow:1px 1px rgba(0,0,0,0.2);">
+  <nav class="navbar navbar-light bg-faded" id="navbar-border">
       <a class="navbar-brand" href="#"> Arena Junkies</a>
       <a class="btn btn-outline-success" href="<?= $basicURL ?>players/play" role="button">Jouer</a>
       <div class="float-xs-right">
@@ -60,26 +60,28 @@ $basicURL = 'http://localhost:8888/';
            <li class="nav-item active"><a class="btn btn-outline-secondary" href="<?= $basicURL ?>players/edit">Paramètres du compte</a></li>
        </ul>
      </div>
-    </nav>
+  </nav>
 
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix" style="margin-top:50px">
-        <?= $this->fetch('content') ?>
-    </div>
+  <?= $this->Flash->render() ?>
+  <div class="container" id="myMargin">
+      <?= $this->fetch('content') ?>
+  </div>
 
   <footer class="footer bd-footer">
    <div class="container">
     <ul class="inline-list">
-      <li><a href="https://github.com/twbs/bootstrap">Qui sommes-nous ?</a></li>
-      <li><a href="https://twitter.com/getbootstrap"></a></li>
-      <li><a href="/examples/">ECE Paris</a></li>
-      <li><a href="/about/history/">37 quai de Grenelle 75015</a></li>
-
+      <li><a href="https://github.com/emaincourt/WebArena">Git du site</a></li>
+      <li><a href="https://ece.fr/">ECE Paris | Ecole d'ingénieurs</a></li>
+      <li><a href="https://www.google.fr/maps/place/37+Quai+de+Grenelle,+75015+Paris/data=!4m2!3m1!1s0x47e67004a52552e3:0x47d6b1ac0c239d3c?sa=X&ved=0ahUKEwjtvM2K4NvQAhVH1xoKHZytAbQQ8gEIKDAB">37 quai de Grenelle 75015</a></li>
     </ul>
     <ul class=inline-list>
-    <li> <p class=text-muted>Site Web réalisé par <a href="https://twitter.com/mdo" target="_blank"></a><a href="mailto:e.maincourt@gmail.com" target="_blank">Eliott Maincourt</a> et <a href="mailto:benais@edu.ece.fr">Samuel BENAÏS</a> sur une idée de Mr.Falconnet dans le cadre d'un projet en M1 à l'ECE Paris.</p>
-</li>
-</ul>
+    <li>
+      <p class=text-muted>Site Web réalisé par <a href="https://twitter.com/mdo" target="_blank"></a><a href="mailto:e.maincourt@gmail.com" target="_blank">Eliott Maincourt</a> et <a href="mailto:benais@edu.ece.fr">Samuel BENAÏS</a> sur une idée de Mr.Falconnet dans le cadre d'un projet en M1 à l'ECE Paris.</p>
+    </li>
+    <li>
+      <p class=text-muted>Hébergement à cette <a href="https://twitter.com/mdo" target="_blank">addresse.</a></p>
+    </li>
+    </ul>
    </div>
   </footer>
 

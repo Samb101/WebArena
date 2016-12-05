@@ -4,6 +4,8 @@
 
 namespace App\Controller;
 
+use Cake\Filesystem\Folder;
+use Cake\Filesystem\File;
 use Cake\Utility\Security;
 
 class PlayersController extends AppController
@@ -169,7 +171,13 @@ class PlayersController extends AppController
 
     $fighter_id = $this->request->data('fighterId');
     $guild_id = $this->request->data('guildId');
-
+    $portrait_id = $this->request->data('id_portrait');
+    $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0644);
+    $file->name = "portrait_" . $fighter_id . ".png";
+    if ($file->exists()) {
+        $dir = new Folder('../webroot/img/portrait_fighters/', true);
+        $file->copy($dir->path . DS . $file->name, true);
+    }
     if($fighter_id == null || $guild_id == null)
       return $this->redirect(['action' => 'view']);
     else {
@@ -198,6 +206,17 @@ class PlayersController extends AppController
       $fighter->player_id = $id;
       // On enregistre les modifications
       $this->Players->Fighters->save($fighter);
+
+      $portrait_id = $this->request->data('add_portrait');
+      $file = new File('../webroot/img/portrait_modele/portrait_'.$portrait_id.'.png', true, 0644);
+      $file->name = "portrait_" . $fighter->id . ".png";
+      if ($file->exists()) {
+          $dir = new Folder('../webroot/img/portrait_fighters/', true);
+          $file->copy($dir->path . DS . $file->name, true);
+      }
+
+
+
       return $this->redirect(['action' => 'view']);
     }
     else {
