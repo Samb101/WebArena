@@ -211,6 +211,7 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de création d'un nouveau combattant
   public function createFighter(){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
@@ -241,6 +242,7 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de récupération des évènements inscrits dans la base sur les dernières 24h
   public function historique(){
     date_default_timezone_set('UTC');
 
@@ -259,6 +261,8 @@ class PlayersController extends AppController
     $this->set('events',$events);
   }
 
+  // Fonction de suppression d'un combattant de la base
+  // On vérifie que l'utilisateur est bien propriétaire et connecté avant suppression
   public function removeFighter($fighter_id = null){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
     if($id == null)
@@ -277,6 +281,8 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction d'injection d'une erreur en cas de problème lors de la gestion
+  // des personnages
   public function error($error = null){
     if($error ==  null)
       $error = "Nous ne sommes pas en mesure d'identifier l'erreur.";
@@ -286,6 +292,10 @@ class PlayersController extends AppController
     $this->set('link','view');
   }
 
+  // Fonction d'authentification de l'utilisateur
+  // On décrypte le mot de passe avant traitement
+  // En cas d'échec de l'authentification, renvoit null, sinon renvoit l'id utilisateur
+  // Cette fonction nous permet très rapidement de vérifier l'authentification et de récupérer les informations utiles
   public function authenticateUserWithCookies($email = null,$password = null){
     if($email == null || $password == null)
       return null;
@@ -307,6 +317,8 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction principale permettant de rejoindre la partie
+  // Envoie à la vue les informations du joueur
   public function play(){
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
 
@@ -350,6 +362,7 @@ class PlayersController extends AppController
     $this->set('name',$name);
   }
 
+  // Fonction d'ajout d'un message dans la table Events
   public function addEventWithMessage($message){
 
     date_default_timezone_set('UTC');
@@ -363,6 +376,9 @@ class PlayersController extends AppController
     $this->Events->save($event);
   }
 
+  // Fonction d'envoi des informations d'un joueur dont l'identifiant est passé en paramètre de la requête post
+  // Les informations sont renvoyées au format JSON
+  // On remarque l'usage de $this->autoRender = false; pour faire tenir lieu à la fonction d'API et sans besoin de coupler la fonction à une vue
   public function getFighterInformations(){
     $this->autoRender = false;
 
@@ -384,7 +400,6 @@ class PlayersController extends AppController
 
       if($fighters->count()>0){
         $fighter = $fighters->first();
-          //      $name=$fighter->name;
         $current_health = $fighter->current_health;
         $skill_sight = $fighter->skill_sight;
         $skill_health = $fighter->skill_health;
@@ -419,6 +434,14 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de soustraction des points de vie en cas de collision
+  // On évaluera ici la probabilité $threshold d'attaque comme énoncé dans le sujet
+  // En cas de threshold supérieur à 10, l'attaque est effectuée
+  // On soustrait la valeur de la force du joueur aux points de vie de l'attaqué
+  // On ajoute les points d'xp à l'attaquant. Si les points de vie de l'attaqué atteignent 0,
+  //  l'attaquant gagne plus d'xp.
+  // On log toutes les interactions dans la table Events
+  // Le serveur renvoit les informations de montée de niveau et de succès de l'attaque pour un traitement en local
   public function lossOfLifePoints(){
     $this->autoRender = false;
 
@@ -488,6 +511,8 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de mise à jour des coordonnées du joueur
+  // La fonction est appelée par le client en cas de mouvement
   public function updateFighterInformations(){
     $this->autoRender = false;
 
@@ -533,6 +558,9 @@ class PlayersController extends AppController
 
   }
 
+  // Fonction de récupération des combattants présents sur le plateau
+  // On trie ces combattants : si leur position vaut -21 -21, alors ils ne sont pas en train de jouer
+  // Sert à l'initialisation du plateau
   public function getFightersPosition(){
 
     date_default_timezone_set('UTC');
@@ -565,6 +593,8 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de récupération de la position d'un combattant dont l'identifiant est renseigné
+  // Cette fonction nous est utile pour la mise à jour des informations du plateau
   public function getPosition(){
     $this->autoRender = false;
     $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
@@ -601,6 +631,9 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction d'upgrade d'une des compétences
+  // On soustrait la valeur de l'ensemble des compétences au niveau du joueur pour vérifier sa capacité
+  //  à augmenter une compétence
   public function upgradeSkill(){
     $skill = $this->request->data('skill');
     $id = $this->request->data('id');
@@ -631,6 +664,7 @@ class PlayersController extends AppController
     }
   }
 
+  // Fonction de récupération des obstacles dans la table Surroundings
   public function getObstacles(){
     $this->loadModel('Surroundings');
     $this->autoRender = false;
@@ -639,15 +673,27 @@ class PlayersController extends AppController
     sendJSONMessage($this->response,$obstacles);
   }
 
+  // Fonction d'exécution immédiate d'un joueur, appelée lors du passage sur un obstacle de type 2 ou 3
+  // On authentifie l'utilisateur avant, bien sur
   public function kill(){
     $this->autoRender = false;
+
+    $id = $this->authenticateUserWithCookies($this->Cookie->read('email'),$this->Cookie->read('password'));
+
     $player = $this->Players->Fighters->get($this->request->data('id'));
+
+    if($id == null || $id != $player->player_id){
+      sendErrorMessage($this->response);
+      return;
+    }
     $player->current_health = 0;
     $this->Players->Fighters->delete($player);
     sendJSONMessage($this->response,['success'=>1,'message'=>'dead']);
   }
 }
 
+// Fonction de formattage des messages au format json
+// Prend en input la reponse courante et le tableau de valeurs retournées
 function sendJSONMessage($response,$array){
   $response->charset('UTF-8');
   $response->type('json');
@@ -656,6 +702,7 @@ function sendJSONMessage($response,$array){
   die();
 }
 
+// Fonction générique de l'envoi d'un message d'erreur lors de soucis d'authentification
 function sendErrorMessage($response){
   $response->type('json');
 

@@ -464,7 +464,8 @@ function changeTabard(pictureId, guildId){
   });
 }
 
-// 
+// Fonction de création d'une information textuelle dont on indique le chemin
+// Peut être 'dead','gotcha','missed', ou la valeur d'un obstacle invisible
 function createTextualInformation(path){
   var img = $('<img src="'+path+'" alt="info" class="textualInformation"/>');
   $('#arena_container').append(img);
@@ -473,6 +474,9 @@ function createTextualInformation(path){
   },1000);
 }
 
+// Fonction de modification du joueur sur le plateau
+// On génère une position aléatoire et ses caractéristiques, puis on le place.
+// On déconnecte enfin le joueur précédent en définissant sa position courante à -21 -21
 function setNewPlayer(id){
   var oldId = document.getElementById('fighterID').innerText;
 
@@ -483,6 +487,8 @@ function setNewPlayer(id){
   disconnectPlayer(oldId);
 }
 
+// Génération d'une position aléatoire. Celle si doit nécessairement être impaire à cause
+// du format du plateau de jeu
 function setRandomPosition(){
   var x,y;
   var set = false;
@@ -499,6 +505,7 @@ function setRandomPosition(){
   return new BABYLON.Vector3(x,playerH/2,y);
 }
 
+// Fonction d'envoi de la position du combattant courant pour mise à jour dans la base
 function sendFighterInformations(){
   var id = document.getElementById('fighterID').innerText;
   var current_health = document.getElementById('pv-text').value;
@@ -514,6 +521,7 @@ function sendFighterInformations(){
   });
 }
 
+// Fonction de déconnexion du joueur (définition de la position à -21 -21)
 function disconnectPlayer(id){
   var current_health = document.getElementById('pv-text').value;
   var coordinate_x = -21;
