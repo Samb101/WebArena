@@ -85,6 +85,13 @@ function updateFighterInformations(fighterInformations){
 }
 
 function updateFightersLocally(arr){
+  for(var i=0; i<fighters.length; i++)
+    if(shouldBeRemoved(arr,fighters[i].id)){
+      fighters[i].isVisible = false;
+      fighters.splice(i,1);
+    }
+  for(var i=0; i<arr.length; i++)
+    console.log(JSON.stringify(arr[i]));
   for(var i=0; i<arr.length; i++)
     for(var j=0; j<fighters.length; j++)
       if(arr[i].id == fighters[j].id){
@@ -94,6 +101,13 @@ function updateFightersLocally(arr){
   for(var i=0; i<arr.length; i++){
     createFighter(arr[i].coordinate_x,arr[i].coordinate_y,arr[i].id);
   }
+}
+
+function shouldBeRemoved(arr,id){
+  for(var i=0; i<arr.length; i++)
+    if(arr[i].id == id)
+      return false;
+  return true;
 }
 
 function createFighter(x,y,id){
@@ -110,7 +124,7 @@ function createPlayer(){
   var posX = document.getElementById('posX').innerText;
   var posY = document.getElementById('posY').innerText;
   playR = PLAYER_MODEL.clone(PLAYER_MODEL.name);
-  playR.position = new BABYLON.Vector3(parseInt(posX),playerH/2,parseInt(posY));
+  playR.position = setRandomPosition();
   playR.rotationQuaternion = null;
   playR.rotation = new BABYLON.Vector3(0,-Math.PI,0);
   playR.isVisible = true;
@@ -128,7 +142,7 @@ function createCamera(scene,canvas){
 }
 
 function addInteractionsListeners(scene){
-  document.addEventListener("keypress", function(e){
+  document.addEventListener("keydown", function(e){
     var char = String.fromCharCode(e.keyCode).toLowerCase();
     if (char == "z")
       smartMove();
@@ -270,11 +284,53 @@ function createTextualInformation(path){
   },1000);
 }
 
+function setNewPlayer(id){
+  var oldId = document.getElementById('fighterID').innerText;
+
+  $.post('http://localhost:8888/players/getPosition',{'id':id},function(response){
+    response = JSON.parse(response);
+    playR.position = setRandomPosition();
+    document.getElementById('fighterID').innerText = id;
+  })
+  disconnectPlayer(oldId);
+}
+
+function setRandomPosition(){
+  var x,y;
+  var set = false;
+  while(!set){
+    set=true;
+    x = Math.floor((Math.random() * 2*xmax) + 1)-xmax;
+    y = Math.floor((Math.random() * 2*zmax) + 1)-zmax;
+    console.log(x%2+' '+y%2);
+    for(var i=0; i<fighters.length; i++)
+      if(fighters[i].coordinate_x==x && fighters[i].coordinate_y==y)
+        set=false;
+      if(x%2==0 || y%2==0)
+        set=false;
+  }
+  return new BABYLON.Vector3(x,playerH/2,y);
+}
+
 function sendFighterInformations(){
   var id = document.getElementById('fighterID').innerText;
   var current_health = document.getElementById('pv-text').value;
   var coordinate_x = playR.position.x;
   var coordinate_y = playR.position.z;
+  var data = {
+    "id" : id,
+    "current_health" : current_health,
+    "coordinate_x" : coordinate_x,
+    "coordinate_y" : coordinate_y
+  }
+  $.post("http://localhost:8888/players/updateFighterInformations",data,function(response){
+  });
+}
+
+function disconnectPlayer(id){
+  var current_health = document.getElementById('pv-text').value;
+  var coordinate_x = -21;
+  var coordinate_y = -21;
   var data = {
     "id" : id,
     "current_health" : current_health,
